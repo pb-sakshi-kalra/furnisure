@@ -1,0 +1,22 @@
+/* index.css */
+.horizontal-scroll-container {
+
+    height: 100vh;
+    overflow: hidden;
+
+
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .item {
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: hidden;
+    width: 200px; /* adjust the width as needed */
+    margin: 10px;
+    display: inline-block;
+  }

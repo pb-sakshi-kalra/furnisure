@@ -1,0 +1,35 @@
+.image-container {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: calc(50% - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  background-attachment: fixed;
+  flex-direction: column;
+  cursor: pointer;
+}
+.image-container .title {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-size: 40px;
+  letter-spacing: 5px;
+  margin-bottom: -10px;
+}
+.image-container .furniture {
+  font-family: "Playwrite AU TAS", cursive;
+  font-optical-sizing: auto;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.about-container {
+  height: 100vh;
+  display: flex;
+  gap: 100px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=index.css.map */
