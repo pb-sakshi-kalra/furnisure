@@ -7,27 +7,32 @@ const ck = "ck_e1e1996207b9de9e12cd856a8c4107289eb64407";
 const cs = "cs_aaeba1c2261ebf1c48d0c9a02e740a6f1205ea10";
 const baseURL = "http://furnisure.greygenie.com/wp-json/wc/v3";
 
-const Woocommerce = {
-  getProducts: () => {
-    return makeRequest("/products");
-  },
-  getProductByID: (id) => {
-    return makeRequest("/wc/v3/products/" + id);
-  },
-};
-
-function makeRequest(endpoint, method = "GET") {
+function makeRequest(endpoint, method = "GET", data = {}) {
   const oauth = getOauth();
 
   const requestData = {
     url: baseURL + endpoint,
     method,
+    body:{}
   };
 
   const requestHTTP =
     requestData.url + "?" + jQuery.param(oauth.authorize(requestData));
 
-  return axios.get(requestHTTP);
+  if (method === "GET" || method === "DELETE") {
+    return axios({
+      url: requestHTTP,
+      method: method
+    });
+  } else {
+    return axios({
+      url: requestHTTP,
+      method: method,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+  }
 }
 
 function getOauth() {
@@ -43,4 +48,4 @@ function getOauth() {
   });
 }
 
-export default Woocommerce;
+export default makeRequest;

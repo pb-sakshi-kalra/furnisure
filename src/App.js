@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import Woocommerce from "./utils/woocommerce";
+import Products from "./services/products";
 import "./App.css";
 
 import Home from "./pages/Home";
@@ -18,9 +18,12 @@ function App() {
 
   useEffect(() => {
     if (!isLoading) {
+      // Products.post(data)
       // Simulate fetching data or any asynchronous operation
-      Woocommerce.getProducts().then((res) => {
+      Products.get().then((res) => {
         console.log(res);
+      }).catch((error)=>{
+        console.log("error====>", error)
       });
     }
   }, [isLoading]);
