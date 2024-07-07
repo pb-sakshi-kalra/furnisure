@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const LoaderImages = () => {
   const [images, setImages] = useState([
     {
-      image: `https://picsum.photos/200/300?random=1`,
+      image: `https://images.pexels.com/photos/220749/pexels-photo-220749.jpeg?cs=srgb&dl=pexels-pixabay-220749.jpg`,
       top: "20%",
       left: "30%",
       height: "400px",
