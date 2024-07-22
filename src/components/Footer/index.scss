@@ -1,0 +1,96 @@
+.footer {
+  background-color: #0000000d;
+  color: #523f3f;
+  text-align: left;
+  padding: 50px;
+
+  .container {
+    display: flex;
+    .inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+
+  .subscribe {
+    text-align: center;
+    margin-bottom: 40px;
+
+    .inputContainer {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+
+      input {
+        padding: 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 0;
+        width: 300px;
+      }
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #fff;
+        color: #000;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .socialIcons {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+
+    .column {
+      flex: 1;
+      min-width: 200px;
+      margin: 10px 20px;
+
+      h6 {
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin: 5px 0;
+      }
+    }
+  }
+
+  .legal {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  .cookiePolicy {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 10px;
+
+    .acceptButton {
+      background-color: #444;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

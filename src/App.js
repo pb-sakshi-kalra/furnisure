@@ -1,113 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import Woocommerce from "./utils/woocommerce";
+import React, { useEffect } from "react";
 import "./App.css";
 
 import Home from "./pages/Home";
 import Loader from "./pages/Loader";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000); // Simulating 1 second loading time
+    // Simulate loading process with setTimeout
+    const loadingTimeout = setTimeout(() => {
+      document.querySelector(".App").classList.add("translated"); // Add 'translated' class to App after 3000ms
+      document.body.classList.add("translated"); // Add 'translated' class to body after 3000ms
+    }, 3000);
+
+    // Clear timeout on component unmount to avoid memory leaks
+    return () => {
+      clearTimeout(loadingTimeout);
+    };
   }, []);
 
+  // Scroll to the top of the page whenever the component updates
   useEffect(() => {
-    if (!isLoading) {
-      // Simulate fetching data or any asynchronous operation
-      Woocommerce.getProducts().then((res) => {
-        console.log(res);
-      });
-    }
-  }, [isLoading]);
-
-  // Motion variants for loader animations
-  const loaderVariants = {
-    initial: {
-      opacity: 1,
-      y: 0,
-    },
-    exit: {
-      y: -500,
-      transition: {
-        duration: 0.5,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  // Motion variants for page animations
-  const pageVariants = {
-    initial: {
-      opacity: 1,
-      y: -100,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1.0,
-        ease: "easeInOut",
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -100,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut",
-      },
-    },
-  };
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            key="loader-route"
-            path="/"
-            element={
-              <AnimatePresence mode="wait">
-                {isLoading ? (
-                  <motion.div
-                    key="loader"
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    variants={loaderVariants}
-                  >
-                    <Loader />
-                  </motion.div>
-                ) : (
-                  <Navigate key="navigate-home" to="/home" />
-                )}
-              </AnimatePresence>
-            }
-          />
-          <Route
-            key="home-route"
-            path="/home"
-            element={
-              <AnimatePresence>
-                <motion.div
-                  key="homeContent"
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  variants={pageVariants}
-                >
-                  <Home />
-                </motion.div>
-              </AnimatePresence>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
+      <Loader />
+      <Home />
     </div>
   );
 }

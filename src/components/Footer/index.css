@@ -1,0 +1,82 @@
+.footer {
+  background-color: rgba(0, 0, 0, 0.0509803922);
+  color: #523f3f;
+  text-align: left;
+  padding: 50px;
+}
+.footer .container {
+  display: flex;
+}
+.footer .container .inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.footer .subscribe {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.footer .subscribe .inputContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.footer .subscribe .inputContainer input {
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 0;
+  width: 300px;
+}
+.footer .subscribe .inputContainer button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+.footer .socialIcons {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.footer .socialIcons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.5rem;
+}
+.footer .content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.footer .content .column {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px 20px;
+}
+.footer .content .column h6 {
+  margin-bottom: 10px;
+}
+.footer .content .column p {
+  margin: 5px 0;
+}
+.footer .legal {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+.footer .cookiePolicy {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+.footer .cookiePolicy .acceptButton {
+  background-color: #444;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}/*# sourceMappingURL=index.css.map */

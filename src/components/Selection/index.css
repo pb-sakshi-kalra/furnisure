@@ -1,35 +1,22 @@
-.image-container {
-  background-size: cover;
-  background-position: center;
+.scroll-container {
+  position: relative;
   height: 100vh;
-  width: calc(50% - 100px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: whitesmoke;
-  background-attachment: fixed;
-  flex-direction: column;
-  cursor: pointer;
-}
-.image-container .title {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-size: 40px;
-  letter-spacing: 5px;
-  margin-bottom: -10px;
-}
-.image-container .furniture {
-  font-family: "Playwrite AU TAS", cursive;
-  font-optical-sizing: auto;
-  font-size: 28px;
-  font-weight: 400;
+  margin-top: 100px;
+  overflow: hidden;
 }
 
-.about-container {
-  height: 100vh;
+.image-container {
   display: flex;
-  gap: 100px;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.scroll-image {
+  width: 600px;
+  height: 70vh;
+  opacity: 1; /* Initial opacity or as desired */
+  margin: 40px;
 }/*# sourceMappingURL=index.css.map */

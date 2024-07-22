@@ -35,13 +35,13 @@ const About = () => {
           let bottomPosition = parseInt(secondImageRef.current.style.bottom);
           if (direction === "down") {
             bottomPosition = Math.max(
-              -aboutImageHeight * 0.2,
-              bottomPosition - aboutImageHeight * 0.005
+              -aboutImageHeight * 0.1,
+              bottomPosition - aboutImageHeight * 0.008
             );
           } else if (direction === "up") {
             bottomPosition = Math.min(
-              aboutImageHeight * 0.3,
-              bottomPosition + aboutImageHeight * 0.005
+              aboutImageHeight * 0.1,
+              bottomPosition + aboutImageHeight * 0.008
             );
           }
           secondImageRef.current.style.bottom = `${bottomPosition}px`;
@@ -71,7 +71,7 @@ const About = () => {
           WELCOME TO OUR FURNITURE SHOP, WHERE TIMELESS AND STYLISH DESIGNS MEET
           STORYTELLING.
         </Typography>
-        <Typography variant="p">
+        <Typography classname="para" variant="p">
           Every piece of furniture in our collection tells a personal story.
           Custom-designed and personalized to enhance your home's aesthetics.
         </Typography>

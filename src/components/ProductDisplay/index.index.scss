@@ -1,0 +1,135 @@
+// Colors (assuming Material UI theme)
+$neutral-800: #171923;
+$neutral-900: #000;
+$neutral-200: #f5f5f5;
+$text-secondary: rgba(255, 255, 255, 0.7);
+
+// Layout
+.bg-neutral-800 {
+  background-color: $neutral-800;
+}
+
+.flex {
+  display: flex;
+}
+
+.h-48 {
+  height: 48px;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+// Typography
+.text-6xl {
+  font-size: 6rem;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-white {
+  color: #fff;
+}
+
+// Backgrounds
+.bg-neutral-900 {
+  background-color: $neutral-900;
+}
+
+.bg-neutral-200 {
+  background-color: $neutral-200;
+}
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, ...);
+}
+
+.from-white-20 {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.2)
+  ); /* No ellipsis here */
+}
+
+.to-white-0 {
+  background-image: linear-gradient(
+    to bottom right,
+    transparent
+  ); /* No ellipsis here */
+}
+
+// Grid
+.grid {
+  display: grid;
+}
+
+.place-content-center {
+  place-items: center;
+}
+
+// Other
+.gap-4 {
+  gap: 1rem;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease;
+}
+
+.group-hover:scale-110 {
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.absolute {
+  position: absolute;
+}
+
+.inset-0 {
+  inset: 0;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.p-8 {
+  padding: 1rem;
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(10px);
+}
