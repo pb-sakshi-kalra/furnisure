@@ -40,7 +40,7 @@ const About = () => {
             );
           } else if (direction === "up") {
             bottomPosition = Math.min(
-              aboutImageHeight * 1,
+              aboutImageHeight * 0.1,
               bottomPosition + aboutImageHeight * 0.008
             );
           }
@@ -61,7 +61,7 @@ const About = () => {
         <Box
           ref={secondImageRef}
           className="second-image"
-          style={{ bottom: 0 }}
+          style={{ bottom: "130px" }}
         >
           <img src={lamp} />
         </Box>
