@@ -61,7 +61,7 @@ const About = () => {
         <Box
           ref={secondImageRef}
           className="second-image"
-          style={{ bottom: "130px" }}
+          style={{ bottom: "300px" }}
         >
           <img src={lamp} />
         </Box>
