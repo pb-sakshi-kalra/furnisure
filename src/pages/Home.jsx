@@ -4,7 +4,6 @@ import Banner from "../components/Banner";
 import About from "../components/About";
 import Selection from "../components/Selection";
 import Footer from "../components/Footer";
-import Slider from "./components/Sliders";
 import Subscribe from "../components/Subscribe";
 
 const Home = () => {
