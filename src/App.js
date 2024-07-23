@@ -11,7 +11,7 @@ function App() {
     const loadingTimeout = setTimeout(() => {
       document.querySelector(".App").classList.add("translated"); // Add 'translated' class to App after 3000ms
       document.body.classList.add("translated"); // Add 'translated' class to body after 3000ms
-    }, 3000);
+    }, 4000);
 
     // Clear timeout on component unmount to avoid memory leaks
     return () => {
