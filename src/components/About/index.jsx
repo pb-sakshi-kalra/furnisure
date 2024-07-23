@@ -40,7 +40,7 @@ const About = () => {
             );
           } else if (direction === "up") {
             bottomPosition = Math.min(
-              aboutImageHeight * 0.1,
+              aboutImageHeight * 1,
               bottomPosition + aboutImageHeight * 0.008
             );
           }

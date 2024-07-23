@@ -19,7 +19,6 @@
 .about .about-image .second-image {
   position: absolute;
   height: 300px;
-  bottom: -20%;
   left: 60%;
 }
 .about .about-image .second-image img {
