@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import "react-horizontal-vertical/rhv.css";
 
 import Home from "./pages/Home";
 import Loader from "./pages/Loader";
@@ -27,6 +28,7 @@ function App() {
     <div className="App">
       <Loader />
       <Home />
+      <div className="remove-tansform"></div>
     </div>
   );
 }

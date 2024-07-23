@@ -10,7 +10,7 @@
 .App.translated {
   transform: translateY(-100vh); /* Translate up by 100vh */
   height: auto;
-  overflow: auto; /* Enable scrolling after loading */
+  overflow: hidden; /* Enable scrolling after loading */
 }
 
 .Home {

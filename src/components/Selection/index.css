@@ -1,8 +1,18 @@
 .scroll-container {
   position: relative;
   height: 100vh;
-  margin-top: 100px;
   overflow: hidden;
+}
+
+.heading {
+  font-size: 28px;
+  line-height: 36px;
+  color: #4d5946;
+  letter-spacing: 2px;
+  font-family: "Playfair Display", serif;
+  margin-top: 150px;
+  text-align: center;
+  padding: 0 200px;
 }
 
 .image-container {
