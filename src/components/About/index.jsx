@@ -44,7 +44,8 @@ const About = () => {
               bottomPosition + aboutImageHeight * 0.008
             );
           }
-          secondImageRef.current.style.bottom = `${bottomPosition}px`;
+          secondImageRef.current.style.bottom =
+            bottomPosition < -70 ? "-70px" : `${bottomPosition}px`;
         }
       }
     };
