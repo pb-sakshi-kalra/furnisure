@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import "react-horizontal-vertical/rhv.css";
-
+import Category from "./services/category";
 import Home from "./pages/Home";
 import Loader from "./pages/Loader";
 
@@ -12,7 +12,8 @@ function App() {
       document.querySelector(".App").classList.add("translated"); // Add 'translated' class to App after 3000ms
       document.body.classList.add("translated"); // Add 'translated' class to body after 3000ms
     }, 5000);
-
+    // Category.get()
+    Category.getSubcategory(17)
     // Clear timeout on component unmount to avoid memory leaks
     return () => {
       clearTimeout(loadingTimeout);

@@ -7,30 +7,47 @@ const ck = "ck_e1e1996207b9de9e12cd856a8c4107289eb64407";
 const cs = "cs_aaeba1c2261ebf1c48d0c9a02e740a6f1205ea10";
 const baseURL = "http://furnisure.greygenie.com/wp-json/wc/v3";
 
-function makeRequest(endpoint, method = "GET", data = {}) {
+function makeRequest(endpoint, method = "GET", body = {}) {
   const oauth = getOauth();
-
-  const requestData = {
-    url: baseURL + endpoint,
+  const updatedEndpoint = endpoint.replace(
+    /category=([^&?]*)\?/,
+    "category=$1&"
+  );
+  let requestData = {
+    url: baseURL + updatedEndpoint,
     method,
-    body:{}
+    body: {},
   };
 
-  const requestHTTP =
-    requestData.url + "?" + jQuery.param(oauth.authorize(requestData));
+  const splitUrl = updatedEndpoint.split("?")[1]
+  const str = updatedEndpoint.endsWith(`?${splitUrl}`) === true ? `&` : `?`;
+  let requestHTTP = "";
 
   if (method === "GET" || method === "DELETE") {
+    requestHTTP = `${requestData.url}${str}${jQuery.param(
+      oauth.authorize(requestData)
+    )}`;
     return axios({
       url: requestHTTP,
-      method: method
+      method: method,
     });
   } else {
+    requestData = {
+      url: baseURL + updatedEndpoint,
+      method,
+      body,
+    };
+    requestHTTP = `${requestData.url}?${jQuery.param(
+      oauth.authorize(requestData)
+    )}`;
     return axios({
       url: requestHTTP,
       method: method,
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      data: body,
     });
   }
 }
