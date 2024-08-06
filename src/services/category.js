@@ -16,6 +16,9 @@ const Category = {
   delete: (id) => {
     return makeRequest(`/products/categories/${id}`, "DELETE");
   },
+  getSubcategory: (val) => {
+    return makeRequest(`/products?category=${val}`);
+  },
 };
 
 export default Category;

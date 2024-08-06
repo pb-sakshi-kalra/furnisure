@@ -3,7 +3,7 @@ import "./App.css";
 import "react-horizontal-vertical/rhv.css";
 import { Routes, Route } from "react-router-dom";
 import "./index.css";
-
+import Category from "./services/category";
 import Home from "./pages/Home";
 import Event from "./pages/Event";
 import Category from "./pages/Category";
