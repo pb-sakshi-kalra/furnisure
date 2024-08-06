@@ -1,0 +1,90 @@
+.product-detail {
+  padding: 20px;
+  margin: 20px;
+  box-shadow: none !important;
+}
+.product-detail .title {
+  font-size: 40px;
+  text-align: center;
+  color: #585123;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 100px;
+  transition: all 0.5s ease-out;
+}
+.product-detail .title:hover {
+  transform: scale(1.2);
+}
+
+.image-section {
+  text-align: center;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+.thumbnail-section .thumbnail {
+  width: 100%;
+  cursor: pointer;
+}
+
+.detail-section {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.product-title {
+  margin-bottom: 20px !important;
+  color: #585123;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 100px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.product-description {
+  margin-bottom: 20px !important;
+  font-family: "Playfair Display", serif;
+}
+
+.product-price-old {
+  text-decoration: line-through;
+  margin-bottom: 10px !important;
+  color: #585123;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+.product-price-new {
+  margin-bottom: 20px !important;
+  color: #585123;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+.shop-button {
+  align-self: center;
+  padding: 10px 20px !important;
+  border: none !important;
+  border-radius: 10px !important;
+  background-color: #4d5946 !important;
+  color: white !important;
+  cursor: pointer !important;
+  width: 60% !important;
+  margin-bottom: 50px !important;
+  transition: all 0.2s ease-in-out;
+}
+.shop-button:hover {
+  transform: scale(1.02) !important;
+  transition: all 0.2s ease-in-out;
+}/*# sourceMappingURL=index.css.map */

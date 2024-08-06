@@ -1,34 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import "react-horizontal-vertical/rhv.css";
+import { Routes, Route } from "react-router-dom";
+import "./index.css";
 
 import Home from "./pages/Home";
-import Loader from "./pages/Loader";
+import Event from "./pages/Event";
+import Category from "./pages/Category";
+import ProductDetail from "./components/ProductDetails";
 
 function App() {
-  useEffect(() => {
-    // Simulate loading process with setTimeout
-    const loadingTimeout = setTimeout(() => {
-      document.querySelector(".App").classList.add("translated"); // Add 'translated' class to App after 3000ms
-      document.body.classList.add("translated"); // Add 'translated' class to body after 3000ms
-    }, 5000);
-
-    // Clear timeout on component unmount to avoid memory leaks
-    return () => {
-      clearTimeout(loadingTimeout);
-    };
-  }, []);
-
-  // Scroll to the top of the page whenever the component updates
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <div className="App">
-      <Loader />
-      <Home />
-      <div className="remove-tansform"></div>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/event" element={<Event />} />
+        <Route path="/category/:name" element={<Category />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+      </Routes>
     </div>
   );
 }

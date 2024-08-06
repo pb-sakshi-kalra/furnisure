@@ -1,0 +1,46 @@
+.product-list {
+  padding: 100px;
+}
+.product-list .products-heading {
+  font-size: 40px;
+  text-align: center;
+  color: #585123;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 100px;
+  transition: all 0.5s ease-out;
+}
+.product-list .products-heading:hover {
+  transform: scale(1.2);
+}
+.product-list .card {
+  height: 400px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+}
+.product-list .card .card-title {
+  font-size: 14px;
+  font-family: "Playfair Display", serif;
+  margin: 10px;
+  text-align: center;
+}
+.product-list .card .card-para {
+  margin: 10px;
+}
+.product-list .card img {
+  height: 300px !important;
+  width: 100%;
+  transition: all 0.5s ease-out;
+  cursor: pointer;
+}
+.product-list .card img:hover {
+  transform: scale(1.1);
+}
+@media screen and (max-width: 600px) {
+  .product-list {
+    padding: 50px;
+  }
+}/*# sourceMappingURL=index.css.map */

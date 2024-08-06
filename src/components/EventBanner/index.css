@@ -1,0 +1,34 @@
+.parallax-container {
+  overflow: hidden;
+  height: 100vh !important;
+}
+.parallax-container .parallax-background {
+  background-image: url("../../assets/wedding-event.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  height: 100vh !important;
+  transition: all 1s ease-out;
+}
+.parallax-container .parallax-background .parallax-content {
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #585123;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.parallax-container .parallax-background .parallax-content h1 {
+  font-size: 4em;
+}
+.parallax-container .parallax-background .parallax-content p {
+  font-size: 1.5em;
+}
+.parallax-container .parallax-background:hover {
+  transform: scale(1.02);
+}/*# sourceMappingURL=index.css.map */
