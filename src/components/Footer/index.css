@@ -1,7 +1,8 @@
 .footer {
-  background-color: rgba(88, 81, 35, 0.5019607843);
-  color: #fff;
-  height: 100vh;
+  background-color: #ebedf7 !important;
+  color: #005b5b;
+  max-height: 100vh;
+  overflow: hidden;
   padding: 50px;
 }
 .footer input {
@@ -10,33 +11,44 @@
   width: 40% !important;
   height: 30px !important;
   padding: 10px;
-  color: #000;
-  border: 1px solid #585123;
+  color: #504350;
+  border: 2px solid #8c568f;
   background: transparent;
+  border-radius: 10px;
+  margin-top: 30px !important;
 }
 
 .subscribe-text {
   text-align: center;
   margin: 40px !important;
+  font-size: 26px;
 }
 
 .subscribe-form {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin-bottom: 60px !important;
+  justify-content: center;
+  gap: 20px;
 }
 
 .sign-up-button {
-  align-self: center;
   padding: 14px !important;
   border: none !important;
-  background-color: #4d5946 !important;
-  color: white !important;
+  background: #8c568f !important;
+  color: #f3f3f7 !important;
   cursor: pointer !important;
-  transform: translateY(-10px);
+  border-radius: 10px !important;
+  display: block;
   width: 20% !important;
-  border-radius: none !important;
+  margin-top: 0px !important;
+  transition: all 0.2s ease-in-out;
+}
+.sign-up-button:hover {
+  font-weight: 500 !important;
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
 }
 
 .footer-main {
@@ -48,7 +60,7 @@
   margin-bottom: 10px !important;
   font-weight: bolder !important;
   font-family: "Playfair Display", serif;
-  color: #b0420c !important;
+  color: #c389c5 !important;
   text-align: center;
 }
 
@@ -86,7 +98,7 @@
   font-family: "Sevillana", cursive !important;
   font-size: 50px !important;
   font-weight: 800 !important;
-  color: #b0420c !important;
+  color: #c389c5 !important;
   cursor: pointer !important;
   text-align: center !important;
 }/*# sourceMappingURL=index.css.map */

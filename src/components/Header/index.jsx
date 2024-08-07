@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AppBar, Toolbar, Typography, IconButton, Button } from "@mui/material";
 import "./index.css";
+import logo from "../../assets/logo/logo.png";
 
 const Header = () => {
   return (
@@ -12,7 +13,7 @@ const Header = () => {
           className="logo"
           sx={{ flexGrow: 1 }}
         >
-          Furnisure
+          <img style={{ width: "100px" }} src={logo} />
         </Typography>
       </Toolbar>
     </AppBar>

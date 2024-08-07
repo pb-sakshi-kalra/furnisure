@@ -8,7 +8,7 @@ const Loader = () => {
         position: "relative",
         width: "100vw",
         height: "100vh",
-        backgroundColor: "#f5ebe0",
+        backgroundColor: "#fffff",
         backgroundAttachment: "fixed",
       }}
     >

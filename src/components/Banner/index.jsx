@@ -1,73 +1,63 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
-import { motion, AnimatePresence, useAnimation } from "framer-motion"; // Import motion components from Framer Motion
+import { motion, AnimatePresence } from "framer-motion";
 import "./index.css";
-import yellowsofa from "../../assets/yellowsofa.jpg";
-import purple from "../../assets/purple.jpg";
-import weirdpainting from "../../assets/weirdpainting.jpg";
-import orangeblue from "../../assets/orangeblue.jpg";
-import grey from "../../assets/grey.jpg";
+import main1 from "../../assets/main/main1.jpg";
+import main2 from "../../assets/main/main2.jpg";
+import main6 from "../../assets/main/main6.jpg";
+import main4 from "../../assets/main/main4.jpg";
+import main5 from "../../assets/main/main5.jpg";
 
 const bannerOptions = [
   {
     name: "Home",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: purple,
-    color: "#f7bf9e",
+    image: main1,
+    color: "#8f87d1",
   },
   {
     name: "Sofa",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: weirdpainting,
-    color: "#585123",
+    image: main2,
+    color: "#bd983e",
   },
   {
     name: "Sitting Chairs",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: orangeblue,
-    color: "#5a2a27",
+    image: main6,
+    color: "#b6a7b6",
   },
   {
     name: "Lamp",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: yellowsofa,
-    color: "#cc8b86",
+    image: main4,
+    color: "#3c5080",
   },
   {
     name: "Sitting",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: grey,
-    color: "#772f1a",
+    image: main5,
+    color: "#d28c64",
   },
 ];
 
 const Banner = () => {
-  const [image, setImage] = useState(yellowsofa);
+  const [image, setImage] = useState(main1);
   const [hoveredIndex, setHoveredIndex] = useState(-1);
-
-  const controls = useAnimation();
 
   const handleMouseEnter = (index) => {
     setImage(bannerOptions[index].image);
     setHoveredIndex(index);
-    controls.start({
-      height: "100vh",
-      transition: { duration: 0.5, ease: "easeInOut" },
-    });
   };
 
   const handleMouseLeave = () => {
-    setImage(yellowsofa);
+    setImage(main1);
     setHoveredIndex(-1);
-    controls.start({
-      height: "10px",
-      transition: { duration: 0.5, ease: "easeInOut" },
-    });
   };
 
   return (
@@ -92,7 +82,7 @@ const Banner = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgb(0 0 0 / 16%);", // Adjust opacity here (0.5 for 50% opacity)
+          background: "rgb(17 17 17 / 51%)", // Adjust opacity here (0.5 for 50% opacity)
         }}
       ></div>
       <Box
@@ -101,65 +91,60 @@ const Banner = () => {
         height="100vh"
         sx={{ padding: "0px 100px" }}
       >
-        <AnimatePresence>
-          {bannerOptions.map((option, index) => (
-            <Box
-              key={index}
-              sx={{
-                width: `${100 / bannerOptions.length}%`,
-                cursor: "pointer",
-                textAlign: "center",
-                position: "relative",
+        {bannerOptions.map((option, index) => (
+          <Box
+            key={index}
+            sx={{
+              width: `${100 / bannerOptions.length}%`,
+              cursor: "pointer",
+              textAlign: "center",
+              position: "relative",
+            }}
+          >
+            <motion.div
+              initial={{ height: "10px", background: option.color }}
+              animate={{
+                height: hoveredIndex === index ? "100vh" : "10px",
               }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              style={{
+                position: "absolute",
+                width: "100%",
+                bottom: 0,
+              }}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+            />
+            <Typography
+              className="banner-options"
+              sx={{
+                color: "whitesmoke",
+                position: "absolute",
+                bottom: hoveredIndex === index ? "150px" : "80px",
+                zIndex: 99999,
+                textAlign: "center",
+                left: "50%",
+                transform: "translateX(-50%)",
+                transition:
+                  "bottom 0.5s ease-in-out, font-size 0.5s ease-in-out",
+                width: "100%",
+                fontFamily: "Playfair Display, serif",
+                fontOpticalSizing: "auto",
+                fontSize: hoveredIndex === index ? "30px" : "24px",
+                boxShadow: "-9px -1px #60494900",
+                fontWeight: "600",
+                letterSpacing: "2px",
+              }}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
             >
-              <motion.div
-                layout
-                initial={{ height: "10px", background: option.color }}
-                animate={
-                  hoveredIndex === index
-                    ? { height: "100vh" }
-                    : { height: "10px" }
-                }
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                style={{
-                  position: "absolute",
-                  width: "100%",
-                  bottom: 0,
-                }}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              />
-              <Typography
-                className="banner-options"
-                sx={{
-                  color: "whitesmoke",
-                  position: "absolute",
-                  bottom: hoveredIndex === index ? "150px" : "80px",
-                  zIndex: 99999,
-                  textAlign: "center",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  transition:
-                    "bottom 0.5s ease-in-out, font-size 0.5s ease-in-out",
-                  width: "100%",
-                  fontFamily: "Playfair Display, serif",
-                  fontOpticalSizing: "auto",
-                  fontSize: hoveredIndex === index ? "30px" : "24px",
-                  boxShadow: "-9px -1px #60494900",
-                  fontWeight: "600",
-                  letterSpacing: "2px",
-                }}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              >
-                {option.name}
-              </Typography>
-              <Typography sx={{ display: "none" }}>
-                {option.description}
-              </Typography>
-            </Box>
-          ))}
-        </AnimatePresence>
+              {option.name}
+            </Typography>
+            <Typography sx={{ display: "none" }}>
+              {option.description}
+            </Typography>
+          </Box>
+        ))}
       </Box>
     </div>
   );

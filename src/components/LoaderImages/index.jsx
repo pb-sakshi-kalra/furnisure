@@ -1,125 +1,165 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import wierdsofa from "../../assets/wierdsofa.jpg";
-import wierdmirror from "../../assets/wierdmirror.jpg";
-import greenandwhite from "../../assets/greenandwhite.jpg";
-import hugelivingroom from "../../assets/hugelivingroom.jpg";
-import julabohemian from "../../assets/julabohemian.jpg";
-import orangespread from "../../assets/orangespread.jpg";
-import jjhula from "../../assets/jjhula.jpg";
-import brownbed from "../../assets/brownbed.jpg";
-import chand from "../../assets/chand.jpg";
-import boho from "../../assets/boho.jpg";
-import mooncouch from "../../assets/mooncouch.jpg";
-import poolhouse from "../../assets/poolhouse.jpg";
-import greenmirror from "../../assets/greenmirror.jpg";
-import orangesabkuch from "../../assets/orangesabkuch.jpg";
-import singlesofa from "../../assets/singlesofa.jpg";
+import banner1 from "../../assets/banner1.jpg";
+import banner2 from "../../assets/banner2.jpg";
+import banner3 from "../../assets/banner3.jpg";
+import banner4 from "../../assets/banner4.jpg";
+import banner5 from "../../assets/banner5.jpg";
+import banner6 from "../../assets/banner6.jpg";
+import banner7 from "../../assets/banner7.jpg";
+import banner8 from "../../assets/banner8.jpg";
+import banner9 from "../../assets/banner9.jpg";
+import banner10 from "../../assets/banner10.jpg";
+import banner11 from "../../assets/banner11.jpg";
+import banner12 from "../../assets/banner12.jpg";
+import banner13 from "../../assets/banner13.jpg";
+import banner14 from "../../assets/banner14.jpg";
+import banner15 from "../../assets/banner15.jpg";
+import banner16 from "../../assets/banner16.jpg";
+import banner17 from "../../assets/banner17.jpg";
+import banner18 from "../../assets/banner18.jpg";
+import banner19 from "../../assets/banner19.jpg";
+import banner20 from "../../assets/banner20.jpg";
 
 const LoaderImages = () => {
   const [images, setImages] = useState([
     {
-      image: wierdsofa,
-      top: "55%",
+      image: banner1,
+      top: "62%",
       left: "0%",
-      height: "500px",
-      width: "400px",
+      height: "300px",
+      width: "250px",
     },
     {
-      image: julabohemian,
+      image: banner5,
       top: "0%",
       left: "38%",
-      height: "500px",
-      width: "500px",
+      height: "350px",
+      width: "300px",
     },
     {
-      image: wierdmirror,
-      top: "40%",
+      image: banner2,
+      top: "55%",
       left: "60%",
-      height: "450px",
-      width: "450px",
+      height: "350px",
+      width: "300px",
     },
     {
-      image: jjhula,
+      image: banner7,
       top: "0%",
       left: "0%",
-      height: "400px",
-      width: "400px",
+      height: "350px",
+      width: "350px",
     },
     {
-      image: orangespread,
+      image: banner6,
       top: "30%",
-      left: "13%",
-      height: "500px",
-      width: "400px",
+      left: "14%",
+      height: "350px",
+      width: "300px",
     },
     {
-      image: greenandwhite,
-      top: "42%",
-      left: "80%",
-      height: "600px",
-      width: "400px",
+      image: banner3,
+      top: "63%",
+      left: "79%",
+      height: "320px",
+      width: "320px",
     },
     {
-      image: hugelivingroom,
+      image: banner4,
       top: "60%",
-      left: "45%",
-      height: "500px",
-      width: "400px",
+      left: "40%",
+      height: "400px",
+      width: "300px",
     },
     {
-      image: poolhouse,
+      image: banner12,
       top: "0%",
-      left: "80%",
-      height: "450px",
-      width: "450px",
+      left: "78%",
+      height: "400px",
+      width: "350px",
     },
     {
-      image: mooncouch,
+      image: banner11,
       top: "0%",
-      left: "18%",
-      height: "500px",
-      width: "450px",
+      left: "22%",
+      height: "300px",
+      width: "250px",
     },
     {
-      image: brownbed,
+      image: banner8,
       top: "0%",
       left: "60%",
-      height: "450px",
-      width: "450px",
+      height: "300px",
+      width: "300px",
     },
     {
-      image: chand,
-      top: "45%",
-      left: "30%",
-      height: "600px",
-      width: "400px",
+      image: banner9,
+      top: "62%",
+      left: "25%",
+      height: "300px",
+      width: "250px",
     },
     {
-      image: boho,
+      image: banner10,
       top: "38%",
       left: "0%",
-      height: "400px",
-      width: "300px",
+      height: "300px",
+      width: "250px",
     },
     {
-      image: greenmirror,
+      image: banner13,
       top: "40%",
-      left: "48%",
-      height: "400px",
-      width: "300px",
+      left: "79%",
+      height: "360px",
+      width: "330px",
     },
     {
-      image: orangesabkuch,
+      image: banner14,
       top: "65%",
-      left: "63%",
-      height: "400px",
-      width: "400px",
+      left: "15%",
+      height: "300px",
+      width: "250px",
     },
     {
-      image: singlesofa,
-      top: "70%",
-      left: "15%",
+      image: banner15,
+      top: "20%",
+      left: "30%",
+      height: "400px",
+      width: "380px",
+    },
+    {
+      image: banner16,
+      top: "20%",
+      left: "30%",
+      height: "400px",
+      width: "350px",
+    },
+    {
+      image: banner17,
+      top: "60%",
+      left: "60%",
+      height: "400px",
+      width: "350px",
+    },
+    {
+      image: banner18,
+      top: "0%",
+      left: "50%",
+      height: "400px",
+      width: "350px",
+    },
+    {
+      image: banner19,
+      top: "35%",
+      left: "55%",
+      height: "400px",
+      width: "350px",
+    },
+    {
+      image: banner20,
+      top: "50%",
+      left: "70%",
       height: "400px",
       width: "350px",
     },

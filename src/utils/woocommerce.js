@@ -3,9 +3,9 @@ import Oauth from "oauth-1.0a";
 import CryptoJS from "crypto-js";
 import jQuery from "jquery";
 
-const ck = "ck_e1e1996207b9de9e12cd856a8c4107289eb64407";
-const cs = "cs_aaeba1c2261ebf1c48d0c9a02e740a6f1205ea10";
-const baseURL = "http://furnisure.greygenie.com/wp-json/wc/v3";
+const ck = "ck_2d38c1e1d3d2236111aa47ac16b2326183bdd640";
+const cs = "cs_22b4ef1be51edc59fa1f2643072ed82ffda75b09";
+const baseURL = "https://events.furnisure.me/wp-json/wp-json/wc/v3";
 
 function makeRequest(endpoint, method = "GET", body = {}) {
   const oauth = getOauth();
@@ -19,7 +19,7 @@ function makeRequest(endpoint, method = "GET", body = {}) {
     body: {},
   };
 
-  const splitUrl = updatedEndpoint.split("?")[1]
+  const splitUrl = updatedEndpoint.split("?")[1];
   const str = updatedEndpoint.endsWith(`?${splitUrl}`) === true ? `&` : `?`;
   let requestHTTP = "";
 

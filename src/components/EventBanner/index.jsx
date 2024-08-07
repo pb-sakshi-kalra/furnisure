@@ -6,7 +6,7 @@ const EventBanner = () => {
     <div className="parallax-container">
       <div className="parallax-background">
         <div className="parallax-content">
-          <h1>Everything about the events</h1>
+          <h1>Events</h1>
         </div>
       </div>
     </div>

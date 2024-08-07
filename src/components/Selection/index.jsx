@@ -1,18 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
-import lamp from "../../assets/lamp.jpg";
-import oramgewithlamp from "../../assets/oramgewithlamp.jpg";
+import main6 from "../../assets/main/main6.jpg";
+import main7 from "../../assets/main/main7.jpg";
 
 const Selection = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [hasBeenVisible, setHasBeenVisible] = useState(false);
   const containerRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          setIsVisible(entry.isIntersecting);
+          if (entry.isIntersecting) {
+            setHasBeenVisible(true);
+          }
         });
       },
       { threshold: 0.5 }
@@ -31,40 +35,44 @@ const Selection = () => {
 
   return (
     <>
+      <h3>Select your style!</h3>
       <h4 className="heading">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam omnis
-        eum saepe reiciendis? Nihil a velit necessitatibus earum sunt numquam.
+        Thinking about hosting an event or refreshing your home or office space?
+        We've got you covered! Check out our event furniture to add that special
+        touch to your gatherings, or browse our home and office collections for
+        long-term comfort. Just click through to find what suits you best!
       </h4>
       <div className="scroll-container">
-        <AnimatePresence mode="wait">
-          <motion.div
-            ref={containerRef}
-            className={`image-container ${isVisible ? "active" : ""}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }} // Opposite direction on exit
-            transition={{ duration: 1, ease: "easeInOut" }}
-          >
-            <motion.img
-              src={lamp}
-              alt="Image 1"
-              className="scroll-image"
-              initial={{ opacity: 0, x: -700 }}
-              animate={{ opacity: 1, x: isVisible ? 0 : -700 }}
-              exit={{ opacity: 0, x: isVisible ? 700 : -700 }} // Opposite direction on exit
-              transition={{ duration: 1, ease: "easeInOut" }}
-            />
-            <motion.img
-              src={oramgewithlamp}
-              alt="Image 2"
-              className="scroll-image"
-              initial={{ opacity: 0, x: 700 }}
-              animate={{ opacity: 1, x: isVisible ? 0 : 700 }}
-              exit={{ opacity: 0, x: isVisible ? -700 : 700 }} // Opposite direction on exit
-              transition={{ duration: 1, ease: "easeInOut" }}
-            />
-          </motion.div>
-        </AnimatePresence>
+        <div ref={containerRef}>
+          <AnimatePresence>
+            {hasBeenVisible && (
+              <motion.div
+                className="image-container active"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+              >
+                <motion.img
+                  src={main6}
+                  alt="Image 1"
+                  className="scroll-image"
+                  initial={{ opacity: 0, x: -700 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                />
+                <motion.img
+                  src={main7}
+                  alt="Image 2"
+                  className="scroll-image"
+                  initial={{ opacity: 0, x: 700 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                  onClick={() => navigate("/event")}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </>
   );

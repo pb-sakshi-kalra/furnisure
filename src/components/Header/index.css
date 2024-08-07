@@ -1,21 +1,17 @@
 .header-wrapper {
   position: absolute !important;
   box-shadow: none !important;
-  padding-top: 50px !important;
+  padding-top: 100px !important;
   background-color: transparent !important;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 0 100px !important;
+  padding: 0 200px !important;
 }
 .header .logo {
-  font-family: "Sevillana", cursive;
-  font-size: 50px;
-  font-weight: 800;
-  color: #b0420c !important;
-  cursor: pointer;
+  padding: 40px;
 }
 .header .link {
   font-family: "Playfair Display", serif;

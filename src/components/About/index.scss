@@ -1,4 +1,5 @@
 .about {
+  margin-top: 50px;
   height: 100vh;
   display: flex;
   .about-image {
@@ -31,20 +32,22 @@
     justify-content: flex-start;
     align-items: center;
     padding: 100px;
-    transform: translateY(170px);
     text-align: center;
     h3 {
       font-size: 28px;
+      font-weight: 700;
       line-height: 36px;
-      color: #4d5946;
+      color: #8c568f;
       letter-spacing: 2px;
       font-family: "Playfair Display", serif;
       margin-bottom: 30px;
     }
     .para {
-      font-size: 20px;
+      font-size: 16px;
       font-family: "Playfair Display", serif;
-      line-height: 26px;
+      line-height: 24px;
+      letter-spacing: 1px;
+      color: #676c74 !important;
     }
   }
 }

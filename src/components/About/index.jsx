@@ -2,8 +2,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import "./index.css";
-import couch from "../../assets/couch.jpg";
-import lamp from "../../assets/lamp.jpg";
+import banner14 from "../../assets/banner14.jpg";
+import banner16 from "../../assets/banner16.jpg";
 
 const About = () => {
   const [scrollPosition, setScrollPosition] = useState(window.scrollY);
@@ -58,24 +58,28 @@ const About = () => {
   return (
     <div className="about">
       <Box ref={aboutImageRef} className="about-image">
-        <img className="first-image" src={couch} />
+        <img className="first-image" src={banner14} />
         <Box
           ref={secondImageRef}
           className="second-image"
           style={{ bottom: "300px" }}
         >
-          <img src={lamp} />
+          <img src={banner16} />
         </Box>
       </Box>
       <Box className="about-description">
-        <Typography variant="h3">
-          WELCOME TO OUR FURNITURE SHOP, WHERE TIMELESS AND STYLISH DESIGNS MEET
-          STORYTELLING.
-        </Typography>
-        <Typography classname="para" variant="p">
-          Every piece of furniture in our collection tells a personal story.
-          Custom-designed and personalized to enhance your home's aesthetics.
-        </Typography>
+        <h3>ABOUT US!</h3>
+        <p className="para">
+          Welcome to FurniSure Rentals, your go-to for stylish and affordable
+          furniture rentals in Dubai and the UAE! Whether you're setting up a
+          cozy home or a professional office, our top-quality, long-term rental
+          options make it easy and budget-friendly. Planning an event? We’ve got
+          you covered with elegant furniture that will wow your guests without
+          breaking the bank. From corporate events to weddings, our wide
+          selection ensures every occasion is special. Discover why so many
+          choose FurniSure Rentals for their furniture needs. Quality, comfort,
+          and unbeatable service—let's transform your space together!
+        </p>
       </Box>
     </div>
   );

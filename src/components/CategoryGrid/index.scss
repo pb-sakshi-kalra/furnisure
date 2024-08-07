@@ -4,13 +4,20 @@
   h1 {
     font-size: 40px;
     text-align: center;
-    color: #585123;
+    color: #8c568f !important;
     font-family: "Playfair Display", serif;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     transition: all 0.5s ease-out;
     &:hover {
       transform: scale(1.2);
     }
+  }
+  p {
+    font-family: "Playfair Display", serif;
+    margin-bottom: 60px !important;
+    font-size: 20px;
+    text-align: center;
+    line-height: 26px;
   }
   @media screen and (max-width: 600px) {
     padding: 50px;
@@ -19,34 +26,37 @@
 .paper {
   text-align: "center";
   display: flex;
-  padding: 20px;
+  padding: 10px;
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 30px;
+  border-radius: 30px !important;
   height: 150px;
+  padding: 20px;
   transition: all 0.6s ease-in-out;
   cursor: pointer;
   .icon {
     height: 100px;
   }
-  .heading {
+  .paper-heading {
     font-family: "Playfair Display", serif;
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
   }
 
   &:hover {
     transition: all 0.6s ease-in-out;
-    background: #585123;
+    background: #8c568f;
     transform: scale(1.06);
-    .heading {
-      color: #ffff;
+    .paper-heading {
+      color: #ffffff !important;
     }
   }
 
   @media screen and (max-width: 1200px) {
     .icon {
-      height: 100px;
+      height: 60px;
     }
   }
 }

@@ -5,14 +5,25 @@
 }
 
 .heading {
-  font-size: 28px;
+  font-size: 22px;
   line-height: 36px;
-  color: #4d5946;
+  color: #676c74;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  padding: 0px 100px;
+}
+
+h3 {
+  margin-top: 200px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #8c568f;
   letter-spacing: 2px;
   font-family: "Playfair Display", serif;
-  margin-top: 150px;
-  text-align: center;
-  padding: 0 200px;
+  margin-bottom: 30px;
 }
 
 .image-container {

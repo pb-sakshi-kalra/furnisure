@@ -8,11 +8,8 @@ import {
   Button,
   IconButton,
 } from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LineIcon from "@mui/icons-material/AccountCircle"; // Placeholder for LINE icon
-import YouTubeIcon from "@mui/icons-material/YouTube";
 import "./index.css";
+import logo from "../../assets/logo/logo.png";
 
 const Footer = () => {
   return (
@@ -23,17 +20,17 @@ const Footer = () => {
         className="logo"
         sx={{ flexGrow: 1 }}
       >
-        Furnisure
+        <img style={{ width: "100px" }} src={logo} />
       </Typography>
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          <Typography variant="h6" className="subscribe-text">
+          <h6 className="subscribe-text">
             SUBSCRIBE TO GET OUR LATEST UPDATES
-          </Typography>
+          </h6>
           <Box className="subscribe-form">
             <input placeholder="YOUR EMAIL ADDRESS" className="input" />
             <input placeholder="YOUR NAME" className="input" />
-            <Button variant="contained" className="sign-up-button">
+            <Button variant="outlined" className="sign-up-button">
               SIGN UP
             </Button>
           </Box>
@@ -70,11 +67,6 @@ const Footer = () => {
               10110, THAILAND
             </Typography>
           </Grid>
-        </Grid>
-
-        {/* Footer Bottom Section */}
-        <Grid item xs={12} className="footer-bottom">
-          <Typography>© 2020 THE DECOR MART COMPANY LIMITED</Typography>
         </Grid>
       </Grid>
     </Box>

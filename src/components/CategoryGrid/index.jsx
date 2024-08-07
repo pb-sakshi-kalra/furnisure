@@ -21,6 +21,7 @@ import storage from "../../assets/icons/storage-and-display.svg";
 import tableLamp from "../../assets/icons/table-lamp.svg";
 import vases from "../../assets/icons/Vases_2020-12-09-085902.svg";
 import { useNavigate } from "react-router-dom";
+import Category from "../../services/category";
 
 const items = [
   { label: "RUG", icon: rug },
@@ -52,6 +53,12 @@ const CategoryGrid = () => {
   return (
     <div className="root">
       <h1>Categories</h1>
+      <p>
+        Thinking about hosting an event or refreshing your home or office space?
+        We've got you covered! Check out our event furniture to add that special
+        touch to your gatherings, or browse our home and office collections for
+        long-term comfort. Just click through to find what suits you best!
+      </p>
       <Grid container spacing={3}>
         {items.map((item, index) => (
           <Grid
@@ -66,7 +73,7 @@ const CategoryGrid = () => {
           >
             <Paper className="paper">
               <img src={item?.icon} className="icon" />
-              <Typography className="heading">{item.label}</Typography>
+              <p className="paper-heading">{item.label}</p>
             </Paper>
           </Grid>
         ))}
