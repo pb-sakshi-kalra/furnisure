@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { Grid, Paper, Typography, Button, Box } from "@mui/material";
 import "./index.css";
-import EventBanner from "../EventBanner";
 import Footer from "../Footer";
 import chair1 from "../../assets/chairs/chair1.webp";
 import chair2 from "../../assets/chairs/chair2.webp";
@@ -13,7 +12,6 @@ const ProductDetail = () => {
   const [image, setImage] = useState(chair1);
   return (
     <>
-      <EventBanner />
       <Paper className="product-detail" elevation={3}>
         <h1 className="title">Product Details</h1>
         <Grid container spacing={2}>

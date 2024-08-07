@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AppBar, Toolbar, Typography, IconButton, Button } from "@mui/material";
 import "./index.css";
-import logo from "../../assets/logo/logo.png";
+import logo from "../../assets/logo/FS Logo.png";
 
 const Header = () => {
   return (

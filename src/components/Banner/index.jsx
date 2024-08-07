@@ -82,7 +82,7 @@ const Banner = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "rgb(17 17 17 / 51%)", // Adjust opacity here (0.5 for 50% opacity)
+          background: "rgb(17 17 17 / 23%)", // Adjust opacity here (0.5 for 50% opacity)
         }}
       ></div>
       <Box
@@ -118,7 +118,7 @@ const Banner = () => {
             <Typography
               className="banner-options"
               sx={{
-                color: "whitesmoke",
+                color: "#ffd46e",
                 position: "absolute",
                 bottom: hoveredIndex === index ? "150px" : "80px",
                 zIndex: 99999,
