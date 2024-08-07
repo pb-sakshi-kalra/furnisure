@@ -15,6 +15,8 @@ import chair4 from "../../assets/chairs/chair4.webp";
 import chair5 from "../../assets/chairs/chair5.webp";
 import chair6 from "../../assets/chairs/chair6.webp";
 import chair7 from "../../assets/chairs/chair7.webp";
+import EventBanner from "../EventBanner";
+import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 
 const items = [
@@ -63,30 +65,34 @@ const ProductList = () => {
   };
 
   return (
-    <div className="product-list">
-      <h2 className="products-heading">Products Lists</h2>
-      <Grid container spacing={2}>
-        {items.map((item, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
-            key={index}
-            onClick={() => onClickCategory(index)}
-          >
-            <Card className="card">
-              <img src={item.image} />
-              <CardContent>
-                <h6 className="card-title">{item.label}</h6>
-                <p className="card-para">{item.price}</p>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </div>
+    <>
+      <EventBanner />
+      <div className="product-list">
+        <h2 className="products-heading">Products Lists</h2>
+        <Grid container spacing={2}>
+          {items.map((item, index) => (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              key={index}
+              onClick={() => onClickCategory(index)}
+            >
+              <Card className="card">
+                <img src={item.image} />
+                <CardContent>
+                  <h6 className="card-title">{item.label}</h6>
+                  <p className="card-para">{item.price}</p>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </div>
+      <Footer />
+    </>
   );
 };
 
