@@ -1,22 +1,11 @@
 .header-wrapper {
   position: absolute !important;
   box-shadow: none !important;
-  padding-top: 100px !important;
+  padding-top: 30px !important;
   background-color: transparent !important;
 }
 
 .header {
   display: flex;
-  padding: 0 200px !important;
-  .logo {
-    padding: 40px;
-  }
-  .link {
-    font-family: "Playfair Display", serif;
-    font-size: 20px;
-    padding: 0 100px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: #ffa02a !important;
-  }
+  padding: 0 50px !important;
 }

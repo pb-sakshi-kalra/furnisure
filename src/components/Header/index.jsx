@@ -13,7 +13,7 @@ const Header = () => {
           className="logo"
           sx={{ flexGrow: 1 }}
         >
-          <img style={{ width: "100px" }} src={logo} />
+          <img style={{ width: "250px" }} src={logo} />
         </Typography>
       </Toolbar>
     </AppBar>
