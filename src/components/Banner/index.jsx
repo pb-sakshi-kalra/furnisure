@@ -47,7 +47,7 @@ const bannerOptions = [
 ];
 
 const Banner = () => {
-  const [image, setImage] = useState(main1);
+  const [image, setImage] = useState(main2);
   const [hoveredIndex, setHoveredIndex] = useState(-1);
 
   const handleMouseEnter = (index) => {
@@ -56,7 +56,7 @@ const Banner = () => {
   };
 
   const handleMouseLeave = () => {
-    setImage(main1);
+    setImage(main2);
     setHoveredIndex(-1);
   };
 
@@ -73,8 +73,7 @@ const Banner = () => {
         backgroundAttachment: "fixed",
       }}
     >
-      {/* Overlay */}
-      <div
+      {/* <div
         className="banner-overlay"
         style={{
           position: "absolute",
@@ -84,7 +83,7 @@ const Banner = () => {
           height: "100%",
           background: "rgb(17 17 17 / 23%)", // Adjust opacity here (0.5 for 50% opacity)
         }}
-      ></div>
+      ></div> */}
       <Box
         display="flex"
         width="100%"
@@ -118,7 +117,7 @@ const Banner = () => {
             <Typography
               className="banner-options"
               sx={{
-                color: "#ffd46e",
+                color: "#fefedf",
                 position: "absolute",
                 bottom: hoveredIndex === index ? "150px" : "80px",
                 zIndex: 99999,
