@@ -1,6 +1,6 @@
 .scroll-container {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   overflow: hidden;
 }
 
@@ -10,7 +10,7 @@
   color: #676c74;
   font-family: "Playfair Display", serif;
   text-align: center;
-  padding: 0px 100px;
+  padding: 0px 40px;
 }
 
 h3 {
