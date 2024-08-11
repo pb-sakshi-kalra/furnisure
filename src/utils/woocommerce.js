@@ -5,7 +5,8 @@ import jQuery from "jquery";
 
 const ck = "ck_2d38c1e1d3d2236111aa47ac16b2326183bdd640";
 const cs = "cs_22b4ef1be51edc59fa1f2643072ed82ffda75b09";
-const baseURL = "https://events.furnisure.me/wp-json/wp-json/wc/v3";
+const baseURL = "https://events.furnisure.me/wp-json/wc/v3";
+
 
 function makeRequest(endpoint, method = "GET", body = {}) {
   const oauth = getOauth();
