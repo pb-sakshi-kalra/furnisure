@@ -15,7 +15,7 @@ import chair4 from "../../assets/chairs/chair4.webp";
 import chair5 from "../../assets/chairs/chair5.webp";
 import chair6 from "../../assets/chairs/chair6.webp";
 import chair7 from "../../assets/chairs/chair7.webp";
-import EventBanner from "../EventBanner";
+import { EventBanner } from "../EventBanner";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 

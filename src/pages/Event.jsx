@@ -1,8 +1,6 @@
 import React from "react";
 import CategoryGrid from "../components/CategoryGrid";
-import EventBanner from "../components/EventBanner";
-import ProductList from "../components/ProductList";
-import ProductDetail from "../components/ProductDetails";
+import { EventBanner } from "../components/EventBanner";
 import Footer from "../components/Footer";
 import "./Home.css";
 
