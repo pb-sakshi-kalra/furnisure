@@ -26,8 +26,9 @@ h3 {
 }
 
 .image-container {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -35,8 +36,8 @@ h3 {
 }
 
 .scroll-image {
-  width: 600px;
-  height: 70vh;
+  width: 500px;
+  height: 50vh;
   opacity: 1; /* Initial opacity or as desired */
   margin: 40px;
 }

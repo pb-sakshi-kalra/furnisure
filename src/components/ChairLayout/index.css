@@ -10,18 +10,18 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 300px;
+  height: 400px;
 }
 .layout-container .images .main-image {
   height: 100%;
-  width: 300px;
+  width: 400px;
 }
 .layout-container .images .overlay-image {
   position: absolute;
   bottom: -50px;
   right: 90px;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
 }
 .layout-container .images .overlay-image img {
   height: 100%;

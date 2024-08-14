@@ -1,7 +1,6 @@
 .footer {
   background-color: #262626 !important;
   color: whitesmoke;
-  max-height: 100vh;
   overflow: hidden;
   padding: 100px;
 }
@@ -9,7 +8,7 @@
   display: block;
   margin-bottom: 20px;
   width: 30% !important;
-  height: 30px !important;
+  height: 50px !important;
   padding: 10px;
   color: #504350;
   border: 2px solid #8c568f;

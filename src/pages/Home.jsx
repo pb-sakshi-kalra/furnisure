@@ -15,16 +15,15 @@ const Home = () => {
   useEffect(() => {
     // Simulate loading process with setTimeout
     const loadingTimeout = setTimeout(() => {
-      document.querySelector(".App").classList.add("translated"); // Add 'translated' class to App after 3000ms
+      document.querySelector(".App").classList.add("translated"); // Add 'translated' class to App after 3000m
       setLoader(false);
-      document.body.classList.add("translated"); // Add 'translated' class to body after 3000ms
     }, 7000);
 
     // Clear timeout on component unmount to avoid memory leaks
     return () => {
       clearTimeout(loadingTimeout);
     };
-  }, []);
+  }, [loader]);
 
   // Scroll to the top of the page whenever the component updates
   useEffect(() => {
