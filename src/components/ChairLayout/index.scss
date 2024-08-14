@@ -1,0 +1,47 @@
+.layout-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .images {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 300px;
+    .main-image {
+      height: 100%;
+      width: 300px;
+    }
+    .overlay-image {
+      position: absolute;
+      bottom: -50px;
+      right: 90px;
+      height: 200px;
+      width: 200px;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .main-image {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .text-container {
+    width: 50%;
+    padding: 20px;
+    div {
+      width: 40%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+    }
+    .shop-button {
+      width: 200px !important;
+    }
+  }
+}

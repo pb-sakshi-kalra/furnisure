@@ -12,12 +12,11 @@ import CategoryList from "./pages/Category";
 import ProductDetail from "./components/ProductDetails";
 
 function App() {
-
-useEffect(()=>{
-  products.get()
-  Category.get()
-  Category.getSubcategory(17)
-},[])
+  useEffect(() => {
+    products.get();
+    Category.get();
+    Category.getSubcategory(17);
+  }, []);
 
   return (
     <div>

@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import Loader from "./Loader";
 
 import "./Home.css";
+import ProductSlider from "../components/ProductSlider";
 
 const Home = () => {
   const [loader, setLoader] = useState(true);
@@ -38,6 +39,7 @@ const Home = () => {
           <Banner />
           <About />
           <Selection />
+          <ProductSlider />
           <Footer />
         </div>
       </div>

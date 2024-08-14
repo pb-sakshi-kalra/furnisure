@@ -1,0 +1,47 @@
+.layout-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.layout-container .images {
+  position: relative;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 300px;
+}
+.layout-container .images .main-image {
+  height: 100%;
+  width: 300px;
+}
+.layout-container .images .overlay-image {
+  position: absolute;
+  bottom: -50px;
+  right: 90px;
+  height: 200px;
+  width: 200px;
+}
+.layout-container .images .overlay-image img {
+  height: 100%;
+  width: 100%;
+}
+.layout-container .images .main-image {
+  height: 100%;
+  width: 100%;
+}
+.layout-container .text-container {
+  width: 50%;
+  padding: 20px;
+}
+.layout-container .text-container div {
+  width: 40%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.layout-container .text-container .shop-button {
+  width: 200px !important;
+}/*# sourceMappingURL=index.css.map */
