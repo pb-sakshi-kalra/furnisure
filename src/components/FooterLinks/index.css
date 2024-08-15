@@ -1,1 +1,13 @@
-/*# sourceMappingURL=index.css.map */
+.footer-links {
+  background: #262626 !important;
+}
+.footer-links h1 {
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #8c568f;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}/*# sourceMappingURL=index.css.map */
