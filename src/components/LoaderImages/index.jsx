@@ -17,7 +17,6 @@ import banner14 from "../../assets/banner14.jpg";
 import banner15 from "../../assets/banner15.jpg";
 import banner16 from "../../assets/banner16.jpg";
 import banner17 from "../../assets/banner17.jpg";
-import banner18 from "../../assets/banner18.jpg";
 import banner19 from "../../assets/banner19.jpg";
 import banner20 from "../../assets/banner20.jpg";
 
@@ -76,13 +75,6 @@ const LoaderImages = () => {
       image: banner19,
       top: "0%",
       left: "50%",
-      height: "400px",
-      width: "350px",
-    },
-    {
-      image: banner18,
-      top: "10%",
-      left: "45%",
       height: "400px",
       width: "350px",
     },
