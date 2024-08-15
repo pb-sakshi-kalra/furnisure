@@ -1,6 +1,5 @@
 import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
-import { FiArrowRight } from "react-icons/fi";
 import banner12 from "../../assets/banner12.jpg";
 import banner13 from "../../assets/banner13.jpg";
 import banner14 from "../../assets/banner14.jpg";
@@ -147,9 +146,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
         }}
         transition={{ type: "spring" }}
         className="relative z-10 p-4"
-      >
-        <FiArrowRight className="text-5xl text-neutral-50" />
-      </motion.div>
+      ></motion.div>
     </motion.a>
   );
 };
