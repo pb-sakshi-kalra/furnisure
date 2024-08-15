@@ -35,13 +35,13 @@ const About = () => {
           let bottomPosition = parseInt(secondImageRef.current.style.bottom);
           if (direction === "down") {
             bottomPosition = Math.max(
-              -aboutImageHeight * 0.5,
-              bottomPosition - aboutImageHeight * 0.008
+              -aboutImageHeight * 0.3,
+              bottomPosition - aboutImageHeight * 0.006
             );
           } else if (direction === "up") {
             bottomPosition = Math.min(
-              aboutImageHeight * 0.5,
-              bottomPosition + aboutImageHeight * 0.008
+              aboutImageHeight * 0.3,
+              bottomPosition + aboutImageHeight * 0.006
             );
           }
           secondImageRef.current.style.bottom =
