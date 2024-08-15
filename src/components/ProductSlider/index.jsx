@@ -46,7 +46,7 @@ const ProductSlider = () => {
 
   return (
     <div className="product-slider">
-      <h1 className="heading">Porduct Categories</h1>
+      <h1 className="product-heading">Porduct Categories</h1>
       <button className="prev" onClick={prevSlide}>
         &#10094;
       </button>
