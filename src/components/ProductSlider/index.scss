@@ -1,18 +1,17 @@
 .product-slider {
   border-radius: 50px;
   position: relative;
-  height: 80vh;
+  height: 60vh;
   align-items: center;
   border-radius: 50px;
-  h1 {
-    font-size: 28px;
+  .heading {
+    font-size: 30px;
     font-weight: 700;
     line-height: 36px;
     color: #8c568f;
-    margin-top: 100px;
+    margin-bottom: 30px;
     letter-spacing: 2px;
     font-family: "Playfair Display", serif;
-    margin-bottom: 30px;
     text-align: center;
   }
   .next,
@@ -37,6 +36,7 @@
   }
   .prev {
     left: 0;
+    z-index: 9999;
   }
 }
 

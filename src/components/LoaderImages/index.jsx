@@ -18,7 +18,6 @@ import banner15 from "../../assets/banner15.jpg";
 import banner16 from "../../assets/banner16.jpg";
 import banner17 from "../../assets/banner17.jpg";
 import banner19 from "../../assets/banner19.jpg";
-import banner20 from "../../assets/banner20.jpg";
 
 const LoaderImages = () => {
   const [images, setImages] = useState([
@@ -108,7 +107,7 @@ const LoaderImages = () => {
     },
     {
       image: banner4,
-      top: "40%",
+      top: "30%",
       left: "40%",
       height: "450px",
       width: "400px",

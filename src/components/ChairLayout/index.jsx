@@ -12,9 +12,9 @@ const ChairLayout = ({ product }) => {
       </div>
       <div className="text-container">
         <div>
-          <h1>{product?.name?.toUpperCase()}</h1>
+          <h3>{product?.name?.toUpperCase()}</h3>
           <button className="shop-button">
-            SHOP {product?.name?.toUpperCase()} <span>→</span>
+            SHOP {product?.name?.toUpperCase()}
           </button>
         </div>
       </div>

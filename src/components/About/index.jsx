@@ -45,7 +45,7 @@ const About = () => {
             );
           }
           secondImageRef.current.style.bottom =
-            bottomPosition < -70 ? "-70px" : `${bottomPosition}px`;
+            bottomPosition < -20 ? "-20px" : `${bottomPosition}px`;
         }
       }
     };

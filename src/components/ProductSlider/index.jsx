@@ -38,6 +38,7 @@ const ProductSlider = () => {
   };
 
   const prevSlide = () => {
+    console.log("this is called or not ");
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? products.length - 1 : prevIndex - 1
     );
@@ -45,7 +46,7 @@ const ProductSlider = () => {
 
   return (
     <div className="product-slider">
-      <h1>Porduct Categories</h1>
+      <h1 className="heading">Porduct Categories</h1>
       <button className="prev" onClick={prevSlide}>
         &#10094;
       </button>
