@@ -13,7 +13,6 @@
     letter-spacing: 2px;
     font-family: "Playfair Display", serif;
     text-align: center;
-    margin-bottom: 60px;
   }
   .next,
   .prev {
@@ -21,10 +20,10 @@
     top: 45%;
     background: transparent;
     border: none;
-    color: #8c568f;
+    color: #504350;
     font-weight: 500;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 50px;
+    font-size: 40px;
     cursor: pointer;
     transition: all 0.2s ease-in;
     &:hover {
@@ -33,10 +32,10 @@
     }
   }
   .next {
-    right: 30px;
+    right: 0;
   }
   .prev {
-    left: 30px;
+    left: 0;
     z-index: 9999;
   }
 }

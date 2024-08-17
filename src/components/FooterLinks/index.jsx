@@ -8,12 +8,9 @@ import banner16 from "../../assets/banner16.jpg";
 import banner17 from "../../assets/banner17.jpg";
 import banner18 from "../../assets/banner18.jpg";
 
-import "./index.css";
-
 export const FooterLinks = () => {
   return (
-    <section className="footer-links p-4 md:p-8">
-      <h1>Quick Links</h1>
+    <section className="bg-neutral-950 p-4 md:p-8">
       <div className="mx-auto max-w-5xl">
         <Link
           heading="About"
@@ -34,7 +31,7 @@ export const FooterLinks = () => {
           href="#"
         />
         <Link
-          heading="Catalogue"
+          heading="Careers"
           subheading="We want cool people"
           imgSrc={banner15}
           href="#"

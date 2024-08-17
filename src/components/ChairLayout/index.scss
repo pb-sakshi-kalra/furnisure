@@ -9,24 +9,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    .main-center-image {
-      width: 600px;
+    height: 400px;
+    .main-image {
+      height: 100%;
+      width: 400px;
     }
     .overlay-image {
       position: absolute;
-      bottom: 67px;
+      bottom: -50px;
       right: 90px;
       height: 300px;
+      width: 300px;
       img {
         height: 100%;
         width: 100%;
       }
     }
+    .main-image {
+      height: 100%;
+      width: 100%;
+    }
   }
   .text-container {
     width: 50%;
-    display: flex;
-    padding: 20px 200px;
+    padding: 20px;
     div {
       display: flex;
       justify-content: center;
@@ -44,7 +50,7 @@
       text-align: center;
     }
     .shop-button {
-      width: 300px !important;
+      width: 200px !important;
       font-size: 20px;
     }
   }

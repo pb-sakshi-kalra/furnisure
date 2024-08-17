@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
-import home1 from "../../assets/home1.webp";
-import event1 from "../../assets/event1.jpg";
+import main6 from "../../assets/main/main6.jpg";
+import main7 from "../../assets/main/main7.jpg";
 
 const Selection = () => {
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
@@ -53,7 +53,7 @@ const Selection = () => {
                 transition={{ duration: 1, ease: "easeInOut" }}
               >
                 <motion.img
-                  src={home1}
+                  src={main6}
                   alt="Image 1"
                   className="scroll-image"
                   initial={{ opacity: 0, x: -700 }}
@@ -61,7 +61,7 @@ const Selection = () => {
                   transition={{ duration: 2, ease: "easeInOut" }}
                 />
                 <motion.img
-                  src={event1}
+                  src={main7}
                   alt="Image 2"
                   className="scroll-image"
                   initial={{ opacity: 0, x: 700 }}

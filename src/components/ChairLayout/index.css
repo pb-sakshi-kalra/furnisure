@@ -10,24 +10,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 400px;
 }
-.layout-container .images .main-center-image {
-  width: 600px;
+.layout-container .images .main-image {
+  height: 100%;
+  width: 400px;
 }
 .layout-container .images .overlay-image {
   position: absolute;
-  bottom: 67px;
+  bottom: -50px;
   right: 90px;
   height: 300px;
+  width: 300px;
 }
 .layout-container .images .overlay-image img {
   height: 100%;
   width: 100%;
 }
+.layout-container .images .main-image {
+  height: 100%;
+  width: 100%;
+}
 .layout-container .text-container {
   width: 50%;
-  display: flex;
-  padding: 20px 200px;
+  padding: 20px;
 }
 .layout-container .text-container div {
   display: flex;
@@ -46,6 +52,6 @@
   text-align: center;
 }
 .layout-container .text-container .shop-button {
-  width: 300px !important;
+  width: 200px !important;
   font-size: 20px;
 }/*# sourceMappingURL=index.css.map */

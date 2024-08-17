@@ -5,11 +5,7 @@ const ChairLayout = ({ product }) => {
   return (
     <div className="layout-container">
       <div className="images">
-        <img
-          src={product?.image1}
-          alt="Chair Image 1"
-          className="main-center-image"
-        />
+        <img src={product?.image1} alt="Chair Image 1" className="main-image" />
         <div className="overlay-image">
           <img src={product?.image2} alt="Chair Image 2" />
         </div>
