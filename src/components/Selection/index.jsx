@@ -35,7 +35,7 @@ const Selection = () => {
 
   return (
     <>
-      <h1 className="selection-heading">Select your style!</h1>
+      <h3>Select your style!</h3>
       <h4 className="heading">
         Thinking about hosting an event or refreshing your home or office space?
         We've got you covered! Check out our event furniture to add that special
