@@ -1,13 +1,4 @@
 // src/components/Footer.js
-import React from "react";
-import {
-  Box,
-  Grid,
-  Typography,
-  TextField,
-  Button,
-  IconButton,
-} from "@mui/material";
 import "./index.css";
 import logo from "../../assets/logo/FS Logo.png";
 
