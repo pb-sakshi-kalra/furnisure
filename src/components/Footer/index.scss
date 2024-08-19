@@ -1,84 +1,78 @@
 .footer-div {
   width: 100%;
-  height: 50vh;
+  padding: 0px 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: #262626 !important;
-  .footer-main-div {
-    h4 {
+  background-color: #d5d5d5 !important;
+  h4 {
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 36px;
+    color: #8c568f;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    font-family: "Playfair Display", serif;
+  }
+  .footerLinks {
+    width: 40%;
+  }
+  .subscribe-footer {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .input-div {
+      display: flex;
+      flex-direction: column;
+      input {
+        display: block;
+        padding: 5px;
+        margin: 10px 100px;
+        width: 70%;
+        background: transparent;
+        border-bottom: 1px solid #504350;
+      }
+    }
+    .button {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      transition: all 0.2s ease-in;
+      &:hover {
+        transform: translateX(10px);
+        transition: all 0.2s ease-in;
+      }
+    }
+
+    h3 {
       font-size: 35px;
       font-weight: 700;
       line-height: 36px;
       color: #8c568f;
       margin-bottom: 30px;
+      padding-left: 40px;
       letter-spacing: 2px;
       font-family: "Playfair Display", serif;
-    }
-    width: 95%;
-    padding: 20px;
-    height: 40vh;
-    background: #f3f3f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .subscribe-footer {
-      width: 40%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      .input-div {
-        display: flex;
-        flex-direction: column;
-        input {
-          display: block;
-          padding: 5px;
-          margin: 10px 85px;
-          width: 40%;
-          background: transparent;
-          border-bottom: 1px solid #504350;
-        }
-      }
-      .button {
-        width: 40%;
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 5px;
-        font-size: 20px;
-        font-weight: bold;
-        transition: all 0.2s ease-in;
-        &:hover {
-          transform: translateX(10px);
-          transition: all 0.2s ease-in;
-        }
-      }
-
-      h3 {
-        font-size: 35px;
-        font-weight: 700;
-        line-height: 36px;
-        color: #8c568f;
-        margin-bottom: 30px;
-        padding-left: 40px;
-        letter-spacing: 2px;
-        font-family: "Playfair Display", serif;
-        text-align: left;
-      }
-      .logo {
-        height: 100px;
-        width: 350px !important;
-      }
-    }
-    .contact {
-      width: 30%;
       text-align: left;
-      .b {
-        font-weight: bolder;
-      }
     }
-    .address {
-      width: 30%;
+    .logo {
+      height: 100px;
+      width: 350px !important;
+      margin-bottom: 20px;
     }
+  }
+  .contact {
+    width: 10%;
+    text-align: left;
+    .b {
+      font-weight: bolder;
+    }
+  }
+  .address {
+    width: 10%;
   }
 }

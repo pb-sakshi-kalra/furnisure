@@ -12,8 +12,7 @@ import "./index.css";
 
 export const FooterLinks = () => {
   return (
-    <section className="footer-links p-4 md:p-8">
-      <h1>Quick Links</h1>
+    <section className="footer-links p-8 md:p-4">
       <div className="mx-auto max-w-5xl">
         <Link
           heading="About"
@@ -35,14 +34,8 @@ export const FooterLinks = () => {
         />
         <Link
           heading="Catalogue"
-          subheading="We want cool people"
+          subheading="Keep a copy handy for yourselves"
           imgSrc={banner15}
-          href="#"
-        />
-        <Link
-          heading="Fun"
-          subheading="Incase you're bored"
-          imgSrc={banner18}
           href="#"
         />
       </div>
@@ -98,7 +91,8 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
             staggerChildren: 0.075,
             delayChildren: 0.25,
           }}
-          className="relative z-10 block text-4xl font-bold text-neutral-500 transition-colors duration-500 group-hover:text-neutral-50 md:text-6xl"
+          style={{ color: "#8c568f" }}
+          className="relative z-10 block text-4xl font-bold  transition-colors duration-500 group-hover:text-neutral-100"
         >
           {heading.split("").map((l, i) => (
             <motion.span
@@ -114,7 +108,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
             </motion.span>
           ))}
         </motion.span>
-        <span className="relative z-10 mt-2 block text-base text-neutral-500 transition-colors duration-500 group-hover:text-neutral-50">
+        <span className="relative z-10 mt-2 block text-base text-neutral-500 transition-colors duration-500 group-hover:text-neutral-700">
           {subheading}
         </span>
       </div>
@@ -132,7 +126,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
         }}
         transition={{ type: "spring" }}
         src={imgSrc}
-        className="absolute z-0 h-24 w-32 rounded-lg object-cover md:h-48 md:w-64"
+        className="absolute z-0 h-24 w-24 rounded-lg object-cover md:h-32 md:w-32"
         alt={`Image representing a link for ${heading}`}
       />
 

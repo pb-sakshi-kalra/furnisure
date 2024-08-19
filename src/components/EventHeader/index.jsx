@@ -79,12 +79,19 @@ function ResponsiveAppBar() {
   return (
     <AppBar
       position="fixed"
-      sx={{ position: "relative", top: 0, left: 0, right: 0 }}
+      sx={{
+        position: "relative",
+        top: 0,
+        left: 0,
+        right: 0,
+        color: "black",
+        backgroundColor: "none",
+        background: "none",
+      }}
     >
       {/* Upper Layer */}
       <Toolbar
         sx={{
-          backgroundColor: "black",
           justifyContent: "space-between",
           padding: "20px",
         }}
