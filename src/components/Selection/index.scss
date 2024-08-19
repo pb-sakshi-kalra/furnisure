@@ -10,7 +10,7 @@
   color: #676c74;
   font-family: "Playfair Display", serif;
   text-align: center;
-  padding: 0px 40px;
+  padding: 0px 100px;
 }
 
 h3 {
@@ -36,8 +36,13 @@ h3 {
 }
 
 .scroll-image {
-  width: 500px;
   height: 50vh;
   opacity: 1; /* Initial opacity or as desired */
   margin: 40px;
+  transition: all 0.3ms ease-in;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.3ms ease-in;
+  }
 }
