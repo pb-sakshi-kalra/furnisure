@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import "./index.css";
 import logo from "../../assets/logo/FS Logo.png";
-import { FooterLinks } from "../FooterLinks";
 
 const Footer = () => {
   return (
@@ -31,9 +30,6 @@ const Footer = () => {
       </Grid>
 
       <div className="divider"></div>
-
-      {/* This is the links section */}
-      <FooterLinks />
 
       {/* Navigation and Contact Section */}
       <Grid container item xs={12} spacing={3} className="footer-main">

@@ -1,85 +1,221 @@
-// src/Header.js
-import React from "react";
-import "./index.css";
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import InputBase from "@mui/material/InputBase";
+import AdbIcon from "@mui/icons-material/Adb";
+import SearchIcon from "@mui/icons-material/Search";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-const Header = () => {
-  return (
-    <header className="header">
-      <div className="top-bar">
-        <div className="logo">DesignVille</div>
-        <div className="search-bar">
-          <input type="text" placeholder="What are you looking for?" />
-          <button type="submit">
-            <i className="fas fa-search"></i>
-          </button>
-        </div>
-        <div className="user-actions">
-          <a href="#">Favourites</a>
-          <a href="#">Log In</a>
-          <a href="#" className="cart">
-            Cart 0.00 €
-          </a>
-        </div>
-      </div>
-      <nav className="main-nav">
-        <ul>
-          <li>
-            <a href="#">Furniture</a>
-          </li>
-          <li className="dropdown">
-            <a href="#">Lighting</a>
-            <div className="dropdown-content">
-              <div className="dropdown-column">
-                <a href="#">Pendant lights</a>
-                <a href="#">Socket pendants and lamp shades</a>
-              </div>
-              <div className="dropdown-column">
-                <a href="#">Floor lamps</a>
-                <a href="#">Table lamps</a>
-              </div>
-              <div className="dropdown-column">
-                <a href="#">Wall lamps</a>
-                <a href="#">Ceiling lights</a>
-              </div>
-              <div className="dropdown-column">
-                <a href="#">Light bulbs and accessories</a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <a href="#">Accessories</a>
-          </li>
-          <li>
-            <a href="#">Wallpapers</a>
-          </li>
-          <li>
-            <a href="#">Dinnerware</a>
-          </li>
-          <li>
-            <a href="#">For kids</a>
-          </li>
-          <li>
-            <a href="#">Outdoor</a>
-          </li>
-          <li>
-            <a href="#">Novelties</a>
-          </li>
-          <li>
-            <a href="#">Summer Sale</a>
-          </li>
-          <li>
-            <a href="#">Blog</a>
-          </li>
-          <li>
-            <a href="#">Brands</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  );
+import bedsideTable from "../../assets/icons/bedside-tables.svg";
+import coffeeTable from "../../assets/icons/coffee-tables.svg";
+import desk from "../../assets/icons/Desks.svg";
+import diningChairs from "../../assets/icons/dining-chair.svg";
+import diningTables from "../../assets/icons/dining-tables.svg";
+import downlights from "../../assets/icons/Downlights.svg";
+import officeChairs from "../../assets/icons/Office-Chairs.svg";
+import pendantLights from "../../assets/icons/Pendant-Lights.svg";
+import sofas from "../../assets/icons/sofas.svg";
+
+import logo from "../../assets/logo/FS Logo.png";
+
+const upperItems = ["Categories", "Events", "Chairs"];
+const lowerItems = [
+  { name: "Contact", icon: <AdbIcon /> },
+  { name: "Blog", icon: <AdbIcon /> },
+];
+
+const popoverContents = {
+  Categories: [
+    { title: "Pendant lights", icon: bedsideTable },
+    { title: "Floor lamps", icon: coffeeTable },
+    { title: "Wall lamps", icon: desk },
+  ],
+  Events: [
+    { title: "Table lamps", icon: diningChairs },
+    { title: "Socket pendants and lamp shades", icon: diningTables },
+    { title: "Ceiling lights", icon: downlights },
+  ],
+  Chairs: [
+    { title: "Light bulbs and accessories", icon: pendantLights },
+    { title: "Outdoor lighting", icon: sofas },
+    { title: "Smart lighting", icon: officeChairs },
+  ],
 };
 
-export default Header;
+function ResponsiveAppBar() {
+  const [selectedItem, setSelectedItem] = React.useState(null);
+  const popoverRef = React.useRef(null);
+
+  const handleClick = (item) => {
+    setSelectedItem(selectedItem === item ? null : item);
+  };
+
+  const handleClickOutside = (event) => {
+    if (popoverRef.current && !popoverRef.current.contains(event.target)) {
+      setSelectedItem(null);
+    }
+  };
+
+  React.useEffect(() => {
+    if (selectedItem) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [selectedItem]);
+
+  return (
+    <AppBar
+      position="fixed"
+      sx={{ position: "relative", top: 0, left: 0, right: 0 }}
+    >
+      {/* Upper Layer */}
+      <Toolbar
+        sx={{
+          backgroundColor: "black",
+          justifyContent: "space-between",
+          padding: "20px",
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <img style={{ width: "350px" }} src={logo} />
+        </Box>
+
+        <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
+          <InputBase
+            placeholder="Search…"
+            sx={{
+              color: "white",
+              backgroundColor: "rgba(255, 255, 255, 0.15)",
+              borderRadius: "4px",
+              paddingLeft: 2,
+              paddingRight: 2,
+              paddingTop: 1,
+              paddingBottom: 1,
+              width: "100%",
+              maxWidth: 400,
+            }}
+            startAdornment={<SearchIcon sx={{ mr: 1, color: "inherit" }} />}
+          />
+        </Box>
+
+        <IconButton color="inherit">
+          <FavoriteIcon />
+        </IconButton>
+      </Toolbar>
+      {/* Lower Layer */}
+      <Toolbar
+        disableGutters
+        sx={{
+          justifyContent: "space-between",
+          width: "100%",
+          background: "#8c568f",
+          padding: "20px",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            position: "relative",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <Box sx={{ display: "flex", flexGrow: 1, height: "100%" }}>
+            {upperItems.map((item) => (
+              <Button
+                key={item}
+                onClick={() => handleClick(item)}
+                sx={{
+                  color: selectedItem === item ? "black" : "white", // text color changes based on selection
+                  backgroundColor:
+                    selectedItem === item ? "white" : "transparent", // background color changes based on selection
+                  display: "flex",
+                  alignItems: "center",
+                  marginRight: 2,
+                  zIndex: 1,
+                  height: "100%",
+                  "&:hover": {
+                    backgroundColor:
+                      selectedItem === item
+                        ? "white"
+                        : "rgba(255, 255, 255, 0.1)", // optional hover effect
+                  },
+                }}
+              >
+                {item}
+                {selectedItem === item ? (
+                  <KeyboardArrowUpIcon sx={{ marginLeft: 0.5 }} />
+                ) : (
+                  <KeyboardArrowDownIcon sx={{ marginLeft: 0.5 }} />
+                )}
+              </Button>
+            ))}
+          </Box>
+          <Box sx={{ display: "flex" }}>
+            {lowerItems.map((item) => (
+              <Button
+                key={item.name}
+                sx={{ color: "white", display: "flex", marginLeft: "auto" }}
+              >
+                {item.name}
+              </Button>
+            ))}
+          </Box>
+        </Box>
+      </Toolbar>
+      {selectedItem && (
+        <Box
+          ref={popoverRef}
+          sx={{
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            right: 0,
+            width: "100vw",
+            height: "300px", // Fixed height for better visibility
+            backgroundColor: "white",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            zIndex: 10,
+            padding: 2,
+          }}
+        >
+          <Grid container spacing={2}>
+            {popoverContents[selectedItem].map((content) => (
+              <Grid item xs={4} key={content.title}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <img style={{ height: "50px" }} src={content.icon} />
+                  <Typography
+                    sx={{ marginLeft: 1, color: "black", cursor: "pointer" }}
+                  >
+                    {content.title}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      )}
+    </AppBar>
+  );
+}
+
+export default ResponsiveAppBar;
