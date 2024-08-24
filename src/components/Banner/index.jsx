@@ -127,7 +127,7 @@ const Banner = () => {
                 transition:
                   "bottom 0.5s ease-in-out, font-size 0.5s ease-in-out",
                 width: "100%",
-                fontFamily: "Brooklyn-Heading",
+                fontFamily: "Brooklyn-Heavy",
                 fontOpticalSizing: "auto",
                 fontSize: hoveredIndex === index ? "30px" : "24px",
                 boxShadow: "-9px -1px #60494900",

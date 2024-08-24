@@ -54,21 +54,18 @@
 
 .product-description {
   margin-bottom: 20px !important;
-  font-family: "Brooklyn-Normal, sans-serif";
 }
 
 .product-price-old {
   text-decoration: line-through;
   margin-bottom: 10px !important;
   color: #8c568f;
-  font-family: "Brooklyn-Normal, sans-serif";
   font-weight: bold;
 }
 
 .product-price-new {
   margin-bottom: 20px !important;
   color: #8c568f;
-  font-family: "Brooklyn-Normal, sans-serif";
   font-weight: bold;
 }
 
@@ -82,6 +79,7 @@
   cursor: pointer !important;
   width: 60% !important;
   margin-bottom: 50px !important;
+  font-family: "Brooklyn-Bold !important";
   transition: all 0.2s ease-in-out;
   &:hover {
     transform: scale(1.02) !important;
