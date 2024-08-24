@@ -18,6 +18,7 @@ import chair7 from "../../assets/chairs/chair7.webp";
 import { EventBanner } from "../EventBanner";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
+import EventHeader from "../EventHeader";
 
 const items = [
   {
@@ -66,7 +67,12 @@ const ProductList = () => {
 
   return (
     <>
-      <EventBanner />
+      <EventHeader />
+      <div className="background-category">
+        <div className="category-heading">
+          <h1>Chair</h1>
+        </div>
+      </div>
       <div className="product-list">
         <h2 className="products-heading">Products Lists</h2>
         <Grid container spacing={2}>

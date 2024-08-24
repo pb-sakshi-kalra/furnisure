@@ -6,15 +6,16 @@
   font-size: 40px;
   text-align: center;
   color: #8c568f !important;
-  font-family: "Playfair Display", serif;
+  font-family: "Brooklyn-Bold";
   margin-bottom: 20px;
   transition: all 0.5s ease-out;
+  font-weight: bold;
 }
 .root h1:hover {
   transform: scale(1.2);
 }
 .root p {
-  font-family: "Playfair Display", serif;
+  font-family: "Brooklyn-Normal, sans-serif";
   margin-bottom: 100px !important;
   font-size: 20px;
   text-align: center;
@@ -35,7 +36,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 30px !important;
-  height: 150px;
+  height: 200px;
   padding: 20px;
   transition: all 0.6s ease-in-out;
   cursor: pointer;
@@ -44,7 +45,7 @@
   height: 100px;
 }
 .paper .paper-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Brooklyn-Bold, sans-serif";
   font-size: 20px !important;
   margin-bottom: 10px !important;
 }

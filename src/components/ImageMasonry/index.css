@@ -1,0 +1,12 @@
+.masonary-box {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+.masonary-box img {
+  cursor: pointer;
+}
+.masonary-box img:hover {
+  transform: scale(1.1);
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}/*# sourceMappingURL=index.css.map */

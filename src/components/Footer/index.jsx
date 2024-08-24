@@ -11,7 +11,7 @@ const Footer = () => {
         <FooterLinks />
       </div>
       <div className="contact">
-        <h4>Reach Out</h4>
+        <h3>Reach Out</h3>
         <p>
           <span className="b">E :</span> info@furnisure.me
         </p>
@@ -23,7 +23,7 @@ const Footer = () => {
         </p>
       </div>
       <div className="address">
-        <h4>Address</h4>
+        <h3>Address</h3>
         <p></p>
         <p>C17, DIC</p>
         <p>Dubai, UAE</p>

@@ -2,14 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Brooklyn-Bold";
+  src: url("./fonts/TTF/Brooklyn-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brooklyn-BoldItalic";
+  src: url("./fonts/TTF/Brooklyn-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Brooklyn-Heavy";
+  src: url("./fonts/TTF/Brooklyn-Heavy.ttf") format("truetype");
+  font-weight: 900; /* Adjust based on the weight of 'Heavy' */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brooklyn-HeavyItalic";
+  src: url("./fonts/TTF/Brooklyn-HeavyItalic.ttf") format("truetype");
+  font-weight: 900; /* Adjust based on the weight of 'Heavy' */
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Brooklyn-Italic";
+  src: url("./fonts/TTF/Brooklyn-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Brooklyn-Normal";
+  src: url("./fonts/TTF/Brooklyn-Normal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brooklyn-SemiBold";
+  src: url("./fonts/TTF/Brooklyn-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brooklyn-SemiBoldItalic";
+  src: url("./fonts/TTF/Brooklyn-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+body {
+  font-family: "Brooklyn-Normal", sans-serif;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #f3f3f4;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }

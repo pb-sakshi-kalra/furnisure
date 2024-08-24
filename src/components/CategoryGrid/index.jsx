@@ -52,13 +52,21 @@ const CategoryGrid = () => {
   };
   return (
     <div className="root">
-      <h1>Categories</h1>
       <p>
         Thinking about hosting an event or refreshing your home or office space?
         We've got you covered! Check out our event furniture to add that special
         touch to your gatherings, or browse our home and office collections for
         long-term comfort. Just click through to find what suits you best!
+        Thinking about hosting an event or refreshing your home or office space?
+        We've got you covered! Check out our event furniture to add that special
+        touch to your gatherings, or browse our home and office collections for
+        long-term comfort. Just click through to find what suits you best!
+        Thinking about hosting an event or refreshing your home or office space?
+        We've got you covered! Check out our event furniture to add that special
+        touch to your gatherings, or browse our home and office collections for
+        long-term comfort. Just click through to find what suits you best!
       </p>
+      <h1 style={{ marginBottom: "50px" }}>Categories</h1>
       <Grid container spacing={3}>
         {items.map((item, index) => (
           <Grid

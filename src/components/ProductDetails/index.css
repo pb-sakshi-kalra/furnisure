@@ -7,7 +7,7 @@
   font-size: 40px;
   text-align: center;
   color: #8c568f;
-  font-family: "Playfair Display", serif;
+  font-family: "Brooklyn-Bold";
   margin-bottom: 100px;
   transition: all 0.5s ease-out;
 }
@@ -46,7 +46,7 @@
 .product-title {
   margin-bottom: 20px !important;
   color: #8c568f;
-  font-family: "Playfair Display", serif;
+  font-family: "Brooklyn-Bold";
   margin-bottom: 100px;
   font-weight: bold;
   font-size: 30px;
@@ -54,21 +54,21 @@
 
 .product-description {
   margin-bottom: 20px !important;
-  font-family: "Playfair Display", serif;
+  font-family: "Brooklyn-Normal, sans-serif";
 }
 
 .product-price-old {
   text-decoration: line-through;
   margin-bottom: 10px !important;
   color: #8c568f;
-  font-family: "Playfair Display", serif;
+  font-family: "Brooklyn-Normal, sans-serif";
   font-weight: bold;
 }
 
 .product-price-new {
   margin-bottom: 20px !important;
   color: #8c568f;
-  font-family: "Playfair Display", serif;
+  font-family: "Brooklyn-Normal, sans-serif";
   font-weight: bold;
 }
 

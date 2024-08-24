@@ -50,7 +50,7 @@ const popoverContents = {
   ],
 };
 
-function ResponsiveAppBar() {
+function EventHeader() {
   const [selectedItem, setSelectedItem] = React.useState(null);
   const popoverRef = React.useRef(null);
 
@@ -225,4 +225,4 @@ function ResponsiveAppBar() {
   );
 }
 
-export default ResponsiveAppBar;
+export default EventHeader;
