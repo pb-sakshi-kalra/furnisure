@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import Event from "./pages/Event";
 import CategoryList from "./pages/Category";
 import ProductDetail from "./components/ProductDetails";
-import Loader from "./pages/Loader";
+import ScrollToTop from "./pages/ScrollToTop";
 
 function App() {
   useEffect(() => {
@@ -20,9 +20,9 @@ function App() {
 
   return (
     <div>
+        <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Loader />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/event" element={<Event />} />
         <Route path="/category/:name" element={<CategoryList />} />
         <Route path="/product/:id" element={<ProductDetail />} />
