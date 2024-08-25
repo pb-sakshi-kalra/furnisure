@@ -1,12 +1,12 @@
 .product-list {
-  padding: 100px;
+  padding: 50px 200px;
 }
 .product-list .products-heading {
   font-size: 40px;
   text-align: center;
-  color: #585123;
+  color: #8c568f;
   font-family: "Brooklyn-Heavy";
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   transition: all 0.5s ease-out;
 }
 .product-list .products-heading:hover {
@@ -46,7 +46,7 @@
 }
 
 .background-category {
-  height: 30vh;
+  height: 45vh;
   background: url("../../assets/main//main3.jpg");
   background-position: center;
   background-attachment: fixed;

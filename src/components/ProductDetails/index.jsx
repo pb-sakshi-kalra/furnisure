@@ -30,9 +30,9 @@ const ProductDetail = () => {
       <Paper className="product-detail" elevation={3}>
         <Grid container spacing={2}>
           {/* Image Section */}
-          <Grid container spacing={2}>
+          <Grid sx={{ marginTop: "20px" }} container xs={12} md={6}>
             {/* Thumbnail Section */}
-            <Grid item xs={3}>
+            <Grid item xs={2}>
               <Box className="thumbnail-section">
                 <Grid container direction="column" spacing={1}>
                   {product?.images?.map((image, index) => (
@@ -49,7 +49,7 @@ const ProductDetail = () => {
               </Box>
             </Grid>
             {/* Main Image Section */}
-            <Grid item xs={9}>
+            <Grid item xs={10}>
               <Box className="image-section">
                 <img src={image} alt="Main" className="main-image" />
               </Box>
@@ -62,7 +62,7 @@ const ProductDetail = () => {
               <Typography variant="body2" className="product-description">
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: product?.description || "",
+                    __html: product?.short_description || "",
                   }}
                 />
               </Typography>

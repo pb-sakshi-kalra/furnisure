@@ -1,6 +1,7 @@
 import React from "react";
 import { Masonry } from "@mui/lab";
 import { Box } from "@mui/material";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 import "./index.css";
 
@@ -22,27 +23,33 @@ const items = [
 
 const MasonryLayout = () => {
   return (
-    <Box sx={{ width: "100%", height: "105vh", overflowY: "auto" }}>
-      <Masonry columns={3}>
-        {items.map((item) => (
-          <Box
-            className="masonary-box"
-            key={item.id}
-            sx={{
-              height: item.height,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "white",
-              fontSize: "1.5rem",
-              borderRadius: 1,
-            }}
-          >
-            <img style={{ height: "100%", width: "100%" }} src={item.img} />
-          </Box>
-        ))}
-      </Masonry>
-    </Box>
+    <>
+      <h1>Follow our Socials</h1>
+      <Box sx={{ width: "100%", height: "90vh", overflowY: "auto" }}>
+        <Masonry columns={3}>
+          {items.map((item) => (
+            <Box
+              className="masonary-box"
+              key={item.id}
+              sx={{
+                height: item.height,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+                fontSize: "1.5rem",
+                borderRadius: 1,
+              }}
+            >
+              <div className="social-div">
+                <InstagramIcon fontSize="large" />
+              </div>
+              <img style={{ height: "100%", width: "100%" }} src={item.img} />
+            </Box>
+          ))}
+        </Masonry>
+      </Box>
+    </>
   );
 };
 

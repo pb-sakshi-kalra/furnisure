@@ -21,8 +21,7 @@
   height: 100%;
 }
 .product-detail .main-image {
-  width: 100%;
-  max-width: 600px;
+  width: 90%;
   height: auto;
   margin-bottom: 10px;
 }
@@ -97,6 +96,6 @@
     width: 100px;
   }
   .product-detail .main-image {
-    max-width: 100%;
+    max-width: 90%;
   }
 }/*# sourceMappingURL=index.css.map */

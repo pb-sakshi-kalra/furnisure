@@ -28,8 +28,8 @@ import logo from "../../assets/logo/FS Logo.png";
 
 const upperItems = ["Categories", "Events", "Chairs"];
 const lowerItems = [
-  { name: "Contact", icon: <AdbIcon /> },
-  { name: "Blog", icon: <AdbIcon /> },
+  { name: "About Us", icon: <AdbIcon /> },
+  { name: "Contact Us", icon: <AdbIcon /> },
 ];
 
 const popoverContents = {
@@ -93,29 +93,11 @@ function EventHeader() {
       <Toolbar
         sx={{
           justifyContent: "space-between",
-          padding: "20px",
+          padding: "10px 0px",
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <img style={{ width: "350px" }} src={logo} />
-        </Box>
-
-        <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
-          <InputBase
-            placeholder="Search…"
-            sx={{
-              color: "white",
-              backgroundColor: "rgba(255, 255, 255, 0.15)",
-              borderRadius: "4px",
-              paddingLeft: 2,
-              paddingRight: 2,
-              paddingTop: 1,
-              paddingBottom: 1,
-              width: "100%",
-              maxWidth: 400,
-            }}
-            startAdornment={<SearchIcon sx={{ mr: 1, color: "inherit" }} />}
-          />
+          <img style={{ width: "250px" }} src={logo} />
         </Box>
 
         <IconButton color="inherit">
@@ -129,7 +111,8 @@ function EventHeader() {
           justifyContent: "space-between",
           width: "100%",
           background: "#8c568f",
-          padding: "20px",
+          height: "50px !important",
+          minHeight: "50px !important",
         }}
       >
         <Box

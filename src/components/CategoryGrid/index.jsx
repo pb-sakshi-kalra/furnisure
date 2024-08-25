@@ -51,7 +51,7 @@ const CategoryGrid = ({
   const navigate = useNavigate();
 
   const onClickCategory = (id, name) => {
-    navigate(`/category/${id}`);
+    navigate(`/category/${id}`, { state: { name } });
   };
   return (
     <div className="root">
@@ -72,7 +72,7 @@ const CategoryGrid = ({
           click through to find what suits you best!
         </p>
       ) : null}
-      <h1 style={{ marginBottom: "50px" }}>{name}</h1>
+      <h1 style={{ marginBottom: "40px" }}>{name}</h1>
       <Grid container spacing={3}>
         {categories.map(
           (item, index) =>

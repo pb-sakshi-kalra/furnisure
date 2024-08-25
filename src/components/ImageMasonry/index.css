@@ -1,12 +1,32 @@
 .masonary-box {
   overflow: hidden;
   cursor: pointer;
+  position: relative;
 }
-.masonary-box img {
-  transition: all 0.5s ease-in-out;
+.masonary-box .social-div {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5411764706);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: white;
+  display: none;
 }
-.masonary-box img:hover {
-  transform: scale(1.1);
-  overflow: hidden;
-  transition: all 0.5s ease-in-out;
+.masonary-box:hover .social-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  color: #8c568f !important;
+  font-family: "Brooklyn-Bold";
+  margin-bottom: 40px;
+  transition: all 0.5s ease-out;
+  font-weight: bold;
 }/*# sourceMappingURL=index.css.map */

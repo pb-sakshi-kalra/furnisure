@@ -15,7 +15,7 @@ import chair4 from "../../assets/chairs/chair4.webp";
 import chair5 from "../../assets/chairs/chair5.webp";
 import chair6 from "../../assets/chairs/chair6.webp";
 import chair7 from "../../assets/chairs/chair7.webp";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 import Category from "../../services/category";
 
@@ -66,6 +66,8 @@ const ProductList = () => {
   const [subcategories, setSubCategories] = useState([]);
   const [productsList, setProductsList] = useState([]);
   const { id } = useParams();
+  const location = useLocation();
+  const { name } = location?.state;
   const navigate = useNavigate();
 
   const onClickCategory = (index) => {
@@ -88,7 +90,7 @@ const ProductList = () => {
       <EventHeader />
       <div className="background-category">
         <div className="category-heading">
-          <h1>Chair</h1>
+          <h1>{name || ""}</h1>
         </div>
       </div>
       {subcategories?.length > 0 ? (
@@ -98,30 +100,32 @@ const ProductList = () => {
           name="Sub-Categories"
         />
       ) : null}
-      <div className="product-list">
-        <h2 className="products-heading">Products Lists</h2>
-        <Grid container spacing={2}>
-          {productsList?.map((item, index) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              key={index}
-              onClick={() => onClickCategory(item?.id)}
-            >
-              <Card className="card">
-                <img src={item?.images[0]?.src} />
-                <CardContent>
-                  <h6 className="card-title">{item?.name}</h6>
-                  <p className="card-para">{item?.price}</p>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </div>
+      {productsList?.length > 0 ? (
+        <div className="product-list">
+          <h2 className="products-heading">Products List</h2>
+          <Grid container spacing={2}>
+            {productsList?.map((item, index) => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+                key={index}
+                onClick={() => onClickCategory(item?.id)}
+              >
+                <Card className="card">
+                  <img src={item?.images[0]?.src} />
+                  <CardContent>
+                    <h6 className="card-title">{item?.name}</h6>
+                    <p className="card-para">{item?.price}</p>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </div>
+      ) : null}
       <Footer />
     </>
   );
