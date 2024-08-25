@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Grid,
   Card,
@@ -15,10 +15,14 @@ import chair4 from "../../assets/chairs/chair4.webp";
 import chair5 from "../../assets/chairs/chair5.webp";
 import chair6 from "../../assets/chairs/chair6.webp";
 import chair7 from "../../assets/chairs/chair7.webp";
-import { EventBanner } from "../EventBanner";
+import { useParams } from "react-router-dom";
+
+import Category from "../../services/category";
+
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 import EventHeader from "../EventHeader";
+import CategoryGrid from "../CategoryGrid";
 
 const items = [
   {
@@ -59,11 +63,25 @@ const items = [
 ];
 
 const ProductList = () => {
+  const [subcategories, setSubCategories] = useState([]);
+  const [productsList, setProductsList] = useState([]);
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const onClickCategory = (index) => {
     navigate(`/product/${index}`);
   };
+
+  useEffect(() => {
+    Category.get().then((res) =>
+      setSubCategories(
+        res?.data?.filter(
+          (cate) => cate?.parent == id && cate?.display === "subcategories"
+        )
+      )
+    );
+    Category.getSubcategory(id).then((res) => setProductsList(res?.data));
+  }, [id]);
 
   return (
     <>
@@ -73,10 +91,17 @@ const ProductList = () => {
           <h1>Chair</h1>
         </div>
       </div>
+      {subcategories?.length > 0 ? (
+        <CategoryGrid
+          categories={subcategories}
+          description={false}
+          name="Sub-Categories"
+        />
+      ) : null}
       <div className="product-list">
         <h2 className="products-heading">Products Lists</h2>
         <Grid container spacing={2}>
-          {items.map((item, index) => (
+          {productsList?.map((item, index) => (
             <Grid
               item
               xs={12}
@@ -84,13 +109,13 @@ const ProductList = () => {
               md={4}
               lg={3}
               key={index}
-              onClick={() => onClickCategory(index)}
+              onClick={() => onClickCategory(item?.id)}
             >
               <Card className="card">
-                <img src={item.image} />
+                <img src={item?.images[0]?.src} />
                 <CardContent>
-                  <h6 className="card-title">{item.label}</h6>
-                  <p className="card-para">{item.price}</p>
+                  <h6 className="card-title">{item?.name}</h6>
+                  <p className="card-para">{item?.price}</p>
                 </CardContent>
               </Card>
             </Grid>

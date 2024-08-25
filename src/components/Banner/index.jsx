@@ -2,52 +2,52 @@ import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import "./index.css";
-import main1 from "../../assets/main/main1.jpg";
-import main2 from "../../assets/main/main2.jpg";
-import main6 from "../../assets/main/main6.jpg";
-import main4 from "../../assets/main/main4.jpg";
-import main5 from "../../assets/main/main5.jpg";
+import home1 from "../../assets/home1.webp";
+import main12 from "../../assets/main/main12.jpg";
+import main13 from "../../assets/main/main13.jpg";
+import main14 from "../../assets/main/main14.jpg";
+import main18 from "../../assets/main/main18.jpg";
 
 const bannerOptions = [
   {
     name: "Home",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: main1,
+    image: home1,
     color: "#8f87d1",
   },
   {
     name: "Sofa",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: main2,
+    image: main13,
     color: "#bd983e",
   },
   {
-    name: "Sitting Chairs",
+    name: "Events",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: main6,
+    image: main12,
     color: "#b6a7b6",
   },
   {
     name: "Lamp",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: main4,
+    image: main14,
     color: "#3c5080",
   },
   {
     name: "Sitting",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: main5,
+    image: main18,
     color: "#d28c64",
   },
 ];
 
 const Banner = () => {
-  const [image, setImage] = useState(main2);
+  const [image, setImage] = useState(main12);
   const [hoveredIndex, setHoveredIndex] = useState(-1);
 
   const handleMouseEnter = (index) => {
@@ -56,7 +56,7 @@ const Banner = () => {
   };
 
   const handleMouseLeave = () => {
-    setImage(main2);
+    setImage(main12);
     setHoveredIndex(-1);
   };
 

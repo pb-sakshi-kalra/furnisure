@@ -12,11 +12,10 @@ import ProductDetail from "./components/ProductDetails";
 import ScrollToTop from "./pages/ScrollToTop";
 
 function App() {
-  useEffect(() => {
-    products.get();
-    Category.get();
-    Category.getSubcategory(17);
-  }, []);
+  // useEffect(() => {
+  //   products.get();
+  //   Category.getSubcategory(17);
+  // }, []);
 
   return (
     <div>
@@ -24,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/event" element={<Event />} />
-        <Route path="/category/:name" element={<CategoryList />} />
+        <Route path="/category/:id" element={<CategoryList />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
     </div>

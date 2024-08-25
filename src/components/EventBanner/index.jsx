@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
-import main1 from "../../assets/main/main1.jpg";
-import main2 from "../../assets/main/main2.jpg";
-import main3 from "../../assets/main/main3.jpg";
-import main4 from "../../assets/main/main4.jpg";
-import main5 from "../../assets/main/main5.jpg";
+import main11 from "../../assets/main/main11.jpg";
+import main12 from "../../assets/main/main12.jpg";
+import main13 from "../../assets/main/main13.jpg";
+import main14 from "../../assets/main/main14.jpg";
+import main15 from "../../assets/main/main15.JPG";
 
-const imgs = [main1, main2, main3, main4, main5];
+const imgs = [main11, main12, main13, main14, main15];
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;

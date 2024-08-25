@@ -14,62 +14,67 @@
 .product-detail .title:hover {
   transform: scale(1.2);
 }
-
-.image-section {
-  text-align: center;
+.product-detail .image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
-
-.main-image {
+.product-detail .main-image {
   width: 100%;
-  max-width: 300px;
+  max-width: 600px;
+  height: auto;
   margin-bottom: 10px;
 }
-
-.thumbnail-section .thumbnail {
+.product-detail .thumbnail-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  width: 100px;
+  justify-content: space-between;
+}
+.product-detail .thumbnail {
   width: 100%;
   cursor: pointer;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 10px;
 }
-
-.detail-section {
+.product-detail .detail-section {
   position: relative;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
-
-.close-button {
+.product-detail .close-button {
   position: absolute;
   top: 10px;
   right: 10px;
 }
-
-.product-title {
+.product-detail .product-title {
   margin-bottom: 20px !important;
   color: #8c568f;
   font-family: "Brooklyn-Bold";
-  margin-bottom: 100px;
   font-weight: bold;
   font-size: 30px;
 }
-
-.product-description {
+.product-detail .product-description {
   margin-bottom: 20px !important;
 }
-
-.product-price-old {
+.product-detail .product-price-old {
   text-decoration: line-through;
   margin-bottom: 10px !important;
   color: #8c568f;
   font-weight: bold;
 }
-
-.product-price-new {
+.product-detail .product-price-new {
   margin-bottom: 20px !important;
   color: #8c568f;
   font-weight: bold;
 }
-
-.shop-button {
+.product-detail .shop-button {
   align-self: center;
   padding: 10px 20px !important;
   border: none !important;
@@ -79,10 +84,19 @@
   cursor: pointer !important;
   width: 60% !important;
   margin-bottom: 50px !important;
-  font-family: "Brooklyn-Bold !important";
+  font-family: "Brooklyn-Bold" !important;
   transition: all 0.2s ease-in-out;
 }
-.shop-button:hover {
+.product-detail .shop-button:hover {
   transform: scale(1.02) !important;
   transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .product-detail .thumbnail-section {
+    width: 100px;
+  }
+  .product-detail .main-image {
+    max-width: 100%;
+  }
 }/*# sourceMappingURL=index.css.map */

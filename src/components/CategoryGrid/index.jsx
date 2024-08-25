@@ -21,7 +21,6 @@ import storage from "../../assets/icons/storage-and-display.svg";
 import tableLamp from "../../assets/icons/table-lamp.svg";
 import vases from "../../assets/icons/Vases_2020-12-09-085902.svg";
 import { useNavigate } from "react-router-dom";
-import Category from "../../services/category";
 
 const items = [
   { label: "RUG", icon: rug },
@@ -44,47 +43,57 @@ const items = [
   { label: "VASES", icon: vases },
 ];
 
-const CategoryGrid = () => {
+const CategoryGrid = ({
+  categories,
+  description = true,
+  name = "Categories",
+}) => {
   const navigate = useNavigate();
 
-  const onClickCategory = (name) => {
-    navigate(`/category/${name.toLowerCase()}`);
+  const onClickCategory = (id, name) => {
+    navigate(`/category/${id}`);
   };
   return (
     <div className="root">
-      <p>
-        Thinking about hosting an event or refreshing your home or office space?
-        We've got you covered! Check out our event furniture to add that special
-        touch to your gatherings, or browse our home and office collections for
-        long-term comfort. Just click through to find what suits you best!
-        Thinking about hosting an event or refreshing your home or office space?
-        We've got you covered! Check out our event furniture to add that special
-        touch to your gatherings, or browse our home and office collections for
-        long-term comfort. Just click through to find what suits you best!
-        Thinking about hosting an event or refreshing your home or office space?
-        We've got you covered! Check out our event furniture to add that special
-        touch to your gatherings, or browse our home and office collections for
-        long-term comfort. Just click through to find what suits you best!
-      </p>
-      <h1 style={{ marginBottom: "50px" }}>Categories</h1>
+      {description ? (
+        <p>
+          Thinking about hosting an event or refreshing your home or office
+          space? We've got you covered! Check out our event furniture to add
+          that special touch to your gatherings, or browse our home and office
+          collections for long-term comfort. Just click through to find what
+          suits you best! Thinking about hosting an event or refreshing your
+          home or office space? We've got you covered! Check out our event
+          furniture to add that special touch to your gatherings, or browse our
+          home and office collections for long-term comfort. Just click through
+          to find what suits you best! Thinking about hosting an event or
+          refreshing your home or office space? We've got you covered! Check out
+          our event furniture to add that special touch to your gatherings, or
+          browse our home and office collections for long-term comfort. Just
+          click through to find what suits you best!
+        </p>
+      ) : null}
+      <h1 style={{ marginBottom: "50px" }}>{name}</h1>
       <Grid container spacing={3}>
-        {items.map((item, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
-            xl={2}
-            key={index}
-            onClick={() => onClickCategory(item.label)}
-          >
-            <Paper className="paper">
-              <img src={item?.icon} className="icon" />
-              <p className="paper-heading">{item.label}</p>
-            </Paper>
-          </Grid>
-        ))}
+        {categories.map(
+          (item, index) =>
+            item?.name !== "Uncategorized" && (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+                xl={2}
+                key={index}
+                onClick={() => onClickCategory(item.id, item?.name)}
+              >
+                <Paper className="paper">
+                  <img src={item?.image} className="icon" />
+                  <p className="paper-heading">{item.name}</p>
+                </Paper>
+              </Grid>
+            )
+        )}
       </Grid>
     </div>
   );
