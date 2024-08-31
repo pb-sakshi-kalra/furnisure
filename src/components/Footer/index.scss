@@ -4,7 +4,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #d5d5d5 !important;
+  background: radial-gradient(
+    circle,
+    rgba(164, 121, 166, 0.7539390756302521) 0%,
+    rgba(255, 255, 255, 1) 70%
+  );
+
   h4 {
     font-size: 35px;
     font-weight: 700;
@@ -47,7 +52,7 @@
       border: 1px solid black;
       border-radius: 5px;
       transform: translateX(170px);
-      &:hover{
+      &:hover {
         background: rgb(66, 66, 66);
         color: white;
       }

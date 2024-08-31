@@ -39,10 +39,10 @@ h3 {
   height: 50vh;
   opacity: 1; /* Initial opacity or as desired */
   margin: 40px;
+  width: 45%;
   transition: all 0.3ms ease-in;
   cursor: pointer;
 }
 .scroll-image:hover {
-  transform: scale(1.1);
-  transition: all 0.3ms ease-in;
+  transform: scale(1.1) !important;
 }/*# sourceMappingURL=index.css.map */

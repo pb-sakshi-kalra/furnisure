@@ -59,7 +59,8 @@ const Selection = () => {
                   initial={{ opacity: 0, x: -700 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 2, ease: "easeInOut" }}
-                />
+                ></motion.img>
+
                 <motion.img
                   src={event1}
                   alt="Image 2"

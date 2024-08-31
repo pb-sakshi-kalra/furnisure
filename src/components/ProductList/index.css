@@ -46,8 +46,8 @@
 }
 
 .background-category {
-  height: 45vh;
-  background: url("../../assets/main//main3.jpg");
+  height: 70vh;
+  background: url("../../assets/event1.jpg");
   background-position: center;
   background-attachment: fixed;
   position: relative;
@@ -55,7 +55,7 @@
 }
 .background-category .category-heading {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 28px;

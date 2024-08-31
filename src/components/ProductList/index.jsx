@@ -93,13 +93,13 @@ const ProductList = () => {
           <h1>{name || ""}</h1>
         </div>
       </div>
-      {subcategories?.length > 0 ? (
+      {/* {subcategories?.length > 0 ? (
         <CategoryGrid
           categories={subcategories}
           description={false}
           name="Sub-Categories"
         />
-      ) : null}
+      ) : null} */}
       {productsList?.length > 0 ? (
         <div className="product-list">
           <h2 className="products-heading">Products List</h2>

@@ -1,10 +1,8 @@
 .about {
-  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 140px;
-  margin-top: 50px;
 }
 .about .about-image {
   width: 50%;
@@ -14,16 +12,15 @@
   align-items: center;
   padding: 50px;
   height: 100%;
-  margin-top: 150px;
 }
 .about .about-image .first-image {
-  height: 450px;
-  width: 400px;
+  height: 550px;
+  width: 450px;
 }
 .about .about-image .second-image {
   position: absolute;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
   left: 60%;
 }
 .about .about-image .second-image img {
@@ -48,10 +45,39 @@
   font-family: "Brooklyn-Bold";
   margin-bottom: 30px;
 }
-.about .about-description .para {
+.about .about-description .des {
   font-size: 16px;
   line-height: 24px;
-  letter-spacing: 1px;
-  text-align: justify;
-  color: #676c74 !important;
+}
+.about .about-description .des p {
+  margin-bottom: 10px;
+}
+.about .about-description .des h6 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 36px;
+  font-family: "Brooklyn-Bold";
+}
+@media screen and (max-width: 1200px) {
+  .about {
+    display: block;
+  }
+  .about .about-image {
+    width: 100% !important;
+  }
+  .about .about-description {
+    width: 100% !important;
+  }
+}
+
+.about-container {
+  margin-top: 70px;
+}
+.about-container h3 {
+  font-size: 40px;
+  transition: all 0.3s ease-in-out;
+}
+.about-container h3:hover {
+  transform: translateX(10px);
+  transition: all 0.3s ease-in-out;
 }/*# sourceMappingURL=index.css.map */

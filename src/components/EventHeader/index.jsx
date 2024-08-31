@@ -26,24 +26,43 @@ import sofas from "../../assets/icons/sofas.svg";
 
 import logo from "../../assets/logo/FS Logo.png";
 
-const upperItems = ["Categories", "Events", "Chairs"];
-const lowerItems = [
-  { name: "About Us", icon: <AdbIcon /> },
-  { name: "Contact Us", icon: <AdbIcon /> },
+const upperItems = [
+  "Seating",
+  "Tables",
+  "Arabic Frunitures",
+  "Outdoor Furnitures",
+  "Bars",
+  "About Us",
+  "Contanct Us",
 ];
 
 const popoverContents = {
-  Categories: [
+  Seating: [
+    { title: "Pendant lights", icon: bedsideTable },
+    { title: "Floor lamps", icon: coffeeTable },
+    { title: "Wall lamps", icon: desk },
+    { title: "Pendant lights", icon: bedsideTable },
+    { title: "Floor lamps", icon: coffeeTable },
+    { title: "Wall lamps", icon: desk },
+    { title: "Pendant lights", icon: bedsideTable },
+    { title: "Floor lamps", icon: coffeeTable },
+    { title: "Wall lamps", icon: desk },
     { title: "Pendant lights", icon: bedsideTable },
     { title: "Floor lamps", icon: coffeeTable },
     { title: "Wall lamps", icon: desk },
   ],
-  Events: [
+  Tables: [
+    { title: "Table lamps", icon: diningChairs },
+    { title: "Socket pendants and lamp shades", icon: diningTables },
+    { title: "Ceiling lights", icon: downlights },
+    { title: "Table lamps", icon: diningChairs },
+    { title: "Socket pendants and lamp shades", icon: diningTables },
+    { title: "Ceiling lights", icon: downlights },
     { title: "Table lamps", icon: diningChairs },
     { title: "Socket pendants and lamp shades", icon: diningTables },
     { title: "Ceiling lights", icon: downlights },
   ],
-  Chairs: [
+  Bars: [
     { title: "Light bulbs and accessories", icon: pendantLights },
     { title: "Outdoor lighting", icon: sofas },
     { title: "Smart lighting", icon: officeChairs },
@@ -79,38 +98,38 @@ function EventHeader() {
   return (
     <AppBar
       position="fixed"
+      className="event-header"
       sx={{
-        position: "relative",
+        position: "absolute",
         top: 0,
         left: 0,
         right: 0,
         color: "black",
-        backgroundColor: "none",
-        background: "none",
+        background: "none !important",
       }}
     >
       {/* Upper Layer */}
       <Toolbar
         sx={{
-          justifyContent: "space-between",
+          justifyContent: "center",
           padding: "10px 0px",
+          background: "#ffffffc7",
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <img style={{ width: "250px" }} src={logo} />
+          <a href="/">
+            <img style={{ width: "250px" }} src={logo} />
+          </a>
         </Box>
-
-        <IconButton color="inherit">
-          <FavoriteIcon />
-        </IconButton>
       </Toolbar>
       {/* Lower Layer */}
       <Toolbar
         disableGutters
+        className="lower-toolbar"
         sx={{
           justifyContent: "space-between",
           width: "100%",
-          background: "#8c568f",
+          background: "#8c568fcc",
           height: "50px !important",
           minHeight: "50px !important",
         }}
@@ -123,7 +142,15 @@ function EventHeader() {
             height: "100%",
           }}
         >
-          <Box sx={{ display: "flex", flexGrow: 1, height: "100%" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexGrow: 1,
+              padding: "0px 80px",
+              height: "100%",
+              justifyContent: "space-around",
+            }}
+          >
             {upperItems.map((item) => (
               <Button
                 key={item}
@@ -146,21 +173,6 @@ function EventHeader() {
                 }}
               >
                 {item}
-                {selectedItem === item ? (
-                  <KeyboardArrowUpIcon sx={{ marginLeft: 0.5 }} />
-                ) : (
-                  <KeyboardArrowDownIcon sx={{ marginLeft: 0.5 }} />
-                )}
-              </Button>
-            ))}
-          </Box>
-          <Box sx={{ display: "flex" }}>
-            {lowerItems.map((item) => (
-              <Button
-                key={item.name}
-                sx={{ color: "white", display: "flex", marginLeft: "auto" }}
-              >
-                {item.name}
               </Button>
             ))}
           </Box>
@@ -184,7 +196,7 @@ function EventHeader() {
         >
           <Grid container spacing={2}>
             {popoverContents[selectedItem].map((content) => (
-              <Grid item xs={4} key={content.title}>
+              <Grid sx={{ padding: "20px" }} item xs={3} key={content.title}>
                 <Box
                   sx={{
                     display: "flex",
@@ -192,9 +204,15 @@ function EventHeader() {
                     justifyContent: "center",
                   }}
                 >
-                  <img style={{ height: "50px" }} src={content.icon} />
+                  <img style={{ height: "60px" }} src={content.icon} />
                   <Typography
-                    sx={{ marginLeft: 1, color: "black", cursor: "pointer" }}
+                    sx={{
+                      marginLeft: 1,
+                      color: "black",
+                      cursor: "pointer",
+                      fontFamily: "Brooklyn-Normal",
+                      fontSize: "16px !important",
+                    }}
                   >
                     {content.title}
                   </Typography>

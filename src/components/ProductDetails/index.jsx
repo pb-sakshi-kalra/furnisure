@@ -35,7 +35,7 @@ const ProductDetail = () => {
             {/* Thumbnail Section */}
             <Grid item xs={2}>
               <Box className="thumbnail-section">
-                <Grid container direction="column" spacing={1}>
+                <Grid container direction="column">
                   {product?.images?.map((image, index) => (
                     <Grid key={index} item>
                       <img
@@ -68,16 +68,29 @@ const ProductDetail = () => {
                 />
               </Typography>
               <Typography variant="h6" className="product-price-new">
-                ${product?.price}
+                Rental Price : AED {product?.price} / day
               </Typography>
-              <Button className="shop-button">Shop this item</Button>
+              <Button className="shop-button">Add to Cart</Button>
             </Box>
           </Grid>
         </Grid>
       </Paper>
+      <h1 className="dimension">Dimensions</h1>
       <div className="product-dimension">
         <img src={dimension} />
         <div>
+          <div className="dimension-grid">
+            <p></p>
+            <p>
+              <strong>Categories:</strong>&nbsp;
+              {product?.categories?.map((category, index) => (
+                <a href="/">
+                  {category?.name}
+                  {index !== product?.categories?.length - 1 ? ", " : null}
+                </a>
+              ))}
+            </p>
+          </div>
           <div className="dimension-grid">
             <p>Height</p>
             <p>{product?.dimensions?.height}</p>
@@ -96,53 +109,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      <div className="product-description">
-        <h1>Description</h1>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut officia
-        laudantium ipsa hic dicta? Voluptate unde quaerat inventore aspernatur
-        neque porro est cum quo. Ab similique perferendis, quaerat perspiciatis
-        odit porro nihil temporibus voluptas corrupti, harum rem! Quos
-        perspiciatis molestiae commodi iste dolor earum sapiente itaque deserunt
-        ipsum quasi velit culpa odit eligendi totam quibusdam et a, laboriosam
-        quisquam at vero! Optio, non fugit. Et accusamus est corporis. Deleniti
-        consectetur voluptatibus maxime corporis exercitationem. Quia laborum
-        quo praesentium tempore doloremque, qui corporis perspiciatis. Impedit
-        est delectus alias officia quibusdam repudiandae, repellat blanditiis
-        aliquam modi ducimus cum voluptate quos illum consequuntur enim
-        similique laborum doloribus suscipit porro mollitia. Quo eum veritatis
-        nobis amet sunt officia suscipit aliquid dolore debitis. Neque sint
-        adipisci exercitationem. Eveniet, atque amet beatae ut in eius natus,
-        nesciunt nam culpa impedit aliquam nihil ad, expedita dolorem quidem? Ea
-        distinctio mollitia nostrum, neque illum et eaque quo ad laudantium rem
-        porro tempora, doloribus incidunt saepe dolorem fugiat eligendi
-        molestias provident commodi non. Dolor, voluptatum ab. Deleniti, hic
-        pariatur, quis accusantium doloremque quisquam illum dolorum molestias
-        fuga non repudiandae aliquam facilis dolor impedit aliquid est alias
-        veniam tenetur? Reprehenderit labore, consequuntur ducimus, perspiciatis
-        quo temporibus sequi fuga illum et maiores tempora, cum sed ratione quis
-        nisi vitae. Possimus cumque voluptas, odit doloribus distinctio quas
-        necessitatibus repellendus beatae quia modi, perferendis laborum ad quam
-        hic obcaecati totam vel assumenda labore sunt minima pariatur officiis
-        eius. Necessitatibus, autem et suscipit consequatur aut voluptatum
-        iusto, accusantium nostrum magni quidem nihil pariatur omnis quam
-        aperiam, at maxime cupiditate. Debitis, hic maxime non veritatis laborum
-        consectetur aliquid vel ea iste consequatur distinctio natus et id
-        laboriosam optio delectus beatae iure quos. Ut, rem dolor fugiat
-        sapiente, commodi repellendus facilis quidem porro praesentium
-        laboriosam explicabo cupiditate libero est. Explicabo perferendis
-        accusamus ipsa, aliquid possimus magni perspiciatis nulla quis rem
-        consectetur corrupti dicta hic praesentium sint quos eum facilis, est,
-        culpa id quasi accusantium! Obcaecati id laboriosam voluptatibus magnam,
-        recusandae dolorum dolorem, ab eaque nam deleniti numquam tempora eius,
-        non perspiciatis vel excepturi illum quae explicabo. Pariatur temporibus
-        deserunt, doloremque magni dolores quae dolor maiores commodi. Unde
-        alias tempore optio error, nam ex, totam odio dolores aperiam temporibus
-        cumque accusamus! Obcaecati aliquid molestias ipsa cupiditate omnis
-        nesciunt libero pariatur quae, ipsum doloremque saepe dolor? Totam quo
-        harum provident. Illo quos nisi, aperiam nesciunt numquam recusandae
-        cupiditate, ipsa nostrum architecto similique autem enim est magnam
-        molestiae optio!
-      </div>
+      <div className="description">{product?.description}</div>
       <Footer />
     </>
   );

@@ -1,47 +1,8 @@
 // src/components/FurnitureGrid.js
 import React from "react";
-import { Grid, Paper, Typography } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import "./index.css";
-import rug from "../../assets/icons/1place-rug-iconsvg.svg";
-import armchair from "../../assets/icons/armchair-icon.svg";
-import art from "../../assets/icons/art.svg";
-import barStool from "../../assets/icons/bar-stools.svg";
-import bathTowels from "../../assets/icons/Bath-Towels-Beach-Towels.svg";
-import beds from "../../assets/icons/beds.svg";
-import bedsideTable from "../../assets/icons/bedside-tables.svg";
-import coffeeTable from "../../assets/icons/coffee-tables.svg";
-import desk from "../../assets/icons/Desks.svg";
-import diningChairs from "../../assets/icons/dining-chair.svg";
-import diningTables from "../../assets/icons/dining-tables.svg";
-import downlights from "../../assets/icons/Downlights.svg";
-import officeChairs from "../../assets/icons/Office-Chairs.svg";
-import pendantLights from "../../assets/icons/Pendant-Lights.svg";
-import sofas from "../../assets/icons/sofas.svg";
-import storage from "../../assets/icons/storage-and-display.svg";
-import tableLamp from "../../assets/icons/table-lamp.svg";
-import vases from "../../assets/icons/Vases_2020-12-09-085902.svg";
 import { useNavigate } from "react-router-dom";
-
-const items = [
-  { label: "RUG", icon: rug },
-  { label: "ARMCHAIR", icon: armchair },
-  { label: "ART", icon: art },
-  { label: "BATH TOWELS", icon: bathTowels },
-  { label: "BAR STOOLS", icon: barStool },
-  { label: "DINING CHAIRS", icon: diningChairs },
-  { label: "DINING TABLES", icon: diningTables },
-  { label: "BED SIZES", icon: beds },
-  { label: "COFFEE TABLES", icon: coffeeTable },
-  { label: "BEDSIDE TABLES", icon: bedsideTable },
-  { label: "OFFICE CHAIRS", icon: officeChairs },
-  { label: "DESK", icon: desk },
-  { label: "DOWN LIGHTS", icon: downlights },
-  { label: "PENDANT LIGHTS", icon: pendantLights },
-  { label: "SOFAS", icon: sofas },
-  { label: "STORAGE", icon: storage },
-  { label: "TABLE LAMP", icon: tableLamp },
-  { label: "VASES", icon: vases },
-];
 
 const CategoryGrid = ({
   categories,
@@ -56,21 +17,31 @@ const CategoryGrid = ({
   return (
     <div className="root">
       {description ? (
-        <p>
-          Thinking about hosting an event or refreshing your home or office
-          space? We've got you covered! Check out our event furniture to add
-          that special touch to your gatherings, or browse our home and office
-          collections for long-term comfort. Just click through to find what
-          suits you best! Thinking about hosting an event or refreshing your
-          home or office space? We've got you covered! Check out our event
-          furniture to add that special touch to your gatherings, or browse our
-          home and office collections for long-term comfort. Just click through
-          to find what suits you best! Thinking about hosting an event or
-          refreshing your home or office space? We've got you covered! Check out
-          our event furniture to add that special touch to your gatherings, or
-          browse our home and office collections for long-term comfort. Just
-          click through to find what suits you best!
-        </p>
+        <>
+          <p>
+            <strong>Welcome</strong> to the ultimate destination for event
+            furniture rental in Dubai! At FurniSure Rentals, we bring you an
+            exciting array of stylish and high-quality furniture that transforms
+            any occasion into a memorable event. Whether you're planning an
+            elegant wedding, a corporate gala, or a casual outdoor party, our
+            furniture rental in Dubai offers convenience and flair to suit your
+            unique vision.
+          </p>
+          <p>
+            Explore our diverse collection of event furniture rental in Dubai,
+            ranging from chic lounge settings to elegant dining arrangements.
+            Each piece combines comfort and style, ensuring your guests are
+            impressed and at ease. With our flexible rental options, you can
+            effortlessly create the perfect setting without the hassle of
+            ownership.
+          </p>
+          <p>
+            Dive into our curated categories below and envision your next event
+            elevated with FurniSure Rentals. We're here to help you make every
+            occasion special, stylish, and stress-free. Let's create
+            unforgettable moments together!
+          </p>
+        </>
       ) : null}
       <h1 style={{ marginBottom: "40px" }}>{name}</h1>
       <Grid container spacing={3}>

@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #d5d5d5 !important;
+  background: radial-gradient(circle, rgba(164, 121, 166, 0.7539390756) 0%, rgb(255, 255, 255) 70%);
 }
 .footer-div h4 {
   font-size: 35px;
