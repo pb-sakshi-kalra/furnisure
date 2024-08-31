@@ -2,6 +2,7 @@
   padding: 20px;
   margin: 20px;
   box-shadow: none !important;
+  background: none !important;
 }
 .product-detail .title {
   font-size: 40px;
@@ -89,6 +90,38 @@
 .product-detail .shop-button:hover {
   transform: scale(1.02) !important;
   transition: all 0.2s ease-in-out;
+}
+
+.product-dimension {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  gap: 20px;
+}
+.product-dimension img {
+  width: 50%;
+}
+.product-dimension div {
+  width: 50%;
+}
+.product-dimension div .dimension-grid {
+  border-top: 1px solid rgba(0, 0, 0, 0.329);
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-dimension div .dimension-grid .seat {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.329);
+}
+
+.product-description {
+  padding: 20px;
+  width: 50%;
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.329);
 }
 
 @media (max-width: 600px) {
