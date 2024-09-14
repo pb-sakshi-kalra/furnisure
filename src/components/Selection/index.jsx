@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
-import home1 from "../../assets/home1.webp";
-import event1 from "../../assets/event1.jpg";
+import main12 from "../../assets/main/main12.jpg";
+import main9 from "../../assets/main/main9.jpg";
 
 const Selection = () => {
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
@@ -34,7 +34,7 @@ const Selection = () => {
   }, []);
 
   return (
-    <>
+    <div className="selection-heading">
       <h3>Select your style!</h3>
       <h4 className="heading">
         Thinking about hosting an event or refreshing your home or office space?
@@ -52,8 +52,11 @@ const Selection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, ease: "easeInOut" }}
               >
+                <div className="selection-home">
+                  <h1>Home</h1>
+                </div>
                 <motion.img
-                  src={home1}
+                  src={main12}
                   alt="Image 1"
                   className="scroll-image"
                   initial={{ opacity: 0, x: -700 }}
@@ -62,7 +65,7 @@ const Selection = () => {
                 ></motion.img>
 
                 <motion.img
-                  src={event1}
+                  src={main9}
                   alt="Image 2"
                   className="scroll-image"
                   initial={{ opacity: 0, x: 700 }}
@@ -70,12 +73,15 @@ const Selection = () => {
                   transition={{ duration: 2, ease: "easeInOut" }}
                   onClick={() => navigate("/event")}
                 />
+                <div className="selection-event">
+                  <h1>Event</h1>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

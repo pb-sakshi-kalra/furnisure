@@ -5,9 +5,9 @@ import main11 from "../../assets/main/main11.jpg";
 import main12 from "../../assets/main/main12.jpg";
 import main13 from "../../assets/main/main13.jpg";
 import main14 from "../../assets/main/main14.jpg";
-import main15 from "../../assets/main/main15.JPG";
+import main9 from "../../assets/main/main9.jpg";
 
-const imgs = [main11, main12, main13, main14, main15];
+const imgs = [main11, main12, main13, main14, main9];
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;

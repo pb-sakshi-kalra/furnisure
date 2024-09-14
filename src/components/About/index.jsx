@@ -1,9 +1,8 @@
-// AboutIndex.jsx
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import "./index.css";
-import banner14 from "../../assets/banner14.jpg";
-import banner16 from "../../assets/banner16.jpg";
+import loader1 from "../../assets/loader/loader1.jpg";
+import loader2 from "../../assets/loader/loader2.jpg";
 
 const About = () => {
   const [scrollPosition, setScrollPosition] = useState(window.scrollY);
@@ -60,13 +59,13 @@ const About = () => {
       <h3>ABOUT US</h3>
       <div className="about">
         <Box ref={aboutImageRef} className="about-image">
-          <img className="first-image" src={banner14} />
+          <img className="first-image" src={loader1} />
           <Box
             ref={secondImageRef}
             className="second-image"
             style={{ bottom: "300px" }}
           >
-            <img src={banner16} />
+            <img src={loader2} />
           </Box>
         </Box>
         <Box className="about-description">

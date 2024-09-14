@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import "./index.css";
-import home1 from "../../assets/home1.webp";
-import main12 from "../../assets/main/main12.jpg";
+import main5 from "../../assets/main/main5.jpg";
+import main7 from "../../assets/main/main7.jpg";
 import main13 from "../../assets/main/main13.jpg";
 import main14 from "../../assets/main/main14.jpg";
-import main18 from "../../assets/main/main18.jpg";
+import main1 from "../../assets/main/main1.jpg";
 
 const bannerOptions = [
   {
     name: "Home",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: home1,
-    color: "#8f87d1",
+    image: main5,
+    color: "#795548",
   },
   {
     name: "Sofa",
@@ -27,8 +27,8 @@ const bannerOptions = [
     name: "Events",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: main12,
-    color: "#b6a7b6",
+    image: main7,
+    color: "rgb(111 83 111)",
   },
   {
     name: "Lamp",
@@ -41,13 +41,13 @@ const bannerOptions = [
     name: "Sitting",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: main18,
+    image: main1,
     color: "#d28c64",
   },
 ];
 
 const Banner = () => {
-  const [image, setImage] = useState(main12);
+  const [image, setImage] = useState(main7);
   const [hoveredIndex, setHoveredIndex] = useState(-1);
 
   const handleMouseEnter = (index) => {
@@ -56,7 +56,7 @@ const Banner = () => {
   };
 
   const handleMouseLeave = () => {
-    setImage(main12);
+    setImage(main7);
     setHoveredIndex(-1);
   };
 
@@ -117,7 +117,7 @@ const Banner = () => {
             <Typography
               className="banner-options"
               sx={{
-                color: "#fefedf",
+                color: "#fcfcfc",
                 position: "absolute",
                 bottom: hoveredIndex === index ? "150px" : "80px",
                 zIndex: 99999,
@@ -127,12 +127,11 @@ const Banner = () => {
                 transition:
                   "bottom 0.5s ease-in-out, font-size 0.5s ease-in-out",
                 width: "100%",
-                fontFamily: "Brooklyn-Heavy",
+                fontFamily: "Brooklyn-HeavyItalic",
                 fontOpticalSizing: "auto",
-                fontSize: hoveredIndex === index ? "30px" : "24px",
+                fontSize: hoveredIndex === index ? "36px" : "32px",
                 boxShadow: "-9px -1px #60494900",
                 fontWeight: "600",
-                letterSpacing: "2px",
               }}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}

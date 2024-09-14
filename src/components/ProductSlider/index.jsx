@@ -36,7 +36,6 @@ const ProductSlider = () => {
   };
 
   const prevSlide = () => {
-    console.log("this is called or not ");
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? products.length - 1 : prevIndex - 1
     );

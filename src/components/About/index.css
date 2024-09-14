@@ -40,17 +40,19 @@
   font-size: 28px;
   font-weight: 700;
   line-height: 36px;
-  color: #8c568f;
+  color: #225822 !important;
   letter-spacing: 2px;
   font-family: "Brooklyn-Bold";
   margin-bottom: 30px;
 }
 .about .about-description .des {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 30px;
+  letter-spacing: 1px;
+  color: rgb(42, 42, 42);
 }
 .about .about-description .des p {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 .about .about-description .des h6 {
   font-size: 18px;
@@ -71,11 +73,12 @@
 }
 
 .about-container {
-  margin-top: 70px;
+  margin-top: 100px;
 }
 .about-container h3 {
   font-size: 40px;
   transition: all 0.3s ease-in-out;
+  color: #04395E;
 }
 .about-container h3:hover {
   transform: translateX(10px);

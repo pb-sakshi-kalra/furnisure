@@ -1,12 +1,9 @@
 import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
-import banner12 from "../../assets/banner12.jpg";
-import banner13 from "../../assets/banner13.jpg";
-import banner14 from "../../assets/banner14.jpg";
-import banner15 from "../../assets/banner15.jpg";
-import banner16 from "../../assets/banner16.jpg";
-import banner17 from "../../assets/banner17.jpg";
-import banner18 from "../../assets/banner18.jpg";
+import loader12 from "../../assets/loader/loader12.jpg";
+import loader13 from "../../assets/loader/loader13.jpg";
+import loader14 from "../../assets/loader/loader14.jpg";
+import loader15 from "../../assets/loader/loader15.jpg";
 
 import "./index.css";
 
@@ -17,25 +14,25 @@ export const FooterLinks = () => {
         <Link
           heading="About"
           subheading="Learn what we do here"
-          imgSrc={banner12}
+          imgSrc={loader12}
           href="#"
         />
         <Link
           heading="Clients"
           subheading="We work with great people"
-          imgSrc={banner14}
+          imgSrc={loader14}
           href="#"
         />
         <Link
           heading="Portfolio"
           subheading="Our work speaks for itself"
-          imgSrc={banner13}
+          imgSrc={loader13}
           href="#"
         />
         <Link
           heading="Catalogue"
           subheading="Keep a copy handy for yourselves"
-          imgSrc={banner15}
+          imgSrc={loader15}
           href="#"
         />
       </div>
