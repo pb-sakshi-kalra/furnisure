@@ -1,10 +1,11 @@
 .root {
   flex-grow: 1;
   padding: 60px 200px;
+  background: white !important;
   h1 {
     font-size: 40px;
     text-align: center;
-    color: #8c568f !important;
+    color: #795548 !important;
     font-family: "Brooklyn-Bold";
     margin-bottom: 20px;
     transition: all 0.5s ease-out;
@@ -23,9 +24,11 @@
   }
   p {
     margin-bottom: 40px !important;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
     line-height: 26px;
+    letter-spacing: 1px;
+    color: rgb(71, 71, 71);
   }
   @media screen and (max-width: 600px) {
     padding: 50px;
@@ -55,7 +58,7 @@
 
   &:hover {
     transition: all 0.6s ease-in-out;
-    background: #8c568f;
+    background: #795548b3;
     transform: scale(1.06);
     .paper-heading {
       color: #ffffff !important;

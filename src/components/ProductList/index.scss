@@ -1,5 +1,6 @@
 .product-list {
   padding: 50px 200px;
+  background-color: white !important;
   .products-heading {
     font-size: 40px;
     text-align: center;
@@ -13,12 +14,17 @@
   }
   .card {
     height: 400px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    padding:10px;
     background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-shadow: none;
+    border: 2px solid rgba(128, 128, 128, 0.4);
+    border-radius: 20px;
     .card-title {
       font-size: 14px;
       font-family: "Brooklyn-Heavy";

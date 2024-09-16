@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  IconButton,
-} from "@mui/material";
+import { Grid, Card, CardContent } from "@mui/material";
 import "./index.css";
 import chair1 from "../../assets/chairs/chair1.webp";
 import chair2 from "../../assets/chairs/chair2.webp";
@@ -22,7 +15,6 @@ import Category from "../../services/category";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 import EventHeader from "../EventHeader";
-import CategoryGrid from "../CategoryGrid";
 
 const items = [
   {
@@ -65,6 +57,7 @@ const items = [
 const ProductList = () => {
   const [subcategories, setSubCategories] = useState([]);
   const [productsList, setProductsList] = useState([]);
+  const [categories, setCategories] = useState([]);
   const { id } = useParams();
   const location = useLocation();
   const { name } = location?.state;
@@ -75,19 +68,20 @@ const ProductList = () => {
   };
 
   useEffect(() => {
-    Category.get().then((res) =>
+    Category.get().then((res) => {
       setSubCategories(
         res?.data?.filter(
           (cate) => cate?.parent == id && cate?.display === "subcategories"
         )
-      )
-    );
+      );
+      setCategories(res?.data);
+    });
     Category.getSubcategory(id).then((res) => setProductsList(res?.data));
   }, [id]);
 
   return (
     <>
-      <EventHeader />
+      <EventHeader categories={categories} />
       <div className="background-category">
         <div className="category-heading">
           <h1>{name || ""}</h1>

@@ -1,77 +1,56 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import InputBase from "@mui/material/InputBase";
-import AdbIcon from "@mui/icons-material/Adb";
-import SearchIcon from "@mui/icons-material/Search";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-
-import bedsideTable from "../../assets/icons/bedside-tables.svg";
-import coffeeTable from "../../assets/icons/coffee-tables.svg";
-import desk from "../../assets/icons/Desks.svg";
-import diningChairs from "../../assets/icons/dining-chair.svg";
-import diningTables from "../../assets/icons/dining-tables.svg";
-import downlights from "../../assets/icons/Downlights.svg";
-import officeChairs from "../../assets/icons/Office-Chairs.svg";
-import pendantLights from "../../assets/icons/Pendant-Lights.svg";
-import sofas from "../../assets/icons/sofas.svg";
-
 import logo from "../../assets/logo/FS Logo.png";
 
 const upperItems = [
   "Seating",
   "Tables",
-  "Arabic Frunitures",
-  "Outdoor Furnitures",
-  "Bars",
+  "Arabic Furniture",
+  "Outdoor Furniture",
+  "Exhibition Furniture",
   "About Us",
   "Contanct Us",
 ];
 
-const popoverContents = {
-  Seating: [
-    { title: "Pendant lights", icon: bedsideTable },
-    { title: "Floor lamps", icon: coffeeTable },
-    { title: "Wall lamps", icon: desk },
-    { title: "Pendant lights", icon: bedsideTable },
-    { title: "Floor lamps", icon: coffeeTable },
-    { title: "Wall lamps", icon: desk },
-    { title: "Pendant lights", icon: bedsideTable },
-    { title: "Floor lamps", icon: coffeeTable },
-    { title: "Wall lamps", icon: desk },
-    { title: "Pendant lights", icon: bedsideTable },
-    { title: "Floor lamps", icon: coffeeTable },
-    { title: "Wall lamps", icon: desk },
-  ],
-  Tables: [
-    { title: "Table lamps", icon: diningChairs },
-    { title: "Socket pendants and lamp shades", icon: diningTables },
-    { title: "Ceiling lights", icon: downlights },
-    { title: "Table lamps", icon: diningChairs },
-    { title: "Socket pendants and lamp shades", icon: diningTables },
-    { title: "Ceiling lights", icon: downlights },
-    { title: "Table lamps", icon: diningChairs },
-    { title: "Socket pendants and lamp shades", icon: diningTables },
-    { title: "Ceiling lights", icon: downlights },
-  ],
-  Bars: [
-    { title: "Light bulbs and accessories", icon: pendantLights },
-    { title: "Outdoor lighting", icon: sofas },
-    { title: "Smart lighting", icon: officeChairs },
-  ],
-};
+function getCategoriesByNameAndParent(categories, name) {
+  const category = categories?.find(
+    (cat) => cat.name.toLowerCase() === name.toLowerCase()
+  );
 
-function EventHeader() {
+  if (!category) {
+    return [];
+  }
+
+  return categories?.filter((cat) => cat.parent === category.id);
+}
+
+function EventHeader({ categories }) {
   const [selectedItem, setSelectedItem] = React.useState(null);
   const popoverRef = React.useRef(null);
+  const navigate = useNavigate();
+
+  const popoverContents = {
+    Seating: getCategoriesByNameAndParent(categories, "seating"),
+    Tables: getCategoriesByNameAndParent(categories, "tables"),
+    "Arabic Furniture": getCategoriesByNameAndParent(
+      categories,
+      "Arabic Furniture"
+    ),
+    "Outdoor Furniture": getCategoriesByNameAndParent(
+      categories,
+      "Outdoor Furniture"
+    ),
+    "Exhibition Furniture": getCategoriesByNameAndParent(
+      categories,
+      "Exhibition Furniture"
+    ),
+  };
 
   const handleClick = (item) => {
     setSelectedItem(selectedItem === item ? null : item);
@@ -122,14 +101,13 @@ function EventHeader() {
           </a>
         </Box>
       </Toolbar>
-      {/* Lower Layer */}
       <Toolbar
         disableGutters
         className="lower-toolbar"
         sx={{
           justifyContent: "space-between",
           width: "100%",
-          background: "#8c568fcc",
+          background: "#795548b3",
           height: "50px !important",
           minHeight: "50px !important",
         }}
@@ -151,7 +129,7 @@ function EventHeader() {
               justifyContent: "space-around",
             }}
           >
-            {upperItems.map((item) => (
+            {upperItems?.map((item) => (
               <Button
                 key={item}
                 onClick={() => handleClick(item)}
@@ -178,7 +156,7 @@ function EventHeader() {
           </Box>
         </Box>
       </Toolbar>
-      {selectedItem && (
+      {selectedItem && popoverContents[selectedItem]?.length > 0 && (
         <Box
           ref={popoverRef}
           sx={{
@@ -187,7 +165,7 @@ function EventHeader() {
             left: 0,
             right: 0,
             width: "100vw",
-            height: "300px", // Fixed height for better visibility
+            height: "300px",
             backgroundColor: "white",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             zIndex: 10,
@@ -195,30 +173,36 @@ function EventHeader() {
           }}
         >
           <Grid container spacing={2}>
-            {popoverContents[selectedItem].map((content) => (
-              <Grid sx={{ padding: "20px" }} item xs={3} key={content.title}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <img style={{ height: "60px" }} src={content.icon} />
-                  <Typography
+            {popoverContents[selectedItem]?.length > 0 &&
+              popoverContents[selectedItem]?.map((content) => (
+                <Grid sx={{ padding: "20px" }} item xs={3} key={content?.name}>
+                  <Box
                     sx={{
-                      marginLeft: 1,
-                      color: "black",
-                      cursor: "pointer",
-                      fontFamily: "Brooklyn-Normal",
-                      fontSize: "16px !important",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
+                    onClick={() =>
+                      navigate(`/category/${content?.id}`, {
+                        state: { name: content?.name },
+                      })
+                    }
                   >
-                    {content.title}
-                  </Typography>
-                </Box>
-              </Grid>
-            ))}
+                    <img style={{ height: "60px" }} src={content?.image?.src} />
+                    <Typography
+                      sx={{
+                        marginLeft: 1,
+                        color: "black",
+                        cursor: "pointer",
+                        fontFamily: "Brooklyn-Normal",
+                        fontSize: "16px !important",
+                      }}
+                    >
+                      {content?.name}
+                    </Typography>
+                  </Box>
+                </Grid>
+              ))}
           </Grid>
         </Box>
       )}

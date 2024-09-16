@@ -2,6 +2,7 @@
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  background: white !important;
 }
 .masonary-box .social-div {
   position: absolute;
@@ -29,4 +30,8 @@ h1 {
   margin-bottom: 40px;
   transition: all 0.5s ease-out;
   font-weight: bold;
+}
+
+.socail {
+  background: white !important;
 }/*# sourceMappingURL=index.css.map */

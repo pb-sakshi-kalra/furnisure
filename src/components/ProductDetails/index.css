@@ -1,9 +1,9 @@
 .product-detail {
   padding: 20px;
+  background: white !important;
   margin: 20px;
   margin-top: 180px;
   box-shadow: none !important;
-  background: none !important;
 }
 .product-detail .title {
   font-size: 40px;

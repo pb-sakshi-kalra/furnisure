@@ -23,7 +23,7 @@ const items = [
 
 const MasonryLayout = () => {
   return (
-    <>
+    <div className="socail">
       <h1>Follow our Socials</h1>
       <Box sx={{ width: "100%", height: "90vh", overflowY: "auto" }}>
         <Masonry columns={3}>
@@ -49,7 +49,7 @@ const MasonryLayout = () => {
           ))}
         </Masonry>
       </Box>
-    </>
+    </div>
   );
 };
 

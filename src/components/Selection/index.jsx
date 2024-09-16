@@ -71,9 +71,11 @@ const Selection = () => {
                   initial={{ opacity: 0, x: 700 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 2, ease: "easeInOut" }}
-                  onClick={() => navigate("/event")}
                 />
-                <div className="selection-event">
+                <div
+                  onClick={() => navigate("/event")}
+                  className="selection-event"
+                >
                   <h1>Event</h1>
                 </div>
               </motion.div>

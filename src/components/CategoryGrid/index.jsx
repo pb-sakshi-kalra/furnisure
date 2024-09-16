@@ -45,22 +45,22 @@ const CategoryGrid = ({
       ) : null}
       <h1 style={{ marginBottom: "40px" }}>{name}</h1>
       <Grid container spacing={3}>
-        {categories.map(
+        {categories?.map(
           (item, index) =>
             item?.name !== "Uncategorized" && (
               <Grid
                 item
                 xs={12}
                 sm={6}
-                md={4}
+                md={6}
                 lg={3}
                 xl={2}
                 key={index}
                 onClick={() => onClickCategory(item.id, item?.name)}
               >
                 <Paper className="paper">
-                  <img src={item?.image} className="icon" />
-                  <p className="paper-heading">{item.name}</p>
+                  <img src={item?.image?.src} className="icon" />
+                  <p className="paper-heading mt-5">{item.name}</p>
                 </Paper>
               </Grid>
             )

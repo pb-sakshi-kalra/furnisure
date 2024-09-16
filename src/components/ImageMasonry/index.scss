@@ -2,6 +2,7 @@
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  background: white !important;
   .social-div{
    position: absolute;
    top: 0;
@@ -31,4 +32,8 @@
     margin-bottom: 40px;
     transition: all 0.5s ease-out;
     font-weight: bold;
+  }
+
+  .socail{
+    background: white !important;
   }

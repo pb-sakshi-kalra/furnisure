@@ -40,7 +40,7 @@
   font-size: 28px;
   font-weight: 700;
   line-height: 36px;
-  color: #225822 !important;
+  color: #6f536f !important;
   letter-spacing: 2px;
   font-family: "Brooklyn-Bold";
   margin-bottom: 30px;
@@ -78,7 +78,7 @@
 .about-container h3 {
   font-size: 40px;
   transition: all 0.3s ease-in-out;
-  color: #04395E;
+  color: #6f536f;
 }
 .about-container h3:hover {
   transform: translateX(10px);

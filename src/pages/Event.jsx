@@ -9,18 +9,21 @@ import ImageMasonry from "../components/ImageMasonry";
 
 const Event = () => {
   const [categories, setCategories] = useState([]);
+  const [allCategories, setAllCategories] = useState([]);
 
   useEffect(() => {
-    Category.get().then((res) =>
+    Category.get().then((res) => {
+      console.log(res.headers.get("X-WP-Total"));
       setCategories(
         res?.data?.filter((cate) => cate?.display !== "subcategories")
-      )
-    );
+      );
+      setAllCategories(res?.data);
+    });
   }, []);
 
   return (
     <div className="event-page">
-      <EventHeader />
+      <EventHeader categories={allCategories} />
       <EventBanner />
       <CategoryGrid categories={categories} />
       <ImageMasonry />

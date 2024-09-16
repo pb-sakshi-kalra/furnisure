@@ -5,17 +5,19 @@
 }
 
 .heading {
-  font-size: 22px;
-  color: rgb(42, 42, 42);
+  font-size: 16px;
+  color: rgb(71, 71, 71);
   text-align: center;
+  line-height: 26px;
   padding: 0px 100px;
+  letter-spacing: 1px;
 }
 
 h3 {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
-  line-height: 36px;
-  color: #225822 !important;
+  line-height: 50px;
+  color: #795548 !important;
   letter-spacing: 2px;
   font-family: "Brooklyn-Heavy";
   margin-bottom: 30px;
@@ -43,8 +45,8 @@ h3 {
 
 .selection-heading {
   margin-top: 50px;
-  border-bottom: 5px solid rgba(4, 57, 94, 0.168627451);
-  border-top: 5px solid rgba(4, 57, 94, 0.168627451);
+  border-bottom: 7px solid rgba(121, 85, 72, 0.41);
+  border-top: 7px solid rgba(121, 85, 72, 0.41);
   border-radius: 20px;
   padding-top: 50px;
 }

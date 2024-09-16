@@ -5,30 +5,28 @@ import EventHeader from "../EventHeader";
 import "./index.css";
 import { useParams } from "react-router-dom";
 import Footer from "../Footer";
-import chair1 from "../../assets/chairs/chair1.webp";
-import chair2 from "../../assets/chairs/chair2.webp";
-import chair3 from "../../assets/chairs/chair3.webp";
-import chair4 from "../../assets/chairs/chair4.webp";
-import dimension from "../../assets/forum-3-seater-sofa-dimensions.webp";
 
 import Product from "../../services/products";
+import Category from "../../services/category";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [image, setImage] = useState();
   const [product, setProduct] = useState();
+  const [categories, setCategories] = useState();
 
   useEffect(() => {
     Product.getByID(id).then((res) => {
       setProduct(res?.data);
-      setImage(res?.data?.images[0]?.src);
+      setImage(res?.data?.images[1]?.src);
     });
+    Category.get().then((res) => setCategories(res?.data));
   }, [id]);
 
   return (
     <>
-      <EventHeader />
-      <Paper className="product-detail" elevation={3}>
+      <EventHeader categories={categories} />
+      <div className="product-detail">
         <Grid container spacing={2}>
           {/* Image Section */}
           <Grid sx={{ marginTop: "20px" }} container xs={12} md={6}>
@@ -74,10 +72,10 @@ const ProductDetail = () => {
             </Box>
           </Grid>
         </Grid>
-      </Paper>
+      </div>
       <h1 className="dimension">Dimensions</h1>
       <div className="product-dimension">
-        <img src={dimension} />
+        <img src={product?.images[0]?.src} />
         <div>
           <div className="dimension-grid">
             <p></p>
