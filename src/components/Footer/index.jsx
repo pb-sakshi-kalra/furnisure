@@ -11,7 +11,7 @@ const Footer = () => {
         <FooterLinks />
       </div>
       <div className="contact">
-        <h3>Reach Out</h3>
+        <h3 className="footer-header">Reach Out</h3>
         <p>
           <span className="b">E :</span> info@furnisure.me
         </p>
@@ -23,7 +23,7 @@ const Footer = () => {
         </p>
       </div>
       <div className="address">
-        <h3>Address</h3>
+        <h3 className="footer-header">Address</h3>
         <p></p>
         <p>C17, DIC</p>
         <p>Dubai, UAE</p>
@@ -31,7 +31,7 @@ const Footer = () => {
       <div className="subscribe-footer">
         <img className="logo" src={logo} />
         <div>
-          <h3>Curiosity Piqued!</h3>
+          <h3 className="footer-header">Curiosity Piqued!</h3>
           <div className="input-div">
             <input type="text" placeholder="Your Name" />
             <input type="email" placeholder="Your Email" />

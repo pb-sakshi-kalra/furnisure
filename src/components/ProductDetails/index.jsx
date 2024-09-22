@@ -1,6 +1,6 @@
-// src/components/ProductDetail.js
-import React, { useEffect, useState } from "react";
-import { Grid, Paper, Typography, Button, Box } from "@mui/material";
+import React, { useEffect, useState, CSSProperties } from "react";
+import { PropagateLoader } from "react-spinners";
+import { Grid, Typography, Button, Box } from "@mui/material";
 import EventHeader from "../EventHeader";
 import "./index.css";
 import { useParams } from "react-router-dom";
@@ -8,18 +8,41 @@ import Footer from "../Footer";
 
 import Product from "../../services/products";
 import Category from "../../services/category";
+import RelatableProducts from "../RelatableProducts";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [image, setImage] = useState();
   const [product, setProduct] = useState();
+  const [relatableProduct, setRelatableProduct] = useState([]);
   const [categories, setCategories] = useState();
+  const [loadingRelated, setLoadingRelated] = useState(true);
 
   useEffect(() => {
     Product.getByID(id).then((res) => {
       setProduct(res?.data);
       setImage(res?.data?.images[1]?.src);
+
+      const relatedProducts = res?.data?.related_ids || [];
+      Promise.all(relatedProducts.map((prod) => Product.getByID(prod))).then(
+        (results) => {
+          const uniqueProducts = results
+            .map((res) => res?.data)
+            .filter(Boolean);
+          setRelatableProduct((prev) => {
+            const existingIds = prev.map((item) => item.id);
+            return [
+              ...prev,
+              ...uniqueProducts.filter(
+                (item) => !existingIds.includes(item.id)
+              ),
+            ];
+          });
+          setLoadingRelated(false);
+        }
+      );
     });
+
     Category.get().then((res) => setCategories(res?.data));
   }, [id]);
 
@@ -27,87 +50,108 @@ const ProductDetail = () => {
     <>
       <EventHeader categories={categories} />
       <div className="product-detail">
-        <Grid container spacing={2}>
-          {/* Image Section */}
-          <Grid sx={{ marginTop: "20px" }} container xs={12} md={6}>
-            {/* Thumbnail Section */}
-            <Grid item xs={2}>
-              <Box className="thumbnail-section">
-                <Grid container direction="column">
-                  {product?.images?.map((image, index) => (
-                    <Grid key={index} item>
-                      <img
-                        src={image?.src}
-                        alt="Thumbnail"
-                        className="thumbnail"
-                        onClick={() => setImage(image?.src)}
-                      />
+        {loadingRelated ? (
+          <div className="loading">
+            <PropagateLoader
+              color={"#795548"}
+              loading={loadingRelated}
+              size={20}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
+        ) : (
+          <>
+            <Grid container spacing={2}>
+              <Grid sx={{ marginTop: "20px" }} container xs={12} md={6}>
+                <Grid item xs={2}>
+                  <Box className="thumbnail-section">
+                    <Grid container direction="column">
+                      {product?.images?.map((img, index) => (
+                        <Grid key={index} item className="thumbnail">
+                          <img
+                            src={img?.src}
+                            alt="Thumbnail"
+                            className="thumbnail"
+                            onClick={() => setImage(img?.src)}
+                          />
+                        </Grid>
+                      ))}
                     </Grid>
-                  ))}
+                  </Box>
                 </Grid>
-              </Box>
+                <Grid item xs={10}>
+                  <Box className="image-section">
+                    <img src={image} alt="Main" className="main-image" />
+                  </Box>
+                </Grid>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Box className="detail-section">
+                  <h3 className="product-title">{product?.name}</h3>
+                  <Typography variant="body2" className="product-description">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: product?.short_description || "",
+                      }}
+                    />
+                  </Typography>
+                  <Typography variant="h6" className="product-price-new">
+                    Rental Price : AED {product?.price} / day
+                  </Typography>
+                  <Button className="shop-button">Add to Cart</Button>
+                </Box>
+              </Grid>
             </Grid>
-            {/* Main Image Section */}
-            <Grid item xs={10}>
-              <Box className="image-section">
-                <img src={image} alt="Main" className="main-image" />
-              </Box>
-            </Grid>
-          </Grid>
-          {/* Detail Section */}
-          <Grid item xs={12} md={6}>
-            <Box className="detail-section">
-              <h3 className="product-title">{product?.name}</h3>
-              <Typography variant="body2" className="product-description">
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: product?.short_description || "",
-                  }}
-                />
-              </Typography>
-              <Typography variant="h6" className="product-price-new">
-                Rental Price : AED {product?.price} / day
-              </Typography>
-              <Button className="shop-button">Add to Cart</Button>
-            </Box>
-          </Grid>
-        </Grid>
+
+            <h1 className="dimension">Dimensions</h1>
+            <div className="product-dimension">
+              <img src={product?.images[0]?.src} alt="Dimension" />
+              <div>
+                <div className="dimension-grid">
+                  <p></p>
+                  <p>
+                    <strong>Categories:</strong>&nbsp;
+                    {product?.categories?.map((category, index) => (
+                      <a key={index} href="/">
+                        {category?.name}
+                        {index !== product?.categories?.length - 1
+                          ? ", "
+                          : null}
+                      </a>
+                    ))}
+                  </p>
+                </div>
+                <div className="dimension-grid">
+                  <p>Height</p>
+                  <p>{product?.dimensions?.height}</p>
+                </div>
+                <div className="dimension-grid">
+                  <p>Length</p>
+                  <p>{product?.dimensions?.length}</p>
+                </div>
+                <div className="dimension-grid">
+                  <p>Width</p>
+                  <p>{product?.dimensions?.width}</p>
+                </div>
+                <div className="dimension-grid seat">
+                  <p>Seat Height</p>
+                  <p>{product?.weight}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="description">{product?.description}</div>
+
+            <div className="relatable_product">
+              {relatableProduct?.length === product?.related_ids?.length && (
+                <RelatableProducts product={relatableProduct} />
+              )}
+            </div>
+          </>
+        )}
       </div>
-      <h1 className="dimension">Dimensions</h1>
-      <div className="product-dimension">
-        <img src={product?.images[0]?.src} />
-        <div>
-          <div className="dimension-grid">
-            <p></p>
-            <p>
-              <strong>Categories:</strong>&nbsp;
-              {product?.categories?.map((category, index) => (
-                <a href="/">
-                  {category?.name}
-                  {index !== product?.categories?.length - 1 ? ", " : null}
-                </a>
-              ))}
-            </p>
-          </div>
-          <div className="dimension-grid">
-            <p>Height</p>
-            <p>{product?.dimensions?.height}</p>
-          </div>
-          <div className="dimension-grid">
-            <p>Length</p>
-            <p>{product?.dimensions?.length}</p>
-          </div>
-          <div className="dimension-grid">
-            <p>Width</p>
-            <p>{product?.dimensions?.width}</p>
-          </div>
-          <div className="dimension-grid seat">
-            <p>Seat Height</p>
-            <p>{product?.weight}</p>
-          </div>
-        </div>
-      </div>
-      <div className="description">{product?.description}</div>
+
       <Footer />
     </>
   );

@@ -4,19 +4,26 @@ import Header from "../components/Header";
 import Banner from "../components/Banner";
 import About from "../components/About";
 import Selection from "../components/Selection";
+import Category from "../services/category";
+import Product from "../services/products";
 import Footer from "../components/Footer";
 import "./Home.css";
+import MasonryGrid from "../components/MasonaryGrid";
 import ProductSlider from "../components/ProductSlider";
+
 import Loader from "./Loader";
 
 const Home = () => {
   const [loader, setLoader] = useState(true);
-  const location = useLocation(); // Get the current location
+  const [loading, setLoading] = useState(false);
+  const location = useLocation();
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     // Simulate loading process with setTimeout
     const loadingTimeout = setTimeout(() => {
-      document.querySelector(".App").classList.add("translated"); // Add 'translated' class to App after 7000ms
+      document.querySelector(".App").classList.add("translated");
       setLoader(false);
     }, 7000);
 
@@ -53,7 +60,18 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setLoading(true);
+    Category.get().then((res) => {
+      console.log(res.headers.get("X-WP-Total"));
+      setCategories(
+        res?.data?.filter((cate) => cate?.display !== "subcategories")
+      );
+      Product.get().then((res) => setProducts(res?.data));
+      setLoading(false);
+    });
   }, []);
+
+  console.log(products);
 
   return (
     <div className="App">
@@ -64,7 +82,8 @@ const Home = () => {
           <Banner />
           <About />
           <Selection />
-          <ProductSlider />
+          <ProductSlider product={categories} />
+          <MasonryGrid products={products} />
           <Footer />
         </div>
       </div>

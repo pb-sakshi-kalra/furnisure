@@ -73,7 +73,7 @@ const Banner = () => {
         backgroundAttachment: "fixed",
       }}
     >
-      {/* <div
+      <div
         className="banner-overlay"
         style={{
           position: "absolute",
@@ -81,15 +81,25 @@ const Banner = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "rgb(17 17 17 / 23%)", // Adjust opacity here (0.5 for 50% opacity)
+          background: "rgb(65 61 61 / 23%)", // Adjust opacity here (0.5 for 50% opacity)
         }}
-      ></div> */}
-      <Box
-        display="flex"
-        width="100%"
-        height="100vh"
-        sx={{ padding: "0px 100px" }}
       >
+        <p
+          style={{
+            fontFamily: "Lobster",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            fontSize: "40px",
+            transform: "translate(-50%,-50%)",
+            zIndex: "100",
+            color: "#5b838e",
+          }}
+        >
+          World of Furnitures
+        </p>
+      </div>
+      <Box display="flex" width="100%" height="100vh">
         {bannerOptions.map((option, index) => (
           <Box
             key={index}
@@ -123,11 +133,12 @@ const Banner = () => {
                 zIndex: 99999,
                 textAlign: "center",
                 left: "50%",
+                fontFamily: "Lobster",
+                letterSpacing: "0px",
                 transform: "translateX(-50%)",
                 transition:
                   "bottom 0.5s ease-in-out, font-size 0.5s ease-in-out",
                 width: "100%",
-                fontFamily: "Brooklyn-HeavyItalic",
                 fontOpticalSizing: "auto",
                 fontSize: hoveredIndex === index ? "36px" : "32px",
                 boxShadow: "-9px -1px #60494900",

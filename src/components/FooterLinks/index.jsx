@@ -88,7 +88,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
             staggerChildren: 0.075,
             delayChildren: 0.25,
           }}
-          style={{ color: "#8c568f" }}
+          style={{ color: "#8c568f",fontSize:"24px", marginBottom:"5px" }}
           className="relative z-10 block text-4xl font-bold  transition-colors duration-500 group-hover:text-neutral-100"
         >
           {heading.split("").map((l, i) => (

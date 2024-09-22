@@ -1,4 +1,4 @@
-import makeRequest from "../utils/woocommerce"
+import makeRequest from "../utils/woocommerce";
 
 const Products = {
   get: () => {

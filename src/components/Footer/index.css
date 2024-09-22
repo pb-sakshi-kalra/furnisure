@@ -6,6 +6,17 @@
   align-items: center;
   background: radial-gradient(circle, rgba(121, 85, 72, 0.288974965) 67%, rgb(255, 255, 255) 93%);
 }
+.footer-div .footer-header {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #8c568f !important;
+  margin-bottom: 30px;
+  padding-left: 40px;
+  letter-spacing: 2px;
+  font-family: "Brooklyn-Heavy";
+  text-align: center;
+}
 .footer-div h4 {
   font-size: 35px;
   font-weight: 700;
@@ -16,10 +27,10 @@
   font-family: "Brooklyn-Heacy";
 }
 .footer-div .footerLinks {
-  width: 40%;
+  width: 30%;
 }
 .footer-div .subscribe-footer {
-  width: 20%;
+  width: 30%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -54,29 +65,27 @@
   background: rgb(66, 66, 66);
   color: white;
 }
-.footer-div .subscribe-footer h3 {
-  font-size: 35px;
-  font-weight: 700;
-  line-height: 36px;
-  color: #8c568f;
-  margin-bottom: 30px;
-  padding-left: 40px;
-  letter-spacing: 2px;
-  font-family: "Brooklyn-Heavy";
-  text-align: left;
-}
 .footer-div .subscribe-footer .logo {
-  height: 100px;
-  width: 350px !important;
+  height: 80px;
+  width: 310px !important;
   margin-bottom: 20px;
 }
 .footer-div .contact {
-  width: 10%;
+  width: 20%;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .footer-div .contact .b {
   font-weight: bolder;
 }
 .footer-div .address {
-  width: 10%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
 }/*# sourceMappingURL=index.css.map */

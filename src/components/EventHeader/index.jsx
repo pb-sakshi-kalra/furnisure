@@ -182,11 +182,12 @@ function EventHeader({ categories }) {
                       alignItems: "center",
                       justifyContent: "center",
                     }}
-                    onClick={() =>
+                    onClick={() => {
+                      setSelectedItem(null);
                       navigate(`/category/${content?.id}`, {
                         state: { name: content?.name },
-                      })
-                    }
+                      });
+                    }}
                   >
                     <img style={{ height: "60px" }} src={content?.image?.src} />
                     <Typography

@@ -1,58 +1,80 @@
-import React, { useState } from "react";
-import ChairLayout from "../ChairLayout";
+import React from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 
-import wire_cocktail_table from "../../assets/wire_cocktail_table.jpg";
-import jali_furnitures from "../../assets/jali_furnitures.jpg";
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 6,
+    slidesToSlide: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 768 },
+    items: 3,
+    slidesToSlide: 1,
+  },
+  mobile: {
+    breakpoint: { max: 767, min: 464 },
+    items: 2,
+    slidesToSlide: 1,
+  },
+};
 
-const products = [
-  {
-    id: 1,
-    name: "Couch",
-    image1: jali_furnitures,
-    image2: wire_cocktail_table,
-  },
-  {
-    id: 2,
-    name: "Chair",
-    image1: jali_furnitures,
-    image2: wire_cocktail_table,
-  },
-  {
-    id: 3,
-    name: "Table",
-    image1: jali_furnitures,
-    image2: wire_cocktail_table,
-  },
+const categories = [
+  "chairs",
+  "arabic furniture",
+  "coffee tables",
+  "tables",
+  "sofa",
+  "outdoor furniture",
 ];
 
-const ProductSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const ProductSlider = ({ product }) => {
+  const navigate = useNavigate();
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === products.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? products.length - 1 : prevIndex - 1
-    );
-  };
+  const filteredProducts = product.filter((prod) =>
+    categories.some((category) => prod?.name?.toLowerCase().includes(category))
+  );
 
   return (
-    <div className="product-slider">
-      <h1 className="product-heading">TOP CATEGORIES</h1>
-      <button className="prev" onClick={prevSlide}>
-        &#10094;
-      </button>
-      <div className="product-slide">
-        <ChairLayout product={products[currentIndex]} />
-      </div>
-      <button className="next" onClick={nextSlide}>
-        &#10095;
-      </button>
+    <div className="parent-product">
+      <Carousel
+        responsive={responsive}
+        autoPlay={true}
+        swipeable={true}
+        draggable={true}
+        infinite={true}
+        partialVisible={true}
+        autoPlaySpeed={1000}
+        dotListClass="custom-dot-list-style"
+      >
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((prod, index) => (
+            <div
+              className="slider"
+              key={index}
+              onClick={() =>
+                navigate(`/category/${prod?.id}`, {
+                  state: { name: prod?.name },
+                })
+              }
+            >
+              <img
+                style={{ width: "40%" }}
+                src={prod?.image?.src}
+                alt={prod?.name}
+              />
+              <div className="slider-des">
+                <p>{prod?.name}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div>No products available in this category.</div>
+        )}
+      </Carousel>
     </div>
   );
 };

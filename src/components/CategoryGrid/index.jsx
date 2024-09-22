@@ -2,20 +2,32 @@
 import React from "react";
 import { Grid, Paper } from "@mui/material";
 import "./index.css";
+import { PropagateLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 
 const CategoryGrid = ({
   categories,
   description = true,
   name = "Categories",
+  loading,
 }) => {
   const navigate = useNavigate();
 
   const onClickCategory = (id, name) => {
     navigate(`/category/${id}`, { state: { name } });
   };
+
   return (
     <div className="root">
+      {loading && (
+        <PropagateLoader
+          color={"#795548"}
+          loading={loading}
+          size={20}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      )}
       {description ? (
         <>
           <p>

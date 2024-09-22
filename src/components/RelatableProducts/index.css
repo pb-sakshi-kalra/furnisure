@@ -1,0 +1,51 @@
+.slider {
+  margin: 0 20px;
+  overflow: "hidden";
+  padding: 2rem 0;
+  border: 1px solid rgb(203, 203, 203);
+  position: relative;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.slider .slider-des {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-radius: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(100, 100, 100, 0.1529411765);
+  padding: 50px;
+  display: none;
+}
+.slider .slider-des p {
+  width: 100%;
+  text-align: center;
+  transform: translateY(250px);
+  color: #8c568f;
+  font-family: "Brooklyn-Heavy";
+  font-size: 16px;
+  line-height: 24px;
+}
+.slider:hover .slider-des {
+  display: block;
+}
+
+.slider img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.react-multi-carousel-list {
+  padding: 0rem 0 2rem 0;
+}
+
+.custom-dot-list-style button {
+  border: none;
+  background: rgb(255, 68, 68);
+}
+
+.react-multi-carousel-dot.react-multi-carousel-dot--active button {
+  background: rgb(255, 68, 68) !important;
+}/*# sourceMappingURL=index.css.map */

@@ -1,19 +1,8 @@
 .product-list {
-  padding: 50px 200px;
+  width: 80%;
   background-color: white !important;
-  .products-heading {
-    font-size: 40px;
-    text-align: center;
-    color: #8c568f;
-    font-family: "Brooklyn-Heavy";
-    margin-bottom: 50px;
-    transition: all 0.5s ease-out;
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
   .card {
-    height: 400px;
+    height: 300px;
     margin-bottom: 50px;
     margin-left: 30px;
     padding:10px;
@@ -23,8 +12,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: none;
-    border: 2px solid rgba(128, 128, 128, 0.4);
-    border-radius: 20px;
+    border: 1px solid rgba(128, 128, 128, 0.4);
     .card-title {
       font-size: 14px;
       font-family: "Brooklyn-Heavy";
@@ -33,14 +21,16 @@
     }
     .card-para {
       margin: 10px;
+      margin-bottom: 20px;
     }
     img {
-      height: 300px !important;
-      width: 100%;
+      margin-top: 20px;
+      height: 250px !important;
+      width: auto;
       transition: all 0.5s ease-out;
       cursor: pointer;
       &:hover {
-        transform: scale(1.1);
+        transform: scale(1.07);
       }
     }
   }
@@ -51,12 +41,20 @@
 
 .background-category {
   height: 70vh;
-  background: url("../../assets/event1.jpg");
-  background-position: center;
-  background-attachment: fixed;
+  background: url("../../assets/main/main7.jpg") no-repeat center center; 
+  background-size: cover; 
+  background-attachment: fixed; 
   position: relative;
-  background-repeat: no-repeat;
-
+  .background-category::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Change this color and opacity as needed */
+    z-index: 1;
+  }
   .category-heading {
     position: absolute;
     top: 60%;
@@ -65,9 +63,53 @@
     font-size: 28px;
     font-weight: 700;
     line-height: 36px;
-    color: #8c568f;
     letter-spacing: 2px;
     font-family: "Brooklyn-Heavy";
     margin-bottom: 30px;
+    h1{
+      color: white !important; 
+    }
   }
+}
+
+
+.product-page{
+  display: flex;
+  padding: 20px;
+}
+
+.subcategory ul {
+  border-left: 1px solid rgba(130, 130, 130, 0.097);
+  border-right: 1px solid rgba(130, 130, 130, 0.097);
+  border-top: 1px solid rgba(130, 130, 130, 0.097);
+  list-style-type: inherit;
+  padding: 20px;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.subcategory li {
+  margin: 20px 10px;
+  padding-bottom: 5px;
+  transition: all 0.2s ease-in;
+  border-bottom: 1px solid #79554857 !important;
+  border-radius: 20px;
+  border-bottom-style:double;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  color: #795548;
+  &:hover{
+    transition: all 0.2s ease-in;
+    transform: translateX(-10px);
+  }
+}
+.products-heading {
+  margin-top: 20px;
+  font-size: 32px;
+  text-align: center;
+  color: #795548 !important ;
+  font-family: "Brooklyn-Heavy";
+  margin-bottom: 30px;
+  transition: all 0.5s ease-out;
 }
