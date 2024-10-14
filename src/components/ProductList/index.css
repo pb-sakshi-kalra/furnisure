@@ -114,4 +114,14 @@
   font-family: "Brooklyn-Heavy";
   margin-bottom: 30px;
   transition: all 0.5s ease-out;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  margin: 0 10px;
 }/*# sourceMappingURL=index.css.map */

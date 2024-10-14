@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Card, CardContent } from "@mui/material";
+import { Grid, Card, CardContent, Button } from "@mui/material";
 import "./index.css";
 import { PropagateLoader } from "react-spinners";
 import { useParams, useLocation } from "react-router-dom";
@@ -12,15 +12,27 @@ const ProductList = () => {
   const [subcategories, setSubCategories] = useState([]);
   const [productsList, setProductsList] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [totalProducts, setTotalProducts] = useState(0);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
-  const [index, setIndex] = useState(id);
   const location = useLocation();
   const { name } = location?.state;
   const navigate = useNavigate();
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 12;
+
   const onClickCategory = (index) => {
     navigate(`/product/${index}`);
+  };
+
+  const fetchProducts = (page) => {
+    setLoading(true);
+    Category.getSubcategory(id, page).then((res) => {
+      setTotalProducts(res.headers.get("X-WP-Total"));
+      setProductsList(res?.data);
+      setLoading(false);
+    });
   };
 
   useEffect(() => {
@@ -31,8 +43,8 @@ const ProductList = () => {
       setSubCategories(subCats);
       setLoading(false);
     });
-    Category.getSubcategory(id).then((res) => setProductsList(res?.data));
-  }, [id]);
+    fetchProducts(currentPage);
+  }, [id, currentPage]);
 
   const renderSubcategories = (subcategories) => {
     return (
@@ -41,9 +53,8 @@ const ProductList = () => {
           <li
             key={subcategory.id}
             onClick={() => {
-              Category.getSubcategory(subcategory?.id).then((res) => {
-                setProductsList(res?.data);
-              });
+              fetchProducts(subcategory?.id);
+              setCurrentPage(1); // Reset to the first page when subcategory changes
             }}
           >
             <span>{subcategory.name}</span>
@@ -54,6 +65,23 @@ const ProductList = () => {
         ))}
       </ul>
     );
+  };
+
+  // Calculate the index of the last and first product
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = productsList.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+  // Pagination controls
+  const handlePageChange = (direction) => {
+    setCurrentPage((prevPage) => {
+      const newPage = direction === "next" ? Math.min(prevPage + 1, totalPages) : Math.max(prevPage - 1, 1);
+      fetchProducts(newPage); // Fetch products for the new page
+      return newPage;
+    });
   };
 
   return (
@@ -81,13 +109,13 @@ const ProductList = () => {
             <div className="subcategory">
               {renderSubcategories(subcategories)}
             </div>
-            {productsList?.length > 0 ? (
+            {currentProducts.length > 0 ? (
               <div
                 className="product-list"
                 style={{ width: `${subcategories?.length === 0 && "100%"}` }}
               >
                 <Grid container spacing={2}>
-                  {productsList?.map((item, index) => (
+                  {currentProducts.map((item, index) => (
                     <Grid
                       item
                       xs={12}
@@ -116,6 +144,23 @@ const ProductList = () => {
                 </Grid>
               </div>
             ) : null}
+          </div>
+
+          {/* Pagination Controls */}
+          <div className="pagination">
+            <Button
+              onClick={() => handlePageChange("prev")}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </Button>
+            <span>{`Page ${currentPage} of ${totalPages}`}</span>
+            <Button
+              onClick={() => handlePageChange("next")}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </Button>
           </div>
         </>
       )}

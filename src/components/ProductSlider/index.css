@@ -1,57 +1,64 @@
 .parent-product {
-  border-bottom: 7px solid rgba(121, 85, 72, 0.41);
-  border-top: 7px solid rgba(121, 85, 72, 0.41);
-  background-color: rgba(242, 242, 242, 0.259);
+  padding: 50px;
   border-radius: 7px;
+  margin-bottom: 30px;
 }
-.parent-product .slider {
-  margin: 50px 20px;
-  overflow: "hidden";
-  padding: 2rem 0;
-  border: 1px solid #795548 !important;
-  background: rgba(121, 85, 72, 0.41);
-  position: relative;
-  border-radius: 20px;
+.parent-product .heading {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #795548 !important;
+  letter-spacing: 2px;
+  font-family: "Brooklyn-Heavy";
+  margin-bottom: 70px;
+}
+.parent-product .carousel {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  flex-wrap: wrap;
+  gap: 20px;
 }
-.parent-product .slider .slider-des {
-  height: 100%;
+.parent-product .carousel .main-slider {
+  border: none;
+  padding: none;
+  position: relative;
+  overflow: hidden;
+}
+.parent-product .carousel .main-slider .slider-des {
   position: absolute;
-  top: 0;
-  border-radius: 20px;
-  bottom: 0;
+  bottom: 20px;
+  display: none;
+  transition: all 0.5s ease-out;
+}
+.parent-product .carousel .main-slider .backgorund-overloay {
+  position: absolute;
+  background-color: transparent;
+  top: 100%;
   left: 0;
   right: 0;
-  background-color: rgba(100, 100, 100, 0.1529411765);
-  padding: 50px;
-  display: none;
-}
-.parent-product .slider .slider-des p {
+  bottom: 0;
   width: 100%;
-  text-align: center;
-  transform: translateY(100px);
-  color: #8c568f;
-  font-family: "Brooklyn-Heavy";
-  font-size: 16px;
-  line-height: 24px;
+  transition: all 0.5s ease-out;
 }
-.parent-product .slider:hover .slider-des {
-  display: block;
+.parent-product .carousel .main-slider img {
+  z-index: 10;
+  width: 400px;
+  height: 80%;
 }
-.parent-product .slider img {
+.parent-product .carousel .main-slider:hover .backgorund-overloay {
+  top: 0;
+  background-color: rgba(32, 32, 32, 0.511) !important;
+  transition: all 0.5s ease-out;
+}
+.parent-product .carousel .main-slider:hover .slider-des {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  border-radius: 10px;
-}
-.parent-product .react-multi-carousel-list {
-  padding: 0rem 0 2rem 0;
-}
-.parent-product .custom-dot-list-style button {
-  border: none;
-  background: rgb(255, 68, 68);
-}
-.parent-product .react-multi-carousel-dot.react-multi-carousel-dot--active button {
-  background: rgb(255, 68, 68) !important;
+  color: white !important;
+  font-family: "Brooklyn";
+  transition: all 0.5s ease-out;
+  font-size: 30px;
+  cursor: pointer;
 }/*# sourceMappingURL=index.css.map */

@@ -45,8 +45,6 @@ h3 {
 
 .selection-heading {
   margin-top: 50px;
-  border-bottom: 7px solid rgba(121, 85, 72, 0.41);
-  border-top: 7px solid rgba(121, 85, 72, 0.41);
   border-radius: 20px;
   padding-top: 50px;
 }

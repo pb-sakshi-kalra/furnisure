@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 import main12 from "../../assets/main/main12.jpg";
-import main9 from "../../assets/main/main9.jpg";
+import mainevent from "../../assets/mainevent.jpeg"
 
 const Selection = () => {
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
@@ -65,7 +65,7 @@ const Selection = () => {
                 ></motion.img>
 
                 <motion.img
-                  src={main9}
+                  src={mainevent}
                   alt="Image 2"
                   className="scroll-image"
                   initial={{ opacity: 0, x: 700 }}

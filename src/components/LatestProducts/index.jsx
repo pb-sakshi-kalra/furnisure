@@ -55,6 +55,6 @@ const LatestProducts = () => {
       </button>
     </div>
   );
-};
+};  22
 
 export default LatestProducts;

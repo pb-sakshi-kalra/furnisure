@@ -15,7 +15,6 @@ const Event = () => {
   useEffect(() => {
     setLoading(true);
     Category.get().then((res) => {
-      console.log(res.headers.get("X-WP-Total"));
       setCategories(
         res?.data?.filter((cate) => cate?.display !== "subcategories")
       );

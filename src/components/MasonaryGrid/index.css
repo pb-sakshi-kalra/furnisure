@@ -1,19 +1,21 @@
 .masonry-grid {
   display: flex;
-  width: auto;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
   margin-top: 50px;
 }
 
 .masonry-grid_column {
   background-clip: padding-box;
 }
+
 .masonry-item {
   padding: 16px;
   border: 1px solid rgb(234, 231, 231);
 }
 
 .masonry-item img {
-  width: 90%;
   height: auto;
   border-radius: 8px; /* Optional: for rounded corners */
 }

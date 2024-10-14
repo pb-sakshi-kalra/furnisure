@@ -15,7 +15,7 @@ function makeRequest(endpoint, method = "GET", body = {}) {
     updatedEndpoint = updatedEndpoint + "?per_page=50";
   }
   if (updatedEndpoint === "/products") {
-    updatedEndpoint = updatedEndpoint + `?per_page=8&orderby=date&order=desc`;
+    updatedEndpoint = updatedEndpoint + `?per_page=5&orderby=date&order=desc`;
   }
 
   let requestData = {

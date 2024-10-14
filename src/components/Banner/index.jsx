@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import "./index.css";
 import main5 from "../../assets/main/main5.jpg";
-import main7 from "../../assets/main/main7.jpg";
+import main15 from "../../assets/main/main15.jpg";
 import main13 from "../../assets/main/main13.jpg";
 import main14 from "../../assets/main/main14.jpg";
 import main1 from "../../assets/main/main1.jpg";
@@ -14,40 +14,40 @@ const bannerOptions = [
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main5,
-    color: "#795548",
+    color: "#7f4f24",
   },
   {
     name: "Sofa",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main13,
-    color: "#bd983e",
+    color: "#936639",
   },
   {
     name: "Events",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
-    image: main7,
-    color: "rgb(111 83 111)",
+    image: main15,
+    color: "#b6ad90",
   },
   {
     name: "Lamp",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main14,
-    color: "#3c5080",
+    color: "#656d4a",
   },
   {
     name: "Sitting",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main1,
-    color: "#d28c64",
+    color: "#333d29",
   },
 ];
 
 const Banner = () => {
-  const [image, setImage] = useState(main7);
+  const [image, setImage] = useState(main15);
   const [hoveredIndex, setHoveredIndex] = useState(-1);
 
   const handleMouseEnter = (index) => {
@@ -56,7 +56,7 @@ const Banner = () => {
   };
 
   const handleMouseLeave = () => {
-    setImage(main7);
+    setImage(main15);
     setHoveredIndex(-1);
   };
 
@@ -73,7 +73,7 @@ const Banner = () => {
         backgroundAttachment: "fixed",
       }}
     >
-      <div
+      {/* <div
         className="banner-overlay"
         style={{
           position: "absolute",
@@ -96,9 +96,8 @@ const Banner = () => {
             color: "#5b838e",
           }}
         >
-          World of Furnitures
         </p>
-      </div>
+      </div> */}
       <Box display="flex" width="100%" height="100vh">
         {bannerOptions.map((option, index) => (
           <Box
@@ -133,7 +132,7 @@ const Banner = () => {
                 zIndex: 99999,
                 textAlign: "center",
                 left: "50%",
-                fontFamily: "Lobster",
+                fontFamily: "Brooklyn-Heavy",
                 letterSpacing: "0px",
                 transform: "translateX(-50%)",
                 transition:

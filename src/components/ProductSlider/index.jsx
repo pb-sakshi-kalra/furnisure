@@ -3,24 +3,14 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
+import loader1 from "../../assets/loader/loader1.jpg";
+import loader2 from "../../assets/loader/loader2.jpg";
+import loader3 from "../../assets/loader/loader3.jpg";
+import loader4 from "../../assets/loader/loader4.jpg";
+import loader5 from "../../assets/loader/loader5.jpg";
 
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 6,
-    slidesToSlide: 1,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 768 },
-    items: 3,
-    slidesToSlide: 1,
-  },
-  mobile: {
-    breakpoint: { max: 767, min: 464 },
-    items: 2,
-    slidesToSlide: 1,
-  },
-};
+const loaderImages = [loader1, loader2, loader3, loader4, loader5];
+
 
 const categories = [
   "chairs",
@@ -40,20 +30,12 @@ const ProductSlider = ({ product }) => {
 
   return (
     <div className="parent-product">
-      <Carousel
-        responsive={responsive}
-        autoPlay={true}
-        swipeable={true}
-        draggable={true}
-        infinite={true}
-        partialVisible={true}
-        autoPlaySpeed={1000}
-        dotListClass="custom-dot-list-style"
-      >
-        {filteredProducts.length > 0 ? (
+      <h1 className="heading">Top Categories</h1>
+      <div className="carousel">
+        {filteredProducts?.length > 0 ? (
           filteredProducts.map((prod, index) => (
             <div
-              className="slider"
+              className="main-slider"
               key={index}
               onClick={() =>
                 navigate(`/category/${prod?.id}`, {
@@ -61,9 +43,9 @@ const ProductSlider = ({ product }) => {
                 })
               }
             >
+              <div className="backgorund-overlay"></div>
               <img
-                style={{ width: "40%" }}
-                src={prod?.image?.src}
+                src={loaderImages[index % loaderImages.length]}
                 alt={prod?.name}
               />
               <div className="slider-des">
@@ -74,7 +56,7 @@ const ProductSlider = ({ product }) => {
         ) : (
           <div>No products available in this category.</div>
         )}
-      </Carousel>
+      </div>
     </div>
   );
 };

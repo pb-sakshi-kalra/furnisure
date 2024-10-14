@@ -8,7 +8,6 @@ import Category from "../services/category";
 import Product from "../services/products";
 import Footer from "../components/Footer";
 import "./Home.css";
-import MasonryGrid from "../components/MasonaryGrid";
 import ProductSlider from "../components/ProductSlider";
 
 import Loader from "./Loader";
@@ -71,8 +70,6 @@ const Home = () => {
     });
   }, []);
 
-  console.log(products);
-
   return (
     <div className="App">
       <Loader />
@@ -80,10 +77,10 @@ const Home = () => {
         <Header />
         <div className="content">
           <Banner />
-          <About />
           <Selection />
+          <About />
           <ProductSlider product={categories} />
-          <MasonryGrid products={products} />
+          {/* <MasonryGrid products={products} /> */}
           <Footer />
         </div>
       </div>
