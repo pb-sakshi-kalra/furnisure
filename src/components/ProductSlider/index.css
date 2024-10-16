@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 20px;
 }
 .parent-product .carousel .main-slider {
@@ -44,7 +44,7 @@
 .parent-product .carousel .main-slider img {
   z-index: 10;
   width: 400px;
-  height: 80%;
+  height: 100%;
 }
 .parent-product .carousel .main-slider:hover .backgorund-overloay {
   top: 0;

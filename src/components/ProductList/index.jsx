@@ -15,12 +15,13 @@ const ProductList = () => {
   const [totalProducts, setTotalProducts] = useState(0);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
+  const [subId, setSubId] = useState(id);
   const location = useLocation();
   const { name } = location?.state;
   const navigate = useNavigate();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 12;
+  const productsPerPage = 10;
 
   const onClickCategory = (index) => {
     navigate(`/product/${index}`);
@@ -28,7 +29,11 @@ const ProductList = () => {
 
   const fetchProducts = (page) => {
     setLoading(true);
-    Category.getSubcategory(id, page).then((res) => {
+    Category.getSubcategory(
+      subId,
+      page,
+      productsPerPage
+    ).then((res) => {
       setTotalProducts(res.headers.get("X-WP-Total"));
       setProductsList(res?.data);
       setLoading(false);
@@ -44,16 +49,16 @@ const ProductList = () => {
       setLoading(false);
     });
     fetchProducts(currentPage);
-  }, [id, currentPage]);
+  }, [subId, currentPage]);
 
   const renderSubcategories = (subcategories) => {
     return (
       <ul>
         {subcategories?.map((subcategory) => (
           <li
-            key={subcategory.id}
+            key={subcategory?.id}
             onClick={() => {
-              fetchProducts(subcategory?.id);
+              setSubId(subcategory?.id)
               setCurrentPage(1); // Reset to the first page when subcategory changes
             }}
           >
@@ -70,7 +75,10 @@ const ProductList = () => {
   // Calculate the index of the last and first product
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = productsList.slice(indexOfFirstProduct, indexOfLastProduct);
+  const currentProducts = productsList?.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
 
   // Calculate total pages
   const totalPages = Math.ceil(totalProducts / productsPerPage);
@@ -78,7 +86,10 @@ const ProductList = () => {
   // Pagination controls
   const handlePageChange = (direction) => {
     setCurrentPage((prevPage) => {
-      const newPage = direction === "next" ? Math.min(prevPage + 1, totalPages) : Math.max(prevPage - 1, 1);
+      const newPage =
+        direction === "next"
+          ? Math.min(prevPage + 1, totalPages)
+          : Math.max(prevPage - 1, 1);
       fetchProducts(newPage); // Fetch products for the new page
       return newPage;
     });
@@ -109,13 +120,13 @@ const ProductList = () => {
             <div className="subcategory">
               {renderSubcategories(subcategories)}
             </div>
-            {currentProducts.length > 0 ? (
+            {productsList.length > 0 ? (
               <div
                 className="product-list"
                 style={{ width: `${subcategories?.length === 0 && "100%"}` }}
               >
                 <Grid container spacing={2}>
-                  {currentProducts.map((item, index) => (
+                  {productsList?.map((item, index) => (
                     <Grid
                       item
                       xs={12}

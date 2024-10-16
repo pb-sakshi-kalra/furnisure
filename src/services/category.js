@@ -16,8 +16,8 @@ const Category = {
   delete: (id) => {
     return makeRequest(`/products/categories/${id}`, "DELETE");
   },
-  getSubcategory: (val) => {
-    return makeRequest(`/products?category=${val}`);
+  getSubcategory: (val, page, per_page) => {
+    return makeRequest(`/products?category=${val}`, 'GET', {}, page, per_page);
   },
 };
 

@@ -7,12 +7,15 @@ const ck = "ck_2d38c1e1d3d2236111aa47ac16b2326183bdd640";
 const cs = "cs_22b4ef1be51edc59fa1f2643072ed82ffda75b09";
 const baseURL = "https://events.furnisure.me/wp-json/wc/v3";
 
-function makeRequest(endpoint, method = "GET", body = {}) {
+function makeRequest(endpoint, method = "GET", body = {}, page=1, per_page=50) {
   const oauth = getOauth();
   let updatedEndpoint = endpoint.replace(/category=([^&?]*)\?/, "category=$1&");
 
   if (updatedEndpoint === "/products/categories") {
-    updatedEndpoint = updatedEndpoint + "?per_page=50";
+    updatedEndpoint = updatedEndpoint + `?per_page=${per_page}&page=${page}`;
+  }
+  if (updatedEndpoint.includes("/products?category")) {
+    updatedEndpoint = updatedEndpoint + `&per_page=${per_page}&page=${page}`;
   }
   if (updatedEndpoint === "/products") {
     updatedEndpoint = updatedEndpoint + `?per_page=5&orderby=date&order=desc`;
@@ -29,7 +32,7 @@ function makeRequest(endpoint, method = "GET", body = {}) {
   let requestHTTP = "";
 
   if (method === "GET" || method === "DELETE") {
-    requestHTTP = `${requestData.url}${str}${jQuery.param(
+    requestHTTP = `${requestData?.url}${str}${jQuery.param(
       oauth.authorize(requestData)
     )}`;
     return axios({
@@ -42,7 +45,7 @@ function makeRequest(endpoint, method = "GET", body = {}) {
       method,
       body,
     };
-    requestHTTP = `${requestData.url}?${jQuery.param(
+    requestHTTP = `${requestData?.url}?${jQuery.param(
       oauth.authorize(requestData)
     )}`;
     return axios({
