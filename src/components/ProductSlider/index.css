@@ -10,7 +10,65 @@
   color: #795548 !important;
   letter-spacing: 2px;
   font-family: "Brooklyn-Heavy";
-  margin-bottom: 70px;
+}
+.parent-product .scaleCarousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+.parent-product .scaleCarousel .main-slider {
+  border: none;
+  padding: none;
+  position: relative;
+  overflow: hidden !important;
+}
+.parent-product .scaleCarousel .main-slider .slider-des {
+  position: absolute;
+  bottom: 20px;
+  display: none;
+  transition: all 0.5s ease-out;
+}
+.parent-product .scaleCarousel .main-slider .backgorund-overloay {
+  position: absolute;
+  background-color: transparent;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  transition: all 0.5s ease-out;
+}
+.parent-product .scaleCarousel .main-slider img {
+  cursor: pointer;
+  z-index: 10;
+  width: 100%;
+  height: 300px;
+  transition: all 0.5s ease-in-out;
+  border: 2px solid rgba(121, 85, 72, 0.3058823529);
+  border-radius: 10px;
+}
+.parent-product .scaleCarousel .main-slider img:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+.parent-product .scaleCarousel .main-slider:hover .backgorund-overloay {
+  top: 0;
+  background-color: rgba(32, 32, 32, 0.511) !important;
+  transition: all 0.5s ease-out;
+}
+.parent-product .scaleCarousel .main-slider:hover .slider-des {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  color: #795548 !important;
+  font-family: "Brooklyn";
+  transition: all 0.5s ease-out;
+  font-size: 20px;
+  cursor: pointer;
 }
 .parent-product .carousel {
   display: flex;
@@ -18,6 +76,7 @@
   align-items: center;
   flex-wrap: nowrap;
   gap: 20px;
+  height: 80vh;
 }
 .parent-product .carousel .main-slider {
   border: none;
@@ -42,9 +101,16 @@
   transition: all 0.5s ease-out;
 }
 .parent-product .carousel .main-slider img {
+  cursor: pointer;
   z-index: 10;
   width: 400px;
-  height: 100%;
+  height: 400px;
+  transition: all 0.5s ease-in-out;
+}
+.parent-product .carousel .main-slider img:hover {
+  height: 500px;
+  width: 550px;
+  transition: all 0.5s ease-in-out;
 }
 .parent-product .carousel .main-slider:hover .backgorund-overloay {
   top: 0;

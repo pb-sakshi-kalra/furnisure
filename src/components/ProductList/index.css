@@ -105,6 +105,9 @@
   transition: all 0.2s ease-in;
   transform: translateX(-10px);
 }
+.subcategory li::marker {
+  display: none;
+}
 
 .products-heading {
   margin-top: 20px;

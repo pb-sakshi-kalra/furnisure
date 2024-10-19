@@ -24,21 +24,21 @@ const bannerOptions = [
     color: "#936639",
   },
   {
-    name: "Events",
+    name: "Chairs",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main15,
     color: "#b6ad90",
   },
   {
-    name: "Lamp",
+    name: "Tables",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main14,
     color: "#656d4a",
   },
   {
-    name: "Sitting",
+    name: "Outdoor",
     description:
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main1,

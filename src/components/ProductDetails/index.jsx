@@ -8,13 +8,14 @@ import Footer from "../Footer";
 
 import Product from "../../services/products";
 import Category from "../../services/category";
-import RelatableProducts from "../RelatableProducts";
+import ProductSlider from "../ProductSlider";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [image, setImage] = useState();
   const [product, setProduct] = useState();
-  const [relatableProduct, setRelatableProduct] = useState([]);
+  const [upscale, setUpscale] = useState([]);
+  const [crossscale, setCrossscale] = useState([])
   const [categories, setCategories] = useState();
   const [loadingRelated, setLoadingRelated] = useState(true);
 
@@ -23,13 +24,31 @@ const ProductDetail = () => {
       setProduct(res?.data);
       setImage(res?.data?.images[1]?.src);
 
-      const relatedProducts = res?.data?.related_ids || [];
-      Promise.all(relatedProducts.map((prod) => Product.getByID(prod))).then(
+      const cross = res?.data?.cross_sell_ids || [];
+      const up = res?.data?.upsell_ids || [];
+      Promise.all(cross.map((prod) => Product.getByID(prod))).then(
         (results) => {
           const uniqueProducts = results
             .map((res) => res?.data)
             .filter(Boolean);
-          setRelatableProduct((prev) => {
+            setCrossscale((prev) => {
+            const existingIds = prev.map((item) => item.id);
+            return [
+              ...prev,
+              ...uniqueProducts.filter(
+                (item) => !existingIds.includes(item.id)
+              ),
+            ];
+          });
+          setLoadingRelated(false);
+        }
+      );
+      Promise.all(up.map((prod) => Product.getByID(prod))).then(
+        (results) => {
+          const uniqueProducts = results
+            .map((res) => res?.data)
+            .filter(Boolean);
+            setUpscale((prev) => {
             const existingIds = prev.map((item) => item.id);
             return [
               ...prev,
@@ -96,9 +115,9 @@ const ProductDetail = () => {
                       }}
                     />
                   </Typography>
-                  <Typography variant="h6" className="product-price-new">
+                  {/* <Typography variant="h6" className="product-price-new">
                     Rental Price : AED {product?.price} / day
-                  </Typography>
+                  </Typography> */}
                   <Button className="shop-button">Add to Cart</Button>
                 </Box>
               </Grid>
@@ -144,8 +163,11 @@ const ProductDetail = () => {
             <div className="description">{product?.description}</div>
 
             <div className="relatable_product">
-              {relatableProduct?.length === product?.related_ids?.length && (
-                <RelatableProducts product={relatableProduct} />
+              {crossscale?.length === product?.cross_sell_ids?.length && (
+                <ProductSlider sell={true} products={crossscale} name="Cross Sell"/>
+              )}
+                {upscale?.length === product?.upsell_ids?.length && (
+                <ProductSlider sell={true} products={upscale}  name="Up Sell" />
               )}
             </div>
           </>

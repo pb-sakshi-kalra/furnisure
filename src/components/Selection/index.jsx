@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
-import main12 from "../../assets/main/main12.jpg";
+import main6 from "../../assets/main/main6.jpg";
 import mainevent from "../../assets/mainevent.jpeg"
 
 const Selection = () => {
@@ -56,7 +56,7 @@ const Selection = () => {
                   <h1>Home</h1>
                 </div>
                 <motion.img
-                  src={main12}
+                  src={main6}
                   alt="Image 1"
                   className="scroll-image"
                   initial={{ opacity: 0, x: -700 }}

@@ -21,7 +21,7 @@ const ProductList = () => {
   const navigate = useNavigate();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 10;
+  const productsPerPage = 12;
 
   const onClickCategory = (index) => {
     navigate(`/product/${index}`);
@@ -55,7 +55,8 @@ const ProductList = () => {
     return (
       <ul>
         {subcategories?.map((subcategory) => (
-          <li
+          <li 
+            className="marker"
             key={subcategory?.id}
             onClick={() => {
               setSubId(subcategory?.id)
@@ -132,7 +133,7 @@ const ProductList = () => {
                       xs={12}
                       sm={6}
                       md={4}
-                      lg={4}
+                      lg={3}
                       key={index}
                       onClick={() => onClickCategory(item?.id)}
                     >
