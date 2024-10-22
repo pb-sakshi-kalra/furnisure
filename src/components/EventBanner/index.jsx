@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
-import main10 from "../../assets/main/main10.jpg";
-import main7 from "../../assets/main/main7.jpg";
-import main8 from "../../assets/main/main8.jpg";
-import main14 from "../../assets/main/main14.jpg";
-import main9 from "../../assets/main/main9.jpg";
+import main10 from "../../assets/main/main10.webp";
+import main7 from "../../assets/main/main7.webp";
+import main8 from "../../assets/main/main8.webp";
+import main14 from "../../assets/main/main14.webp";
+import main9 from "../../assets/main/main9.webp";
 
 const imgs = [main10, main7, main8, main14, main9];
 

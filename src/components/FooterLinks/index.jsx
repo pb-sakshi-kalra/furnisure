@@ -1,9 +1,9 @@
 import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
-import loader12 from "../../assets/loader/loader12.jpg";
-import loader13 from "../../assets/loader/loader13.jpg";
-import loader14 from "../../assets/loader/loader14.jpg";
-import loader15 from "../../assets/loader/loader15.jpg";
+import loader12 from "../../assets/loader/loader12.webp";
+import loader13 from "../../assets/loader/loader13.webp";
+import loader14 from "../../assets/loader/loader14.webp";
+import loader15 from "../../assets/loader/loader15.webp";
 
 import "./index.css";
 

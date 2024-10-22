@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Box } from "@mui/material";
 import "./index.css";
-import loader1 from "../../assets/loader/loader1.jpg";
-import loader2 from "../../assets/loader/loader2.jpg";
+import loader1 from "../../assets/loader/loader1.webp";
+import loader2 from "../../assets/loader/loader2.webp";
 
 const About = () => {
   const [scrollPosition, setScrollPosition] = useState(window.scrollY);

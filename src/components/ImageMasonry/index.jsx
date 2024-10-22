@@ -5,12 +5,12 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 
 import "./index.css";
 
-import main1 from "../../assets/main/main1.jpg";
-import main2 from "../../assets/main/main2.jpg";
-import main3 from "../../assets/main/main3.jpg";
-import main4 from "../../assets/main/main4.jpg";
-import main5 from "../../assets/main/main5.jpg";
-import main6 from "../../assets/main/main6.jpg";
+import main1 from "../../assets/main/main1.webp";
+import main2 from "../../assets/main/main2.webp";
+import main3 from "../../assets/main/main3.webp";
+import main4 from "../../assets/main/main4.webp";
+import main5 from "../../assets/main/main5.webp";
+import main6 from "../../assets/main/main6.webp";
 
 const items = [
   { id: 1, height: 300, img: main1 },

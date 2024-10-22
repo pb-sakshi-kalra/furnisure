@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import "./index.css";
-import main5 from "../../assets/main/main5.jpg";
-import main15 from "../../assets/main/main15.jpg";
-import main13 from "../../assets/main/main13.jpg";
-import main14 from "../../assets/main/main14.jpg";
-import main1 from "../../assets/main/main1.jpg";
+import main5 from "../../assets/main/main5.webp";
+import main15 from "../../assets/main/main15.webp";
+import main13 from "../../assets/main/main13.webp";
+import main14 from "../../assets/main/main14.webp";
+import main1 from "../../assets/main/main1.webp";
 
 const bannerOptions = [
   {

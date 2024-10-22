@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import loader1 from "../../assets/loader/loader1.jpg";
-import loader2 from "../../assets/loader/loader2.jpg";
-import loader3 from "../../assets/loader/loader3.jpg";
-import loader4 from "../../assets/loader/loader4.jpg";
-import loader5 from "../../assets/loader/loader5.jpg";
-import loader6 from "../../assets/loader/loader6.jpg";
-import loader7 from "../../assets/loader/loader7.jpg";
-import loader8 from "../../assets/loader/loader8.jpg";
-import loader9 from "../../assets/loader/loader9.jpg";
-import loader10 from "../../assets/loader/loader10.jpg";
-import loader11 from "../../assets/loader/loader11.jpg";
-import loader12 from "../../assets/loader/loader12.jpg";
-import loader13 from "../../assets/loader/loader13.jpg";
-import loader14 from "../../assets/loader/loader14.jpg";
-import loader15 from "../../assets/loader/loader15.jpg";
-import loader16 from "../../assets/loader/loader16.jpg";
-import loader17 from "../../assets/loader/loader17.jpg";
-import loader19 from "../../assets/loader/loader19.jpg";
+import loader1 from "../../assets/loader/loader1.webp";
+import loader2 from "../../assets/loader/loader2.webp";
+import loader3 from "../../assets/loader/loader3.webp";
+import loader4 from "../../assets/loader/loader4.webp";
+import loader5 from "../../assets/loader/loader5.webp";
+import loader6 from "../../assets/loader/loader6.webp";
+import loader7 from "../../assets/loader/loader7.webp";
+import loader8 from "../../assets/loader/loader8.webp";
+import loader9 from "../../assets/loader/loader9.webp";
+import loader10 from "../../assets/loader/loader10.webp";
+import loader11 from "../../assets/loader/loader11.webp";
+import loader12 from "../../assets/loader/loader12.webp";
+import loader13 from "../../assets/loader/loader13.webp";
+import loader14 from "../../assets/loader/loader14.webp";
+import loader15 from "../../assets/loader/loader15.webp";
+import loader16 from "../../assets/loader/loader16.webp";
+import loader17 from "../../assets/loader/loader17.webp";
+import loader19 from "../../assets/loader/loader19.webp";
 
 const LoaderImages = () => {
   const [images, setImages] = useState([

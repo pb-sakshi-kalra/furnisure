@@ -2,11 +2,11 @@ import React from "react";
 import "react-multi-carousel/lib/styles.css";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
-import loader1 from "../../assets/loader/loader1.jpg";
-import loader2 from "../../assets/loader/loader2.jpg";
-import loader3 from "../../assets/loader/loader3.jpg";
-import loader4 from "../../assets/loader/loader4.jpg";
-import loader5 from "../../assets/loader/loader5.jpg";
+import loader1 from "../../assets/loader/loader1.webp";
+import loader2 from "../../assets/loader/loader2.webp";
+import loader3 from "../../assets/loader/loader3.webp";
+import loader4 from "../../assets/loader/loader4.webp";
+import loader5 from "../../assets/loader/loader5.webp";
 
 const loaderImages = [loader1, loader2, loader3, loader4, loader5];
 

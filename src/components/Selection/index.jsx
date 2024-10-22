@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
-import main6 from "../../assets/main/main6.jpg";
-import mainevent from "../../assets/mainevent.jpeg"
+import main6 from "../../assets/main/main6.webp";
+import mainevent from "../../assets/mainevent.webp"
 
 const Selection = () => {
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
