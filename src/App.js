@@ -23,8 +23,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/event" element={<Event />} />
-        <Route path="/category/:id" element={<CategoryList />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/:categoryName" element={<CategoryList />} />
+        <Route path="/:categoryName/:subCategoryName" element={<CategoryList />} />
+        <Route path="/:categoryName/:subCategoryName/:productName/:id" element={<ProductDetail />} />
+        <Route path="/:categoryName/:productName/:id" element={<ProductDetail />} />
       </Routes>
     </div>
   );

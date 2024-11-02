@@ -14,7 +14,10 @@ const CategoryGrid = ({
   const navigate = useNavigate();
 
   const onClickCategory = (id, name) => {
-    navigate(`/category/${id}`, { state: { name } });
+    const formattedName = encodeURIComponent(name)
+      .toLowerCase()
+      .replace(/%20/g, "_");
+    navigate(`/${formattedName}`, { state: { id, name } });
   };
 
   return (

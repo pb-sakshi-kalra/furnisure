@@ -15,16 +15,20 @@ const upperItems = [
   "Outdoor Furniture",
   "Exhibition Furniture",
   "About Us",
-  "Contanct Us",
+  "Contact Us",
 ];
 
-function getCategoriesByNameAndParent(categories, name) {
+function getCategoriesByNameAndParent(categories, name, id) {
   const category = categories?.find(
     (cat) => cat.name.toLowerCase() === name.toLowerCase()
   );
 
   if (!category) {
     return [];
+  }
+
+  if (category && id === "id") {
+    return category?.id;
   }
 
   return categories?.filter((cat) => cat.parent === category.id);
@@ -52,27 +56,51 @@ function EventHeader({ categories }) {
     ),
   };
 
-  const handleClick = (item) => {
-    setSelectedItem(selectedItem === item ? null : item);
+  const popOverIds = {
+    Seating: getCategoriesByNameAndParent(categories, "seating", "id"),
+    Tables: getCategoriesByNameAndParent(categories, "tables", "id"),
+    "Arabic Furniture": getCategoriesByNameAndParent(
+      categories,
+      "Arabic Furniture",
+      "id"
+    ),
+    "Outdoor Furniture": getCategoriesByNameAndParent(
+      categories,
+      "Outdoor Furniture",
+      "id"
+    ),
+    "Exhibition Furniture": getCategoriesByNameAndParent(
+      categories,
+      "Exhibition Furniture",
+      "id"
+    ),
   };
 
-  const handleClickOutside = (event) => {
-    if (popoverRef.current && !popoverRef.current.contains(event.target)) {
+  const handleMouseEnter = (item) => {
+    setSelectedItem(item);
+  };
+
+  const handleMouseLeave = (event) => {
+    if (
+      popoverRef.current &&
+      !popoverRef.current.contains(event.relatedTarget)
+    ) {
       setSelectedItem(null);
     }
   };
 
   React.useEffect(() => {
-    if (selectedItem) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
+    const handleClickOutside = (event) => {
+      if (popoverRef.current && !popoverRef.current.contains(event.target)) {
+        setSelectedItem(null);
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [selectedItem]);
+  }, []);
 
   return (
     <AppBar
@@ -97,7 +125,7 @@ function EventHeader({ categories }) {
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <a href="/">
-            <img style={{ width: "250px" }} src={logo} />
+            <img style={{ width: "250px" }} src={logo} alt="Logo" />
           </a>
         </Box>
       </Toolbar>
@@ -129,14 +157,25 @@ function EventHeader({ categories }) {
               justifyContent: "space-around",
             }}
           >
-            {upperItems?.map((item) => (
+            {upperItems.map((item) => (
               <Button
                 key={item}
-                onClick={() => handleClick(item)}
+                onMouseEnter={() => handleMouseEnter(item)}
+                onMouseLeave={handleMouseLeave}
+                onClick={() => {
+                  const formattedName = encodeURIComponent(item)
+                    .toLowerCase()
+                    .replace(/%20/g, "_");
+                  navigate(`/${formattedName}`, {
+                    state: { id: popOverIds[item], name: item },
+                  });
+                  window.location.reload();
+                  setSelectedItem(null)
+                }}
                 sx={{
-                  color: selectedItem === item ? "black" : "white", // text color changes based on selection
+                  color: selectedItem === item ? "black" : "white",
                   backgroundColor:
-                    selectedItem === item ? "white" : "transparent", // background color changes based on selection
+                    selectedItem === item ? "white" : "transparent",
                   display: "flex",
                   alignItems: "center",
                   marginRight: 2,
@@ -146,7 +185,7 @@ function EventHeader({ categories }) {
                     backgroundColor:
                       selectedItem === item
                         ? "white"
-                        : "rgba(255, 255, 255, 0.1)", // optional hover effect
+                        : "rgba(255, 255, 255, 0.1)",
                   },
                 }}
               >
@@ -159,6 +198,7 @@ function EventHeader({ categories }) {
       {selectedItem && popoverContents[selectedItem]?.length > 0 && (
         <Box
           ref={popoverRef}
+          onMouseLeave={handleMouseLeave}
           sx={{
             position: "absolute",
             top: "100%",
@@ -173,37 +213,47 @@ function EventHeader({ categories }) {
           }}
         >
           <Grid container spacing={2}>
-            {popoverContents[selectedItem]?.length > 0 &&
-              popoverContents[selectedItem]?.map((content) => (
-                <Grid sx={{ padding: "20px" }} item xs={3} key={content?.name}>
-                  <Box
+            {popoverContents[selectedItem]?.map((content) => (
+              <Grid sx={{ padding: "20px" }} item xs={3} key={content?.name}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                  onClick={() => {
+                    const subcategoryName = encodeURIComponent(content?.name)
+                      .toLowerCase()
+                      .replace(/%20/g, "_");
+                    const formattedName = encodeURIComponent(selectedItem)
+                      .toLowerCase()
+                      .replace(/%20/g, "_");
+                    navigate(`/${formattedName}/${subcategoryName}`, {
+                      state: { id: content?.id, name: content?.name },
+                    });
+                    window.location.reload();
+                    setSelectedItem(null);
+                  }}
+                >
+                  <img
+                    style={{ height: "60px" }}
+                    src={content?.image?.src}
+                    alt={content?.name}
+                  />
+                  <Typography
                     sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                    onClick={() => {
-                      setSelectedItem(null);
-                      navigate(`/category/${content?.id}`, {
-                        state: { name: content?.name },
-                      });
+                      marginLeft: 1,
+                      color: "black",
+                      cursor: "pointer",
+                      fontFamily: "Brooklyn-Normal",
+                      fontSize: "16px !important",
                     }}
                   >
-                    <img style={{ height: "60px" }} src={content?.image?.src} />
-                    <Typography
-                      sx={{
-                        marginLeft: 1,
-                        color: "black",
-                        cursor: "pointer",
-                        fontFamily: "Brooklyn-Normal",
-                        fontSize: "16px !important",
-                      }}
-                    >
-                      {content?.name}
-                    </Typography>
-                  </Box>
-                </Grid>
-              ))}
+                    {content?.name}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
           </Grid>
         </Box>
       )}

@@ -3,7 +3,7 @@ import { PropagateLoader } from "react-spinners";
 import { Grid, Typography, Button, Box } from "@mui/material";
 import EventHeader from "../EventHeader";
 import "./index.css";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Footer from "../Footer";
 
 import Product from "../../services/products";
@@ -11,11 +11,12 @@ import Category from "../../services/category";
 import ProductSlider from "../ProductSlider";
 
 const ProductDetail = () => {
-  const { id } = useParams();
+  const location = useLocation();
+  const { id } = location?.state;
   const [image, setImage] = useState();
   const [product, setProduct] = useState();
   const [upscale, setUpscale] = useState([]);
-  const [crossscale, setCrossscale] = useState([])
+  const [crossscale, setCrossscale] = useState([]);
   const [categories, setCategories] = useState();
   const [loadingRelated, setLoadingRelated] = useState(true);
 
@@ -31,7 +32,7 @@ const ProductDetail = () => {
           const uniqueProducts = results
             .map((res) => res?.data)
             .filter(Boolean);
-            setCrossscale((prev) => {
+          setCrossscale((prev) => {
             const existingIds = prev.map((item) => item.id);
             return [
               ...prev,
@@ -43,23 +44,17 @@ const ProductDetail = () => {
           setLoadingRelated(false);
         }
       );
-      Promise.all(up.map((prod) => Product.getByID(prod))).then(
-        (results) => {
-          const uniqueProducts = results
-            .map((res) => res?.data)
-            .filter(Boolean);
-            setUpscale((prev) => {
-            const existingIds = prev.map((item) => item.id);
-            return [
-              ...prev,
-              ...uniqueProducts.filter(
-                (item) => !existingIds.includes(item.id)
-              ),
-            ];
-          });
-          setLoadingRelated(false);
-        }
-      );
+      Promise.all(up.map((prod) => Product.getByID(prod))).then((results) => {
+        const uniqueProducts = results.map((res) => res?.data).filter(Boolean);
+        setUpscale((prev) => {
+          const existingIds = prev.map((item) => item.id);
+          return [
+            ...prev,
+            ...uniqueProducts.filter((item) => !existingIds.includes(item.id)),
+          ];
+        });
+        setLoadingRelated(false);
+      });
     });
 
     Category.get().then((res) => setCategories(res?.data));
@@ -164,10 +159,14 @@ const ProductDetail = () => {
 
             <div className="relatable_product">
               {crossscale?.length === product?.cross_sell_ids?.length && (
-                <ProductSlider sell={true} products={crossscale} name="Cross Sell"/>
+                <ProductSlider
+                  sell={true}
+                  products={crossscale}
+                  name="Cross Sell"
+                />
               )}
-                {upscale?.length === product?.upsell_ids?.length && (
-                <ProductSlider sell={true} products={upscale}  name="Up Sell" />
+              {upscale?.length === product?.upsell_ids?.length && (
+                <ProductSlider sell={true} products={upscale} name="Up Sell" />
               )}
             </div>
           </>

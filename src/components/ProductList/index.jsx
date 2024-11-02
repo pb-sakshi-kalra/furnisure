@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Card, CardContent, Button } from "@mui/material";
+import { Grid, Card, CardContent, Button, Pagination } from "@mui/material";
 import "./index.css";
 import { PropagateLoader } from "react-spinners";
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Category from "../../services/category";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
@@ -12,28 +12,40 @@ const ProductList = () => {
   const [subcategories, setSubCategories] = useState([]);
   const [productsList, setProductsList] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [totalProducts, setTotalProducts] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const { id } = useParams();
-  const [subId, setSubId] = useState(id);
   const location = useLocation();
-  const { name } = location?.state;
+  const [totalProducts, setTotalProducts] = useState(0);
+  const { id, name } = location?.state;
+  const [loading, setLoading] = useState(false);
+  const [subId, setSubId] = useState(id);
+  const [subName, setSubName] = useState("");
+
   const navigate = useNavigate();
 
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
 
-  const onClickCategory = (index) => {
-    navigate(`/product/${index}`);
+  const onClickCategory = (index, prodName) => {
+    const subcategoryName = encodeURIComponent(subName)
+      .toLowerCase()
+      .replace(/%20/g, "_");
+    const formattedName = encodeURIComponent(name)
+      .toLowerCase()
+      .replace(/%20/g, "_");
+    const productName = encodeURIComponent(prodName)
+      .toLowerCase()
+      .replace(/%20/g, "_");
+    if (subcategoryName) {
+      navigate(`/${formattedName}/${subcategoryName}/${productName}/${index}`, {
+        state: { id: index },
+      });
+    } else {
+      navigate(`/${formattedName}/${productName}/${index}`, { state: { id: index } });
+    }
   };
 
   const fetchProducts = (page) => {
     setLoading(true);
-    Category.getSubcategory(
-      subId,
-      page,
-      productsPerPage
-    ).then((res) => {
+    Category.getSubcategory(subId, page, productsPerPage).then((res) => {
       setTotalProducts(res.headers.get("X-WP-Total"));
       setProductsList(res?.data);
       setLoading(false);
@@ -55,12 +67,22 @@ const ProductList = () => {
     return (
       <ul>
         {subcategories?.map((subcategory) => (
-          <li 
+          <li
             className="marker"
             key={subcategory?.id}
             onClick={() => {
-              setSubId(subcategory?.id)
-              setCurrentPage(1); // Reset to the first page when subcategory changes
+              setSubId(subcategory?.id);
+              setSubName(subcategory?.name);
+              setCurrentPage(1);
+              const subcategoryName = encodeURIComponent(subcategory.name)
+                .toLowerCase()
+                .replace(/%20/g, "_");
+              const formattedName = encodeURIComponent(name)
+                .toLowerCase()
+                .replace(/%20/g, "_");
+              navigate(`/${formattedName}/${subcategoryName}`, {
+                state: { id, name },
+              });
             }}
           >
             <span>{subcategory.name}</span>
@@ -73,27 +95,12 @@ const ProductList = () => {
     );
   };
 
-  // Calculate the index of the last and first product
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = productsList?.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
-
   // Calculate total pages
   const totalPages = Math.ceil(totalProducts / productsPerPage);
 
-  // Pagination controls
-  const handlePageChange = (direction) => {
-    setCurrentPage((prevPage) => {
-      const newPage =
-        direction === "next"
-          ? Math.min(prevPage + 1, totalPages)
-          : Math.max(prevPage - 1, 1);
-      fetchProducts(newPage); // Fetch products for the new page
-      return newPage;
-    });
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+    fetchProducts(value); // Fetch products for the new page
   };
 
   return (
@@ -135,7 +142,7 @@ const ProductList = () => {
                       md={4}
                       lg={3}
                       key={index}
-                      onClick={() => onClickCategory(item?.id)}
+                      onClick={() => onClickCategory(item?.id, item?.name)}
                     >
                       <Card className="card">
                         <img
@@ -158,21 +165,29 @@ const ProductList = () => {
             ) : null}
           </div>
 
-          {/* Pagination Controls */}
           <div className="pagination">
-            <Button
-              onClick={() => handlePageChange("prev")}
-              disabled={currentPage === 1}
-            >
-              Previous
-            </Button>
-            <span>{`Page ${currentPage} of ${totalPages}`}</span>
-            <Button
-              onClick={() => handlePageChange("next")}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </Button>
+            <Pagination
+              count={totalPages}
+              page={currentPage}
+              onChange={handlePageChange}
+              siblingCount={1}
+              boundaryCount={1}
+              showFirstButton
+              showLastButton
+              sx={{
+                "& .MuiPaginationItem-root": {
+                  color: "#rgba(130, 130, 130, 0.097)",
+                },
+                "& .MuiPaginationItem-root.Mui-selected": {
+                  backgroundColor: "#795548",
+                  color: "#ffffff",
+                },
+                "& .MuiPaginationItem-root:hover": {
+                  backgroundColor: "#795548",
+                  color: "#ffffff",
+                },
+              }}
+            />
           </div>
         </>
       )}
