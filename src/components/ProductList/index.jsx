@@ -192,7 +192,6 @@ const ProductList = () => {
                         />
                         <CardContent>
                           <h6 className="card-title">{item?.name}</h6>
-                          <p className="card-para">{item?.price}</p>
                         </CardContent>
                       </Card>
                     </Grid>

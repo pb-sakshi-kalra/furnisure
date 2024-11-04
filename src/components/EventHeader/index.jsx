@@ -20,7 +20,7 @@ const upperItems = [
 
 function getCategoriesByNameAndParent(categories, name, id) {
   const category = categories?.find(
-    (cat) => cat.name.toLowerCase() === name.toLowerCase()
+    (cat) => cat.name.toLowerCase() === name.toLowerCase() && cat?.display !== "subcategories"
   );
 
   if (!category) {

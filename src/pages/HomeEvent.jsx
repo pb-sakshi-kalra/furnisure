@@ -1,10 +1,13 @@
-import React from "react";
-import Footer from "../components/Footer";
-const HomeEvent = () => {
+import React from 'react';
+import './index.css';
 
+const HomeEvent = () => {
   return (
-    <div>
-      <Footer />
+    <div className="coming-soon-container">
+      <h1>Coming Soon</h1>
+      <p>We're working hard to get this page up and running. Stay tuned!</p>
+      <div className="countdown">
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import "./index.css";
+import { useLocation, useNavigate } from "react-router-dom";
 import main5 from "../../assets/main/main5.webp";
 import main15 from "../../assets/main/main15.webp";
 import main13 from "../../assets/main/main13.webp";
@@ -15,6 +16,7 @@ const bannerOptions = [
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main5,
     color: "#7f4f24",
+    id: 0,
   },
   {
     name: "Sofa",
@@ -22,6 +24,7 @@ const bannerOptions = [
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main13,
     color: "#936639",
+    id: 23,
   },
   {
     name: "Chairs",
@@ -29,6 +32,7 @@ const bannerOptions = [
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main15,
     color: "#b6ad90",
+    id: 61,
   },
   {
     name: "Tables",
@@ -36,6 +40,7 @@ const bannerOptions = [
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main14,
     color: "#656d4a",
+    id: 17,
   },
   {
     name: "Outdoor",
@@ -43,12 +48,15 @@ const bannerOptions = [
       "Hundreds of choices filtered down for the best of the best. For the purest of dream, An intensity of comfort and beauty, and ultimate functionality for our customers’ luxury bathroom experience.",
     image: main1,
     color: "#333d29",
+    id: 18,
   },
 ];
 
 const Banner = () => {
   const [image, setImage] = useState(main15);
   const [hoveredIndex, setHoveredIndex] = useState(-1);
+
+  const navigate = useNavigate();
 
   const handleMouseEnter = (index) => {
     setImage(bannerOptions[index].image);
@@ -122,6 +130,22 @@ const Banner = () => {
               }}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
+              onClick={() => {
+                if (option?.name?.toLowerCase() === "home") {
+                  navigate("/home");
+                } else if (option?.name?.toLowerCase() === "outdoor") {
+                  navigate(`/${option?.name}_furniture`, {
+                    state: {
+                      id: option?.id,
+                      name: `${option?.name}_furniture`,
+                    },
+                  });
+                } else {
+                  navigate(`/${option?.name}`, {
+                    state: { id: option?.id, name: option?.name },
+                  });
+                }
+              }}
             />
             <Typography
               className="banner-options"
