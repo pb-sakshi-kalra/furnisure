@@ -1,28 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import "./index.css";
-import Category from "./services/category";
-import products from "./services/products";
-
 import Home from "./pages/Home";
 import Event from "./pages/Event";
 import CategoryList from "./pages/Category";
 import ProductDetail from "./components/ProductDetails";
 import ScrollToTop from "./pages/ScrollToTop";
+import HomeEvent from "./pages/HomeEvent";
 
 function App() {
-  // useEffect(() => {
-  //   products.get();
-  //   Category.getSubcategory(17);
-  // }, []);
-
   return (
     <div>
         <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/event" element={<Event />} />
+        <Route path="/home" element={<HomeEvent />} />
         <Route path="/:categoryName" element={<CategoryList />} />
         <Route path="/:categoryName/:subCategoryName" element={<CategoryList />} />
         <Route path="/:categoryName/:subCategoryName/:productName/:id" element={<ProductDetail />} />

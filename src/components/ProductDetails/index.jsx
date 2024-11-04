@@ -162,11 +162,11 @@ const ProductDetail = () => {
                 <ProductSlider
                   sell={true}
                   products={crossscale}
-                  name="Cross Sell"
+                  name="Related Products"
                 />
               )}
               {upscale?.length === product?.upsell_ids?.length && (
-                <ProductSlider sell={true} products={upscale} name="Up Sell" />
+                <ProductSlider sell={true} products={upscale} name="Products you might like!" />
               )}
             </div>
           </>
