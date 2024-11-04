@@ -15,7 +15,7 @@ export const FooterLinks = () => {
           heading="About"
           subheading="Learn what we do here"
           imgSrc={loader12}
-          href="#"
+          href="/about"
         />
         <Link
           heading="Clients"

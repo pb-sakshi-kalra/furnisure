@@ -20,7 +20,9 @@ const upperItems = [
 
 function getCategoriesByNameAndParent(categories, name, id) {
   const category = categories?.find(
-    (cat) => cat.name.toLowerCase() === name.toLowerCase() && cat?.display !== "subcategories"
+    (cat) =>
+      cat.name.toLowerCase() === name.toLowerCase() &&
+      cat?.display !== "subcategories"
   );
 
   if (!category) {
@@ -102,6 +104,8 @@ function EventHeader({ categories }) {
     };
   }, []);
 
+  console.log(upperItems)
+
   return (
     <AppBar
       position="fixed"
@@ -163,14 +167,21 @@ function EventHeader({ categories }) {
                 onMouseEnter={() => handleMouseEnter(item)}
                 onMouseLeave={handleMouseLeave}
                 onClick={() => {
-                  const formattedName = encodeURIComponent(item)
-                    .toLowerCase()
-                    .replace(/%20/g, "_");
-                  navigate(`/${formattedName}`, {
-                    state: { id: popOverIds[item], name: item },
-                  });
-                  window.location.reload();
-                  setSelectedItem(null)
+                  console.log(item)
+                  if (item === "About Us") {
+                    navigate('/about')
+                  } else if (item === "Contact Us") {
+                    navigate('/contact')
+                  } else {
+                    const formattedName = encodeURIComponent(item)
+                      .toLowerCase()
+                      .replace(/%20/g, "_");
+                    navigate(`/${formattedName}`, {
+                      state: { id: popOverIds[item], name: item },
+                    });
+                    window.location.reload();
+                    setSelectedItem(null);
+                  }
                 }}
                 sx={{
                   color: selectedItem === item ? "black" : "white",
