@@ -22,14 +22,17 @@ const ProductList = () => {
   const [categories, setCategories] = useState([]);
   const location = useLocation();
   const [totalProducts, setTotalProducts] = useState(0);
-  const { id, name } = location?.state || {};
+  const { id, name } = location?.state || {
+    id: localStorage.getItem("selectedOptionId"),
+    name: localStorage.getItem("selectedOptionName"),
+  };
   const [loading, setLoading] = useState(false);
   const [subId, setSubId] = useState(id);
   const [subName, setSubName] = useState("");
   const [mainCategories, setMainCategories] = useState([]);
   const [subcategories, setSubCategories] = useState([]);
   const [expandedAccordions, setExpandedAccordions] = useState([]);
-  
+
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
@@ -47,15 +50,19 @@ const ProductList = () => {
     setLoading(true);
     Category.get().then((res) => {
       setCategories(res?.data);
-      const mainCats = res?.data?.filter(cat => cat?.display !== "subcategories");
+      const mainCats = res?.data?.filter(
+        (cat) => cat?.display !== "subcategories"
+      );
       setMainCategories(mainCats);
-      const allSubCats = res?.data?.filter(cat => cat.parent);
+      const allSubCats = res?.data?.filter((cat) => cat.parent);
       setSubCategories(allSubCats);
 
       const urlCategory = decodeURIComponent(name || "").replace(/_/g, " ");
-      const matchedCategory = mainCats.find(cat => cat.name.toLowerCase() === urlCategory.toLowerCase());
+      const matchedCategory = mainCats.find(
+        (cat) => cat.name.toLowerCase() === urlCategory.toLowerCase()
+      );
       if (matchedCategory) {
-        setExpandedAccordions(prev => [...prev, matchedCategory.id]);
+        setExpandedAccordions((prev) => [...prev, matchedCategory.id]);
       }
 
       setLoading(false);
@@ -64,14 +71,24 @@ const ProductList = () => {
   }, [id, currentPage]);
 
   const onClickCategory = (index, prodName) => {
-    const subcategoryName = encodeURIComponent(subName).toLowerCase().replace(/%20/g, "_");
-    const formattedName = encodeURIComponent(name).toLowerCase().replace(/%20/g, "_");
-    const productName = encodeURIComponent(prodName).toLowerCase().replace(/%20/g, "_");
-    
+    const subcategoryName = encodeURIComponent(subName)
+      .toLowerCase()
+      .replace(/%20/g, "_");
+    const formattedName = encodeURIComponent(name)
+      .toLowerCase()
+      .replace(/%20/g, "_");
+    const productName = encodeURIComponent(prodName)
+      .toLowerCase()
+      .replace(/%20/g, "_");
+
     if (subcategoryName) {
-      navigate(`/${formattedName}/${subcategoryName}/${productName}/${index}`, { state: { id: index } });
+      navigate(`/${formattedName}/${subcategoryName}/${productName}/${index}`, {
+        state: { id: index },
+      });
     } else {
-      navigate(`/${formattedName}/${productName}/${index}`, { state: { id: index } });
+      navigate(`/${formattedName}/${productName}/${index}`, {
+        state: { id: index },
+      });
     }
   };
 
@@ -79,14 +96,18 @@ const ProductList = () => {
     setSubId(categoryId);
     setSubName("");
     setCurrentPage(1);
-    const categoryEncoded = encodeURIComponent(categoryName).toLowerCase().replace(/%20/g, "_");
-    navigate(`/${categoryEncoded}`, { state: { id: categoryId, name: categoryName } });
+    const categoryEncoded = encodeURIComponent(categoryName)
+      .toLowerCase()
+      .replace(/%20/g, "_");
+    navigate(`/${categoryEncoded}`, {
+      state: { id: categoryId, name: categoryName },
+    });
   };
 
   const handleAccordionToggle = (categoryId) => {
     setExpandedAccordions((prev) => {
       if (prev.includes(categoryId)) {
-        return prev.filter(id => id !== categoryId); // Remove if already expanded
+        return prev.filter((id) => id !== categoryId); // Remove if already expanded
       } else {
         return [...prev, categoryId]; // Add to expanded
       }
@@ -125,7 +146,9 @@ const ProductList = () => {
             <div className="main-categories">
               {mainCategories.map((category) => {
                 const isExpanded = expandedAccordions.includes(category.id);
-                const hasSubcategories = subcategories.some(sub => sub.parent === category.id);
+                const hasSubcategories = subcategories.some(
+                  (sub) => sub.parent === category.id
+                );
                 const isActive = category.id === subId; // Check if the category is active
 
                 return (
@@ -140,12 +163,14 @@ const ProductList = () => {
                             }}
                           />
                         ) : (
-                          <div style={{ visibility: 'hidden' }} />
+                          <div style={{ visibility: "hidden" }} />
                         )
                       }
                     >
                       <Typography
-                        onClick={() => handleMainCategoryClick(category.id, category.name)} // Navigates on text click
+                        onClick={() =>
+                          handleMainCategoryClick(category.id, category.name)
+                        } // Navigates on text click
                         style={{
                           cursor: "pointer",
                           fontWeight: isActive ? "bold" : "normal", // Highlight active category
@@ -158,21 +183,39 @@ const ProductList = () => {
                     {hasSubcategories && (
                       <AccordionDetails>
                         <div>
-                          {subcategories.filter(sub => sub.parent === category.id).map((subcategory) => (
-                            <div
-                              key={subcategory.id}
-                              onClick={() => {
-                                setSubId(subcategory.id);
-                                setSubName(subcategory.name);
-                                setCurrentPage(1);
-                                const subcategoryName = encodeURIComponent(subcategory.name).toLowerCase().replace(/%20/g, "_");
-                                const formattedName = encodeURIComponent(category?.name).toLowerCase().replace(/%20/g, "_");
-                                navigate(`/${formattedName}/${subcategoryName}`, { state: { id: subcategory?.id, name: subcategory?.name } });
-                              }}
-                            >
-                              <Typography>{subcategory.name}</Typography>
-                            </div>
-                          ))}
+                          {subcategories
+                            .filter((sub) => sub.parent === category.id)
+                            .map((subcategory) => (
+                              <div
+                                key={subcategory.id}
+                                onClick={() => {
+                                  setSubId(subcategory.id);
+                                  setSubName(subcategory.name);
+                                  setCurrentPage(1);
+                                  const subcategoryName = encodeURIComponent(
+                                    subcategory.name
+                                  )
+                                    .toLowerCase()
+                                    .replace(/%20/g, "_");
+                                  const formattedName = encodeURIComponent(
+                                    category?.name
+                                  )
+                                    .toLowerCase()
+                                    .replace(/%20/g, "_");
+                                  navigate(
+                                    `/${formattedName}/${subcategoryName}`,
+                                    {
+                                      state: {
+                                        id: subcategory?.id,
+                                        name: subcategory?.name,
+                                      },
+                                    }
+                                  );
+                                }}
+                              >
+                                <Typography>{subcategory.name}</Typography>
+                              </div>
+                            ))}
                         </div>
                       </AccordionDetails>
                     )}
@@ -184,10 +227,22 @@ const ProductList = () => {
               <div className="product-list">
                 <Grid container spacing={2}>
                   {productsList.map((item, index) => (
-                    <Grid item xs={12} sm={6} md={4} lg={3} key={index} onClick={() => onClickCategory(item?.id, item?.name)}>
+                    <Grid
+                      item
+                      xs={12}
+                      sm={6}
+                      md={4}
+                      lg={3}
+                      key={index}
+                      onClick={() => onClickCategory(item?.id, item?.name)}
+                    >
                       <Card className="card">
                         <img
-                          src={item?.images[1] ? item?.images[1]?.src : item?.images[0]?.src}
+                          src={
+                            item?.images[1]
+                              ? item?.images[1]?.src
+                              : item?.images[0]?.src
+                          }
                           alt={item?.name}
                         />
                         <CardContent>

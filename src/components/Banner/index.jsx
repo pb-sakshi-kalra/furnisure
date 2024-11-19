@@ -81,31 +81,6 @@ const Banner = () => {
         backgroundAttachment: "fixed",
       }}
     >
-      {/* <div
-        className="banner-overlay"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          background: "rgb(65 61 61 / 23%)", // Adjust opacity here (0.5 for 50% opacity)
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "Lobster",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            fontSize: "40px",
-            transform: "translate(-50%,-50%)",
-            zIndex: "100",
-            color: "#5b838e",
-          }}
-        >
-        </p>
-      </div> */}
       <Box display="flex" width="100%" height="100vh">
         {bannerOptions.map((option, index) => (
           <Box
@@ -131,18 +106,27 @@ const Banner = () => {
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
               onClick={() => {
+                // Create a name for the navigation that includes "_furniture" for Outdoor
+                let navName = option.name;
+
+                // If the option name is "Outdoor", modify the name for navigation
+                if (option?.name?.toLowerCase() === "outdoor") {
+                  navName = `${option.name}_furniture`; // Add "_furniture" suffix for outdoor category
+                }
+
+                // Save the id and exact name used in navigation to localStorage
+                localStorage.setItem("selectedOptionId", option.id);
+                localStorage.setItem("selectedOptionName", navName);
+
+                // Now navigate based on the name, use navName in the URL for Outdoor
                 if (option?.name?.toLowerCase() === "home") {
                   navigate("/home");
-                } else if (option?.name?.toLowerCase() === "outdoor") {
-                  navigate(`/${option?.name}_furniture`, {
-                    state: {
-                      id: option?.id,
-                      name: `${option?.name}_furniture`,
-                    },
-                  });
                 } else {
-                  navigate(`/${option?.name}`, {
-                    state: { id: option?.id, name: option?.name },
+                  navigate(`/${navName}`, {
+                    state: {
+                      id: option.id,
+                      name: navName, // Use navName for state, including "_furniture" for outdoor
+                    },
                   });
                 }
               }}
