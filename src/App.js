@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/Home";
 import Event from "./pages/Event";
@@ -21,13 +21,11 @@ function App() {
       event: "pageview",
       page_path: fullUrl,
     });
-    document.title = `Page - ${fullUrl}`;
   }, [location]);
 
   return (
     <div>
       <ScrollToTop />
-      <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/event" element={<Event />} />
@@ -48,7 +46,6 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
       </Routes>
-      </Router>
     </div>
   );
 }
