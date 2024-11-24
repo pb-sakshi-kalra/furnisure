@@ -4,7 +4,6 @@ import loader12 from "../../assets/loader/loader12.webp";
 import loader13 from "../../assets/loader/loader13.webp";
 import loader14 from "../../assets/loader/loader14.webp";
 import loader15 from "../../assets/loader/loader15.webp";
-
 import "./index.css";
 
 export const FooterLinks = () => {
@@ -33,14 +32,16 @@ export const FooterLinks = () => {
           heading="Catalogue"
           subheading="Keep a copy handy for yourselves"
           imgSrc={loader15}
-          href="#"
-        />
+          href="/assets/FurniSure Event Rentals Catalogue.pdf"
+          download={true}
+        >         
+        </Link>
       </div>
     </section>
   );
 };
 
-const Link = ({ heading, imgSrc, subheading, href }) => {
+const Link = ({ heading, imgSrc, subheading, href, download }) => {
   const ref = useRef(null);
 
   const x = useMotionValue(0);
@@ -75,6 +76,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
       onMouseMove={handleMouseMove}
       initial="initial"
       whileHover="whileHover"
+      download={download}
       className="group relative flex items-center justify-between border-b-2 border-neutral-700 py-4 transition-colors duration-500 hover:border-neutral-50 md:py-8"
     >
       <div>
@@ -88,7 +90,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
             staggerChildren: 0.075,
             delayChildren: 0.25,
           }}
-          style={{ color: "#8c568f",fontSize:"24px", marginBottom:"5px" }}
+          style={{ color: "#8c568f", fontSize: "24px", marginBottom: "5px" }}
           className="relative z-10 block text-4xl font-bold  transition-colors duration-500 group-hover:text-neutral-100"
         >
           {heading.split("").map((l, i) => (
