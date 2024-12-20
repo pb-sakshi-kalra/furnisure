@@ -16,12 +16,25 @@ function App() {
 
   useEffect(() => {
     const fullUrl = window.location.href;
+    const urlParts = fullUrl.split('/'); 
+  
+    let pagePath = urlParts[urlParts.length - 1];
+  
+    if (!isNaN(pagePath)) {
+      pagePath = urlParts[urlParts.length - 2];
+    }
+  
+    pagePath = pagePath.replace(/_/g, ' '); 
+    pagePath = pagePath.replace(/\b\w/g, char => char.toUpperCase()); 
+  
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "pageview",
-      page_path: fullUrl,
+      page_path: pagePath,
     });
+
   }, [location]);
+    
 
   return (
     <div>

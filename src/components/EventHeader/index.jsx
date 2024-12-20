@@ -104,7 +104,6 @@ function EventHeader({ categories }) {
     };
   }, []);
 
-  console.log(upperItems)
 
   return (
     <AppBar
@@ -167,7 +166,6 @@ function EventHeader({ categories }) {
                 onMouseEnter={() => handleMouseEnter(item)}
                 onMouseLeave={handleMouseLeave}
                 onClick={() => {
-                  console.log(item)
                   if (item === "About Us") {
                     navigate('/about')
                   } else if (item === "Contact Us") {

@@ -61,7 +61,7 @@ const Home = () => {
     window.scrollTo(0, 0);
     setLoading(true);
     Category.get().then((res) => {
-      console.log(res.headers.get("X-WP-Total"));
+      //console.log(res.headers.get("X-WP-Total"));
       setCategories(
         res?.data?.filter((cate) => cate?.display !== "subcategories")
       );
